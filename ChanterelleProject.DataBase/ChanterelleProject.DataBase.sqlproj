@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>ChanterelleProject.DataBase</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{5999648c-9fa7-4974-bde9-566dcef17c19}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>ChanterelleProject.DataBase</RootNamespace>
+    <AssemblyName>ChanterelleProject.DataBase</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Programmability" />
+    <Folder Include="Scripts" />
+    <Folder Include="Tables" />
+    <Folder Include="Views" />
+    <Folder Include="Programmability\Functions" />
+    <Folder Include="Programmability\StoredProcedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Programmability\Functions\SF_ChtlePrj_SalageEtHash.sql" />
+    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_AddParaMedical.sql" />
+    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_AddUtilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_CheckPassword.sql" />
+    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_DeleteUtilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_GetAllUtilisateurs.sql" />
+    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_GetUtilisateursById.sql" />
+    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_UpdateUtilisateur.sql" />
+    <Build Include="Views\V_ChtlePrj_AllUtilisateurs.sql" />
+    <Build Include="Tables\AllocationClasses.sql" />
+    <Build Include="Tables\AllocationParaMedicals.sql" />
+    <Build Include="Tables\Classe.sql" />
+    <Build Include="Tables\Eleve.sql" />
+    <Build Include="Tables\Inscription.sql" />
+    <Build Include="Tables\MedecinExterne.sql" />
+    <Build Include="Tables\ParaMedical.sql" />
+    <Build Include="Tables\SpecialisationParaMedical.sql" />
+    <Build Include="Tables\Traitement.sql" />
+    <Build Include="Tables\TypeUtilisateur.sql" />
+    <Build Include="Tables\Utilisateur.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChanterelleProject.DataBase.publish.xml" />
+  </ItemGroup>
+</Project>
