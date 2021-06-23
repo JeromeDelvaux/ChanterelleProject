@@ -66,6 +66,7 @@ namespace ChanterelleProject.GlobalServices.Services
         {
             Commands command = new Commands("SP_ChtlePrj_UpdateUtilisateur", true);
             command.AddParameter("Id", key);
+            command.AddParameter("Nom", entity.Nom);
             command.AddParameter("Prenom", entity.Prenom);
             command.AddParameter("Adresse", entity.Adresse);
             command.AddParameter("DateNaissance", entity.DateNaissance);
@@ -80,16 +81,20 @@ namespace ChanterelleProject.GlobalServices.Services
             int nbRows = _connection.ExecuteNonQuery(command);
             return nbRows == 1;
         }
-        public bool CheckPassword(string pPassword, string pMail)
-        {
-            int id;
+        //public bool CheckPassword(string password, string mail)
+        //{
+        //    int id;
 
-            Commands command = new Commands("SP_ChtlePrj_CheckPassword", true);
-            command.AddParameter("@password", pPassword);
-            command.AddParameter("@identifier", pMail);
+        //    Commands command = new Commands("SP_ChtlePrj_CheckPassword", true);
+        //    command.AddParameter("@MotDePasse", password);
+        //    command.AddParameter("@identifiant", mail);
 
-            id = _connection.ExecuteNonQuery(command);
-            return id != 0;
-        }
+        //    id = (int)_connection.ExecuteScalar(command); //Gerer le retour du null dans un try catch
+            
+        //    password = null; //remise a null pour la sécurité du password avant le passage de garbage collector
+        //    command = null; //remise a null pour la sécurité du password avant le passage de garbage collector
+
+        //    return id != 0;
+        //}
     }
 }

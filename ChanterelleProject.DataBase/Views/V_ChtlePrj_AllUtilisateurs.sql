@@ -16,4 +16,4 @@
 		P.Specialisation_Id
 
 		FROM Utilisateur U left JOIN ParaMedical P
-		ON U.Id  = P.Id
+		ON U.Id  = P.Id WHERE U.Actif='True'

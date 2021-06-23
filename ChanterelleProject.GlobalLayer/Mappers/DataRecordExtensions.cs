@@ -23,11 +23,27 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 DateDebutContrat = Convert.ToDateTime(dataRecord["DateDebutContrat"]),
                 Telephone = Convert.ToString(dataRecord["Telephone"]),
                 Mail = Convert.ToString(dataRecord["Mail"]),
-                TypeUtilisateur_Id = Convert.ToInt32(dataRecord["TypeUtilisateur"]),
-                MotDePasse = Convert.ToString(dataRecord["MotDePasse"]),
+                TypeUtilisateur_Id = Convert.ToInt32(dataRecord["TypeUtilisateur_Id"]),
                 NumInami = dataRecord["NumInami"] is DBNull ? null : Convert.ToString(dataRecord["NumInami"]),
-                SpecialisationId = dataRecord["SpecialisationId"] is DBNull ? 0 : Convert.ToInt32(dataRecord["SpecialisationId"])
+                SpecialisationId = dataRecord["Specialisation_Id"] is DBNull ? 0 : Convert.ToInt32(dataRecord["Specialisation_Id"])
             };
+        }
+        internal static Traitement ToTraitement(this IDataRecord dataRecord)
+        {
+            return new Traitement()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                NomMedicament = Convert.ToString(dataRecord["NomMedicament"]),
+                Posologie = Convert.ToString(dataRecord["Posologie"]),
+                DateDebut = Convert.ToDateTime(dataRecord["DateDebut"]),
+                DateFin = Convert.ToDateTime(dataRecord["DateFin"]),
+                NomCreateur = Convert.ToString(dataRecord["NomCreateur"]),
+                Objectif = Convert.ToString(dataRecord["Objectif"]),
+                actif = Convert.ToBoolean(dataRecord["actif"]),
+                TargetPieceJointe = Convert.ToString(dataRecord["TargetPieceJointe"]),
+                Utilisateur_Id = Convert.ToInt32(dataRecord["Utilisateur_Id"]),
+                Eleve_Id = Convert.ToInt32(dataRecord["Eleve_Id"]),
+               };
         }
     }
 }

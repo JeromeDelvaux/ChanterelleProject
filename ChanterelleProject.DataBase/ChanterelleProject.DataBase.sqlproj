@@ -84,6 +84,9 @@
     <Build Include="Tables\Traitement.sql" />
     <Build Include="Tables\TypeUtilisateur.sql" />
     <Build Include="Tables\Utilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_DeleteTraitement.sql" />
+    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_GetTraitement.sql" />
+    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_GetAllTraitementForOneEleve.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ChanterelleProject.DataBase.publish.xml" />

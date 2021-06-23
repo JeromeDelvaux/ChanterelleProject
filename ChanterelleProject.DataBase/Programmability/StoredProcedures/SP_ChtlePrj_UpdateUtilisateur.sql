@@ -2,7 +2,7 @@
 	@Id INT,
 	@Nom NVARCHAR(50),
 	@Prenom NVARCHAR(50),
-	@Adressse NVARCHAR(250),
+	@Adresse NVARCHAR(250),
 	@DateNaissance DATE,
 	@RegistreNational CHAR(11),
 	@Sexe NVARCHAR(5),
@@ -18,7 +18,7 @@ Begin
 		UPDATE Utilisateur
 		SET Nom = @Nom,
 			Prenom = @Prenom,
-			Adressse = @Adressse,
+			Adressse = @Adresse,
 			DateNaissance = @DateNaissance,
 			RegistreNational = @RegistreNational,
 			Sexe = @Sexe,
