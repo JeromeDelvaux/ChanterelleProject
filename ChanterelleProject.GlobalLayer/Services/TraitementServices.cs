@@ -28,7 +28,7 @@ namespace ChanterelleProject.GlobalServices.Services
 
         }
 
-        public Traitement Get(int key, int eleveId)
+        public TraitementGlobal Get(int key, int eleveId)
         {
             Commands command = new Commands("SP_ChtlePrj_GetTraitement", true);
             command.AddParameter("@Id", key);
@@ -37,7 +37,7 @@ namespace ChanterelleProject.GlobalServices.Services
             return _connection.ExecuteReader(command, sp => sp.ToTraitement()).SingleOrDefault();
         }
 
-        public IEnumerable<Traitement> GetAll(int eleveId)
+        public IEnumerable<TraitementGlobal> GetAll(int eleveId)
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllTraitementForOneEleve", true);
             command.AddParameter("@idEleve", eleveId);
@@ -45,12 +45,12 @@ namespace ChanterelleProject.GlobalServices.Services
             return _connection.ExecuteReader(command, sp => sp.ToTraitement());
         }
 
-        public int Insert(Traitement entity)
+        public int Insert(TraitementGlobal entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(int key, Traitement entity)
+        public bool Update(int key, TraitementGlobal entity)
         {
             throw new NotImplementedException();
         }

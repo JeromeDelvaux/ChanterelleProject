@@ -2,7 +2,7 @@
 
 namespace ChanterelleProject.Models.Global
 {
-    public class Utilisateur 
+    public class UtilisateurGlobal 
     {
         public int Id { get; set; }
         public string Nom { get; set; }

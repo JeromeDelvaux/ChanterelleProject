@@ -8,7 +8,7 @@ namespace ChanterelleProject.ClientServices.Mappers
 {
     internal static class ClientMapper
     {
-        internal static UtilisateurClientView ToUtilisateursClientView(this UtilisateurView utilisateur)
+        internal static UtilisateurClientView ToUtilisateursClientView(this UtilisateurGlobalView utilisateur)
         {
             return new UtilisateurClientView(
                 utilisateur.Id,
@@ -27,9 +27,9 @@ namespace ChanterelleProject.ClientServices.Mappers
                 utilisateur.NumInami,
                 utilisateur.SpecialisationId);
         }
-        internal static Utilisateur ToUtilisateursGlobal(this UtilisateurClient utilisateur)
+        internal static UtilisateurGlobal ToUtilisateursGlobal(this UtilisateurClient utilisateur)
         {
-            return new Utilisateur()
+            return new UtilisateurGlobal()
             {
                 Id = utilisateur.Id,
                 Nom = utilisateur.Nom,

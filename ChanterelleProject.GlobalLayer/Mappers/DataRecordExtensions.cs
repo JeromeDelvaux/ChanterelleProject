@@ -8,9 +8,9 @@ namespace ChanterelleProject.GlobalServices.Mappers
 {
     public static class DataRecordExtensions
     {
-        internal static Utilisateur ToUtilisateur(this IDataRecord dataRecord)
+        internal static UtilisateurGlobal ToUtilisateur(this IDataRecord dataRecord)
         {
-            return new Utilisateur()
+            return new UtilisateurGlobal()
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 Nom = Convert.ToString(dataRecord["Nom"]),
@@ -26,9 +26,9 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 TypeUtilisateur_Id = Convert.ToInt32(dataRecord["TypeUtilisateur_Id"]),
             };
         }
-        internal static UtilisateurView ToUtilisateurView(this IDataRecord dataRecord)
+        internal static UtilisateurGlobalView ToUtilisateurView(this IDataRecord dataRecord)
         {
-            return new UtilisateurView()
+            return new UtilisateurGlobalView()
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 Nom = Convert.ToString(dataRecord["Nom"]),
@@ -46,9 +46,9 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 SpecialisationId = dataRecord["Specialisation_Id"] is DBNull ? 0 : Convert.ToInt32(dataRecord["Specialisation_Id"])
             };
         }
-        internal static Traitement ToTraitement(this IDataRecord dataRecord)
+        internal static TraitementGlobal ToTraitement(this IDataRecord dataRecord)
         {
-            return new Traitement()
+            return new TraitementGlobal()
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 NomMedicament = Convert.ToString(dataRecord["NomMedicament"]),

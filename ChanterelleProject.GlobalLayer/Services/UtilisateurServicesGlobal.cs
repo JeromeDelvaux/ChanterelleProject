@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class UtilisateurServices : IUtilisateur<int, Utilisateur>,IUtilisateurView<int, UtilisateurView>
+    public class UtilisateurServicesGlobal : IUtilisateur<int, UtilisateurGlobal>,IUtilisateurView<int, UtilisateurGlobalView>
     {
         private readonly IConnection _connection;
        
-        public UtilisateurServices(IConnection connection)
+        public UtilisateurServicesGlobal(IConnection connection)
         {
             _connection = connection;
         }
@@ -26,20 +26,20 @@ namespace ChanterelleProject.GlobalServices.Services
             return id != 0;
         }
 
-        public UtilisateurView Get(int key)
+        public UtilisateurGlobalView Get(int key)
         {
             Commands command = new Commands("SP_ChtlePrj_GetUtilisateursById", true);
             command.AddParameter("@Id", key);
             return _connection.ExecuteReader(command, sp => sp.ToUtilisateurView()).SingleOrDefault();
         }
 
-        public IEnumerable<UtilisateurView> GetAll()
+        public IEnumerable<UtilisateurGlobalView> GetAll()
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllUtilisateurs", true);
             return _connection.ExecuteReader(command, sp => sp.ToUtilisateurView());
         }
 
-        public int Insert(Utilisateur entity)
+        public int Insert(UtilisateurGlobal entity)
         {
             int? idNewUtilisateur;
 
@@ -61,7 +61,7 @@ namespace ChanterelleProject.GlobalServices.Services
             return (command.ReturnValue == 0) ? idNewUtilisateur.Value : -1;
         }
 
-        public bool Update(int key, Utilisateur entity)
+        public bool Update(int key, UtilisateurGlobal entity)
         {
             Commands command = new Commands("SP_ChtlePrj_UpdateUtilisateur", true);
             command.AddParameter("Id", key);

@@ -7,12 +7,12 @@ using ChanterelleProject.Interfaces;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class UtilisateursServiceClient : IUtilisateur<int, UtilisateurClient>, IUtilisateurView<int, UtilisateurClientView>
+    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient>, IUtilisateurView<int, UtilisateurClientView>
     {
-        private readonly IUtilisateur<int, Utilisateur> _globalUtilisateurServices;
-        private readonly IUtilisateurView<int, UtilisateurView> _globalUtilisateurServicesView;
+        private readonly IUtilisateur<int, UtilisateurGlobal> _globalUtilisateurServices;
+        private readonly IUtilisateurView<int, UtilisateurGlobalView> _globalUtilisateurServicesView;
 
-        public UtilisateursServiceClient(IUtilisateur<int, Utilisateur> globalUtilisateurServices, IUtilisateurView<int, UtilisateurView> globalUtilisateurServicesView)
+        public UtilisateurServiceClient(IUtilisateur<int, UtilisateurGlobal> globalUtilisateurServices, IUtilisateurView<int, UtilisateurGlobalView> globalUtilisateurServicesView)
         {
             _globalUtilisateurServices = globalUtilisateurServices;
             _globalUtilisateurServicesView = globalUtilisateurServicesView;

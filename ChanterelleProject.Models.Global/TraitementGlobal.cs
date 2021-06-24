@@ -3,7 +3,7 @@
 
 namespace ChanterelleProject.Models.Global
 {
-    public class Traitement
+    public class TraitementGlobal
     {
         public int Id { get; set; }
         public string NomMedicament { get; set; }

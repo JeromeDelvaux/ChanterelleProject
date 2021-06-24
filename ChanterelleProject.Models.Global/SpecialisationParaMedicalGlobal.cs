@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ChanterelleProject.Models.Global
 {
-    public class TypeUtilisateur
+    public class SpecialisationParaMedicalGlobal
     {
         public int Id { get; set; }
         public string Intitule { get; set; }
