@@ -24,9 +24,7 @@ namespace ChanterelleProject.Api.Mappers
                 utilisateur.Telephone,
                 utilisateur.Mail,
                 utilisateur.TypeUtilisateur_Id,
-                utilisateur.MotDePasse,
-                utilisateur.NumInami,
-                utilisateur.SpecialisationId);
+                utilisateur.MotDePasse);
         }
     }
 }

@@ -24,6 +24,24 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 Telephone = Convert.ToString(dataRecord["Telephone"]),
                 Mail = Convert.ToString(dataRecord["Mail"]),
                 TypeUtilisateur_Id = Convert.ToInt32(dataRecord["TypeUtilisateur_Id"]),
+            };
+        }
+        internal static UtilisateurView ToUtilisateurView(this IDataRecord dataRecord)
+        {
+            return new UtilisateurView()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                Nom = Convert.ToString(dataRecord["Nom"]),
+                Prenom = Convert.ToString(dataRecord["Prenom"]),
+                Adresse = Convert.ToString(dataRecord["Adressse"]),
+                DateNaissance = Convert.ToDateTime(dataRecord["DateNaissance"]),
+                RegistreNational = Convert.ToString(dataRecord["RegistreNational"]),
+                Sexe = Convert.ToString(dataRecord["Sexe"]),
+                DateDerniereModif = Convert.ToDateTime(dataRecord["DateDerniereModif"]),
+                DateDebutContrat = Convert.ToDateTime(dataRecord["DateDebutContrat"]),
+                Telephone = Convert.ToString(dataRecord["Telephone"]),
+                Mail = Convert.ToString(dataRecord["Mail"]),
+                TypeUtilisateur_Id = Convert.ToInt32(dataRecord["TypeUtilisateur_Id"]),
                 NumInami = dataRecord["NumInami"] is DBNull ? null : Convert.ToString(dataRecord["NumInami"]),
                 SpecialisationId = dataRecord["Specialisation_Id"] is DBNull ? 0 : Convert.ToInt32(dataRecord["Specialisation_Id"])
             };

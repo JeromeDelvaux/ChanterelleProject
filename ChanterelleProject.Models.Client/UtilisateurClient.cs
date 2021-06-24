@@ -1,13 +1,12 @@
-﻿using PatternRepository.IRepository;
+﻿
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace ChanterelleProject.Models.Client
 {
-    public class UtilisateurClient : IEntity<int>
+    public class UtilisateurClient 
     {
-        public UtilisateurClient(int id, string nom, string prenom, string adresse, DateTime dateNaissance, string registreNational, string sexe, DateTime dateDerniereModif, DateTime dateDebutContrat, string telephone, string mail, int typeUtilisateur_Id, string motDePasse, string numInami, int? specialisationId)
+        public UtilisateurClient(int id, string nom, string prenom, string adresse, DateTime dateNaissance, string registreNational, string sexe, DateTime dateDerniereModif, DateTime dateDebutContrat, string telephone, string mail, int typeUtilisateur_Id, string motDePasse)
         {
             Id = id;
             Nom = nom;
@@ -22,8 +21,6 @@ namespace ChanterelleProject.Models.Client
             Mail = mail;
             TypeUtilisateur_Id = typeUtilisateur_Id;
             MotDePasse = motDePasse;
-            NumInami = numInami;
-            SpecialisationId = specialisationId;
         }
 
         public int Id { get; set; }
@@ -39,7 +36,5 @@ namespace ChanterelleProject.Models.Client
         public string Mail { get; set; }
         public int TypeUtilisateur_Id { get; set; }
         public string MotDePasse { get; set; }
-        public string NumInami { get; set; }
-        public int? SpecialisationId { get; set; }
     }
 }

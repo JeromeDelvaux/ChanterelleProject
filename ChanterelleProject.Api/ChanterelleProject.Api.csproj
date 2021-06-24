@@ -14,7 +14,6 @@
     <ProjectReference Include="..\ChanterelleProject.GlobalLayer\ChanterelleProject.GlobalServices.csproj" />
     <ProjectReference Include="..\ChanterelleProject.Models.Global\ChanterelleProject.Models.Global.csproj" />
     <ProjectReference Include="..\ConnectionDataBase\ConnectionDataBase.csproj" />
-    <ProjectReference Include="..\PatternRepository\PatternRepository.csproj" />
   </ItemGroup>
 
 </Project>

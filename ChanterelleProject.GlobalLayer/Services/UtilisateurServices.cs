@@ -1,17 +1,16 @@
 ﻿using ChanterelleProject.GlobalServices.Mappers;
+using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Global;
 using ConnectionDataBase;
-using PatternRepository.IRepository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class UtilisateurServices : IRepository<int, Utilisateur>
+    public class UtilisateurServices : IUtilisateur<int, Utilisateur>,IUtilisateurView<int, UtilisateurView>
     {
         private readonly IConnection _connection;
+       
         public UtilisateurServices(IConnection connection)
         {
             _connection = connection;
@@ -27,17 +26,17 @@ namespace ChanterelleProject.GlobalServices.Services
             return id != 0;
         }
 
-        public Utilisateur Get(int key)
+        public UtilisateurView Get(int key)
         {
             Commands command = new Commands("SP_ChtlePrj_GetUtilisateursById", true);
             command.AddParameter("@Id", key);
-            return _connection.ExecuteReader(command, sp => sp.ToUtilisateur()).SingleOrDefault();
+            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurView()).SingleOrDefault();
         }
 
-        public IEnumerable<Utilisateur> GetAll()
+        public IEnumerable<UtilisateurView> GetAll()
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllUtilisateurs", true);
-            return _connection.ExecuteReader(command, sp => sp.ToUtilisateur());
+            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurView());
         }
 
         public int Insert(Utilisateur entity)

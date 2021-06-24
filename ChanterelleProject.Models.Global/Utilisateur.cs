@@ -1,11 +1,8 @@
-﻿using PatternRepository.IRepository;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace ChanterelleProject.Models.Global
 {
-    public class Utilisateur : IEntity<int>
+    public class Utilisateur 
     {
         public int Id { get; set; }
         public string Nom { get; set; }
@@ -20,8 +17,5 @@ namespace ChanterelleProject.Models.Global
         public string Mail { get; set; }
         public int TypeUtilisateur_Id { get; set; }
         public string MotDePasse { get; set; }
-        public string NumInami { get; set; }
-        public int? SpecialisationId { get; set; }
-
     }
 }

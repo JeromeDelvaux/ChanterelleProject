@@ -8,9 +8,9 @@ namespace ChanterelleProject.ClientServices.Mappers
 {
     internal static class ClientMapper
     {
-        internal static UtilisateurClient ToUtilisateursCLient(this Utilisateur utilisateur)
+        internal static UtilisateurClientView ToUtilisateursClientView(this UtilisateurView utilisateur)
         {
-            return new UtilisateurClient(
+            return new UtilisateurClientView(
                 utilisateur.Id,
                 utilisateur.Nom,
                 utilisateur.Prenom,
@@ -43,9 +43,7 @@ namespace ChanterelleProject.ClientServices.Mappers
                 Telephone = utilisateur.Telephone,
                 Mail = utilisateur.Mail,
                 TypeUtilisateur_Id = utilisateur.TypeUtilisateur_Id,
-                MotDePasse = utilisateur.MotDePasse,
-                NumInami = utilisateur.NumInami,
-                SpecialisationId = utilisateur.SpecialisationId
+                MotDePasse = utilisateur.MotDePasse
             };
         }
     }

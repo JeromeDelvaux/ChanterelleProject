@@ -1,11 +1,9 @@
 ﻿using ChanterelleProject.GlobalServices.Mappers;
 using ChanterelleProject.Models.Global;
 using ConnectionDataBase;
-using PatternRepository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ChanterelleProject.GlobalServices.Services
 {

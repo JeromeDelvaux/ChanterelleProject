@@ -7,7 +7,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ChanterelleProject.GlobalLayer\ChanterelleProject.GlobalServices.csproj" />
     <ProjectReference Include="..\ChanterelleProject.Models.Client\ChanterelleProject.Models.Client.csproj" />
-    <ProjectReference Include="..\PatternRepository\PatternRepository.csproj" />
   </ItemGroup>
 
 </Project>

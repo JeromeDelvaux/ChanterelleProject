@@ -33,9 +33,6 @@ namespace ChanterelleProject.Api.Forms
         public int TypeUtilisateur_Id { get; set; }
         [Required]
         public string MotDePasse { get; set; }
-        [Required]
-        public string NumInami { get; set; }
-        [Required]
-        public int? SpecialisationId { get; set; }
+        
     }
 }

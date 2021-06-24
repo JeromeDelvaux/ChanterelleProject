@@ -25,25 +25,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToolsBox", "ToolsBox", "{22
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Connection", "Connection", "{1ECD230C-0BA6-41BA-815A-CF0B938CCFD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectionDataBase", "ConnectionDataBase\ConnectionDataBase.csproj", "{9DBB6B6A-F73D-4B6F-8658-4B875821034C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectionDataBase", "ConnectionDataBase\ConnectionDataBase.csproj", "{9DBB6B6A-F73D-4B6F-8658-4B875821034C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{52CAEBEB-0797-46F1-A961-48415B890869}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChanterelleProject.GlobalServices", "ChanterelleProject.GlobalLayer\ChanterelleProject.GlobalServices.csproj", "{D97C3317-33AE-45FE-8FE3-E102AF16CD12}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{3281EEE6-B1FD-4A63-A47C-9951797AB5B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChanterelleProject.ClientServices", "ChanterelleProject.ClientServices\ChanterelleProject.ClientServices.csproj", "{E838E979-AA63-4581-B51D-1803F55985D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternRepository", "PatternRepository\PatternRepository.csproj", "{3DE73DA9-4C5E-44A3-8CF0-C17B92DE747B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChanterelleProject.Api", "ChanterelleProject.Api\ChanterelleProject.Api.csproj", "{7F11577C-3652-4734-AB45-FD1C1AA9321E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChanterelleProject.GlobalServices", "ChanterelleProject.GlobalLayer\ChanterelleProject.GlobalServices.csproj", "{D97C3317-33AE-45FE-8FE3-E102AF16CD12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChanterelleProject.Models.Global", "ChanterelleProject.Models.Global\ChanterelleProject.Models.Global.csproj", "{075A0A85-4E8E-404C-90DB-F39F743F66DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChanterelleProject.ClientServices", "ChanterelleProject.ClientServices\ChanterelleProject.ClientServices.csproj", "{E838E979-AA63-4581-B51D-1803F55985D3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChanterelleProject.Api", "ChanterelleProject.Api\ChanterelleProject.Api.csproj", "{7F11577C-3652-4734-AB45-FD1C1AA9321E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChanterelleProject.Models.Global", "ChanterelleProject.Models.Global\ChanterelleProject.Models.Global.csproj", "{075A0A85-4E8E-404C-90DB-F39F743F66DE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChanterelleProject.Models.Client", "ChanterelleProject.Models.Client\ChanterelleProject.Models.Client.csproj", "{90611070-3174-480E-8A7C-26CFE03AB9E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChanterelleProject.Models.Client", "ChanterelleProject.Models.Client\ChanterelleProject.Models.Client.csproj", "{90611070-3174-480E-8A7C-26CFE03AB9E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07__ChanterelleProject.Interfaces", "07__ChanterelleProject.Interfaces", "{6DBB384A-CA00-4550-881A-047B68325BE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChanterelleProject.Interfaces", "ChanterelleProject.Interfaces\ChanterelleProject.Interfaces.csproj", "{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +59,6 @@ Global
 		{9DBB6B6A-F73D-4B6F-8658-4B875821034C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DBB6B6A-F73D-4B6F-8658-4B875821034C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DBB6B6A-F73D-4B6F-8658-4B875821034C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3DE73DA9-4C5E-44A3-8CF0-C17B92DE747B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DE73DA9-4C5E-44A3-8CF0-C17B92DE747B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DE73DA9-4C5E-44A3-8CF0-C17B92DE747B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DE73DA9-4C5E-44A3-8CF0-C17B92DE747B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D97C3317-33AE-45FE-8FE3-E102AF16CD12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D97C3317-33AE-45FE-8FE3-E102AF16CD12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D97C3317-33AE-45FE-8FE3-E102AF16CD12}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -89,6 +83,10 @@ Global
 		{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,15 +96,13 @@ Global
 		{22E45F2A-D7BB-4D57-92B0-8EE200F828DC} = {326119D9-943F-4A2E-A0B4-4DA88BB184A0}
 		{1ECD230C-0BA6-41BA-815A-CF0B938CCFD6} = {22E45F2A-D7BB-4D57-92B0-8EE200F828DC}
 		{9DBB6B6A-F73D-4B6F-8658-4B875821034C} = {1ECD230C-0BA6-41BA-815A-CF0B938CCFD6}
-		{52CAEBEB-0797-46F1-A961-48415B890869} = {22E45F2A-D7BB-4D57-92B0-8EE200F828DC}
-		{3281EEE6-B1FD-4A63-A47C-9951797AB5B1} = {52CAEBEB-0797-46F1-A961-48415B890869}
-		{3DE73DA9-4C5E-44A3-8CF0-C17B92DE747B} = {3281EEE6-B1FD-4A63-A47C-9951797AB5B1}
 		{D97C3317-33AE-45FE-8FE3-E102AF16CD12} = {2A0C13BD-2CE3-4E76-89CD-20A39F84C9FC}
 		{E838E979-AA63-4581-B51D-1803F55985D3} = {C0F106E2-BFFD-45BD-A588-4FB95E2AEE94}
 		{7F11577C-3652-4734-AB45-FD1C1AA9321E} = {92BDEB8F-C0BD-4752-9CEE-8411ACDF4626}
 		{075A0A85-4E8E-404C-90DB-F39F743F66DE} = {95AA35B0-428A-46C5-BED7-5758E2DE4947}
 		{90611070-3174-480E-8A7C-26CFE03AB9E0} = {C74EC28D-4DD6-4A5C-855E-0B47FE52244C}
 		{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366} = {53139155-A126-44A7-869C-1608F5D4B39C}
+		{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC} = {6DBB384A-CA00-4550-881A-047B68325BE3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {515074FD-7FBD-441C-A38C-20C64288E27C}

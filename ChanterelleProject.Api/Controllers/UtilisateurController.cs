@@ -1,14 +1,10 @@
 ﻿using ChanterelleProject.Api.Forms;
 using ChanterelleProject.Api.Mappers;
-using ChanterelleProject.ClientServices.Services;
+using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PatternRepository.IRepository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace ChanterelleProject.Api.Controllers
 {
@@ -16,18 +12,20 @@ namespace ChanterelleProject.Api.Controllers
     [ApiController]
     public class UtilisateurController : ControllerBase
     {
-        private readonly IRepository<int,UtilisateurClient> _utilisateursServiceClient;
+        private readonly IUtilisateur<int,UtilisateurClient> _utilisateursServiceClient;
+        private readonly IUtilisateurView<int, UtilisateurClientView> _utilisateursServiceClientView;
 
-        public UtilisateurController(IRepository<int,UtilisateurClient> utilisateursServiceClient)
+        public UtilisateurController(IUtilisateur<int,UtilisateurClient> utilisateursServiceClient, IUtilisateurView<int, UtilisateurClientView> utilisateursServiceClientView)
         {
             this._utilisateursServiceClient = utilisateursServiceClient;
+            this._utilisateursServiceClientView = utilisateursServiceClientView;
         }
 
         [HttpGet]
         [Route("GetAll")]
         public IEnumerable<UtilisateurClient> GetAll()
         {
-            return _utilisateursServiceClient.GetAll();
+            return _utilisateursServiceClientView.GetAll();
         }
         [HttpDelete]
         [Route("Delete/{id}")]

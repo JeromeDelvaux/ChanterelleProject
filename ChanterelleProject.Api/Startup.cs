@@ -1,23 +1,17 @@
 using ChanterelleProject.ClientServices.Services;
 using ChanterelleProject.GlobalServices.Services;
+using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;
 using ChanterelleProject.Models.Global;
 using ConnectionDataBase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using PatternRepository.IRepository;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace ChanterelleProject.Api
 {
@@ -40,8 +34,13 @@ namespace ChanterelleProject.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ChanterelleProject.Api", Version = "v1" });
             });
             services.AddSingleton<IConnection>((sp) => new Connection(SqlClientFactory.Instance, Configuration.GetConnectionString("ConnectionChanterelleDbProject")));
-            services.AddSingleton<IRepository<int, Utilisateur>, UtilisateurServices>();
-            services.AddSingleton<IRepository<int, UtilisateurClient>, UtilisateursServiceClient>();
+            services.AddSingleton<IUtilisateur<int, Utilisateur>, UtilisateurServices>();
+            services.AddSingleton<IUtilisateurView<int, UtilisateurView>, UtilisateurServices>();
+
+            services.AddSingleton<IUtilisateur<int, UtilisateurClient>, UtilisateursServiceClient>();
+            services.AddSingleton<IUtilisateurView<int, UtilisateurClientView>, UtilisateursServiceClient>();
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

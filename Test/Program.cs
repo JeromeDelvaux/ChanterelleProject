@@ -14,7 +14,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            List<Utilisateur> l = new List<Utilisateur>();
+            List<UtilisateurView> l = new List<UtilisateurView>();
             Connection connection = new Connection(SqlClientFactory.Instance, @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ChanterelleProjectDataBase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             UtilisateurServices utilisateurServices = new UtilisateurServices(connection);
             Utilisateur utilisateur = new Utilisateur()

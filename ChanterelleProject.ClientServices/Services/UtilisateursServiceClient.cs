@@ -1,21 +1,21 @@
-﻿using PatternRepository.IRepository;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ChanterelleProject.Models.Client;
-using ChanterelleProject.GlobalServices.Services;
 using ChanterelleProject.ClientServices.Mappers;
 using System.Linq;
 using ChanterelleProject.Models.Global;
+using ChanterelleProject.Interfaces;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class UtilisateursServiceClient : IRepository<int, UtilisateurClient>
+    public class UtilisateursServiceClient : IUtilisateur<int, UtilisateurClient>, IUtilisateurView<int, UtilisateurClientView>
     {
-        private readonly IRepository<int, Utilisateur> _globalUtilisateurServices;
+        private readonly IUtilisateur<int, Utilisateur> _globalUtilisateurServices;
+        private readonly IUtilisateurView<int, UtilisateurView> _globalUtilisateurServicesView;
 
-        public UtilisateursServiceClient(IRepository<int, Utilisateur> globalUtilisateurServices)
+        public UtilisateursServiceClient(IUtilisateur<int, Utilisateur> globalUtilisateurServices, IUtilisateurView<int, UtilisateurView> globalUtilisateurServicesView)
         {
             _globalUtilisateurServices = globalUtilisateurServices;
+            _globalUtilisateurServicesView = globalUtilisateurServicesView;
         }
 
         public bool Delete(int key)
@@ -23,14 +23,15 @@ namespace ChanterelleProject.ClientServices.Services
             return _globalUtilisateurServices.Delete(key);
         }
 
-        public UtilisateurClient Get(int key)
+        public UtilisateurClientView Get(int key)
         {
-            return _globalUtilisateurServices.Get(key).ToUtilisateursCLient();
+            return _globalUtilisateurServicesView.Get(key).ToUtilisateursClientView();
         }
 
-        public IEnumerable<UtilisateurClient> GetAll()
+        public IEnumerable<UtilisateurClientView> GetAll()
         {
-            return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateursCLient()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurCLient
+            return _globalUtilisateurServicesView.GetAll().Select(u => u.ToUtilisateursClientView()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurCLient
+
         }
 
         public int Insert(UtilisateurClient entity)
@@ -42,6 +43,7 @@ namespace ChanterelleProject.ClientServices.Services
         {
             return _globalUtilisateurServices.Update(key, entity.ToUtilisateursGlobal());
         }
+
         //public bool CheckPassword(string password, string mail)
         //{
         //    bool result = _globalUtilisateurServices.CheckPassword(password, mail);
