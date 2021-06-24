@@ -26,5 +26,22 @@ namespace ChanterelleProject.Api.Mappers
                 utilisateur.TypeUtilisateur_Id,
                 utilisateur.MotDePasse);
         }
+        internal static UtilisateurClient ToUtilisateursClient(this FormsUpdateUtilisateur utilisateur)
+        {
+            return new UtilisateurClient(
+                utilisateur.Id,
+                utilisateur.Nom,
+                utilisateur.Prenom,
+                utilisateur.Adresse,
+                utilisateur.DateNaissance,
+                utilisateur.RegistreNational,
+                utilisateur.Sexe,
+                utilisateur.DateDerniereModif,
+                utilisateur.DateDebutContrat,
+                utilisateur.Telephone,
+                utilisateur.Mail,
+                utilisateur.TypeUtilisateur_Id,
+                utilisateur.MotDePasse);
+        }
     }
 }

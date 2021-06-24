@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class UtilisateurServicesGlobal : IUtilisateur<int, UtilisateurGlobal>,IUtilisateurView<int, UtilisateurGlobalView>
+    public class UtilisateurServicesGlobal : IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalView>
     {
         private readonly IConnection _connection;
        

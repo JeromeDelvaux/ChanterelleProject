@@ -12,21 +12,28 @@ namespace ChanterelleProject.Api.Controllers
     [ApiController]
     public class UtilisateurController : ControllerBase
     {
-        private readonly IUtilisateur<int,UtilisateurClient> _utilisateursServiceClient;
-        private readonly IUtilisateurView<int, UtilisateurClientView> _utilisateursServiceClientView;
+        private readonly IUtilisateur<int,UtilisateurClient,UtilisateurClientView> _utilisateursServiceClient;
 
-        public UtilisateurController(IUtilisateur<int,UtilisateurClient> utilisateursServiceClient, IUtilisateurView<int, UtilisateurClientView> utilisateursServiceClientView)
+
+        public UtilisateurController(IUtilisateur<int,UtilisateurClient, UtilisateurClientView> utilisateursServiceClient)
         {
             this._utilisateursServiceClient = utilisateursServiceClient;
-            this._utilisateursServiceClientView = utilisateursServiceClientView;
         }
 
         [HttpGet]
         [Route("GetAll")]
         public IEnumerable<UtilisateurClient> GetAll()
         {
-            return _utilisateursServiceClientView.GetAll();
+            return _utilisateursServiceClient.GetAll();
         }
+
+        [HttpGet]
+        [Route("GetOne/{id}")]
+        public UtilisateurClient GetOne(int id)
+        {
+            return _utilisateursServiceClient.Get(id);
+        }
+
         [HttpDelete]
         [Route("Delete/{id}")]
         public IActionResult Delete(int id)
@@ -40,6 +47,7 @@ namespace ChanterelleProject.Api.Controllers
                 return BadRequest();
             }
         }
+
         [HttpPost]
         [Route("Create")]
         public IActionResult Create([FromBody] FormsCreateUtilisateur formsCreateUtilisateur)
@@ -53,9 +61,21 @@ namespace ChanterelleProject.Api.Controllers
             {
                 return Ok(idNewUtilisateur);
             }
+        }
 
-
-          
+        [HttpPut]
+        [Route("Update/{id}")]
+        public IActionResult Update(int id,[FromBody] FormsUpdateUtilisateur formsUpdateUtilisateur)
+        {
+            bool idNewUtilisateur = _utilisateursServiceClient.Update(id, formsUpdateUtilisateur.ToUtilisateursClient());
+            if (idNewUtilisateur == false)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok(idNewUtilisateur);
+            }
         }
     }
 }

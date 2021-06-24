@@ -34,11 +34,10 @@ namespace ChanterelleProject.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ChanterelleProject.Api", Version = "v1" });
             });
             services.AddSingleton<IConnection>((sp) => new Connection(SqlClientFactory.Instance, Configuration.GetConnectionString("ConnectionChanterelleDbProject")));
-            services.AddSingleton<IUtilisateur<int, UtilisateurGlobal>, UtilisateurServicesGlobal>();
-            services.AddSingleton<IUtilisateurView<int, UtilisateurGlobalView>, UtilisateurServicesGlobal>();
+            
+            services.AddSingleton<IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalView>, UtilisateurServicesGlobal>();
 
-            services.AddSingleton<IUtilisateur<int, UtilisateurClient>, UtilisateurServiceClient>();
-            services.AddSingleton<IUtilisateurView<int, UtilisateurClientView>, UtilisateurServiceClient>();
+            services.AddSingleton<IUtilisateur<int, UtilisateurClient, UtilisateurClientView>, UtilisateurServiceClient>();
 
             
         }

@@ -4,9 +4,8 @@ using System.Text;
 
 namespace ChanterelleProject.Interfaces
 {
-    public interface IUtilisateurView<TKey, TEntity>
+    public interface IEntity<TKey>
     {
-        TEntity Get(TKey key);
-        IEnumerable<TEntity> GetAll();
+        TKey Id { get; }
     }
 }

@@ -1,10 +1,10 @@
-﻿
+﻿using ChanterelleProject.Interfaces;
 using System;
 
 
 namespace ChanterelleProject.Models.Client
 {
-    public class UtilisateurClient 
+    public class UtilisateurClient : IEntity<int>
     {
         public UtilisateurClient(int id, string nom, string prenom, string adresse, DateTime dateNaissance, string registreNational, string sexe, DateTime dateDerniereModif, DateTime dateDebutContrat, string telephone, string mail, int typeUtilisateur_Id, string motDePasse)
         {

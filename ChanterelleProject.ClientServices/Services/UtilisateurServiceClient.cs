@@ -7,15 +7,14 @@ using ChanterelleProject.Interfaces;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient>, IUtilisateurView<int, UtilisateurClientView>
+    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient, UtilisateurClientView>
     {
-        private readonly IUtilisateur<int, UtilisateurGlobal> _globalUtilisateurServices;
-        private readonly IUtilisateurView<int, UtilisateurGlobalView> _globalUtilisateurServicesView;
+        private readonly IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalView> _globalUtilisateurServices;
 
-        public UtilisateurServiceClient(IUtilisateur<int, UtilisateurGlobal> globalUtilisateurServices, IUtilisateurView<int, UtilisateurGlobalView> globalUtilisateurServicesView)
+
+        public UtilisateurServiceClient(IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalView> globalUtilisateurServices)
         {
             _globalUtilisateurServices = globalUtilisateurServices;
-            _globalUtilisateurServicesView = globalUtilisateurServicesView;
         }
 
         public bool Delete(int key)
@@ -25,13 +24,13 @@ namespace ChanterelleProject.ClientServices.Services
 
         public UtilisateurClientView Get(int key)
         {
-            return _globalUtilisateurServicesView.Get(key).ToUtilisateursClientView();
+            return _globalUtilisateurServices.Get(key).ToUtilisateursClientView();
         }
 
         public IEnumerable<UtilisateurClientView> GetAll()
         {
-            return _globalUtilisateurServicesView.GetAll().Select(u => u.ToUtilisateursClientView()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurCLient
-
+            return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateursClientView()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurCLient
+           
         }
 
         public int Insert(UtilisateurClient entity)
