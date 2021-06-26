@@ -44,6 +44,20 @@ namespace ChanterelleProject.ClientServices.Mappers
                 MotDePasse = utilisateur.MotDePasse
             };
         }
+        internal static SpecialisationParaMedicalClient ToSpecialisationParaMedicalClient(this SpecialisationParaMedicalGlobal specialisationParaMedicalGlobal)
+        {
+            return new SpecialisationParaMedicalClient(
+                specialisationParaMedicalGlobal.Id,
+                specialisationParaMedicalGlobal.Intitule);
+        }
+        internal static SpecialisationParaMedicalGlobal ToSpecialisationParaMedicalGlobal(this SpecialisationParaMedicalClient specialisationParaMedicalClient)
+        {
+            return new SpecialisationParaMedicalGlobal()
+            {
+                Id= 0,
+                Intitule= specialisationParaMedicalClient.Intitule
+            };
+        }
     }
 }
 

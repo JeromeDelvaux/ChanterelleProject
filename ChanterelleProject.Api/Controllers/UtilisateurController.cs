@@ -67,14 +67,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Update/{id}")]
         public IActionResult Update(int id,[FromBody] FormsUpdateUtilisateur formsUpdateUtilisateur)
         {
-            bool idNewUtilisateur = _utilisateursServiceClient.Update(id, formsUpdateUtilisateur.ToUtilisateursClient());
-            if (idNewUtilisateur == false)
+            bool resultTransaction = _utilisateursServiceClient.Update(id, formsUpdateUtilisateur.ToUtilisateursClient());
+            if (resultTransaction == false)
             {
                 return BadRequest();
             }
             else
             {
-                return Ok(idNewUtilisateur);
+                return Ok(resultTransaction);
             }
         }
     }

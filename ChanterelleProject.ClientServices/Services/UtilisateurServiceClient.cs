@@ -29,8 +29,8 @@ namespace ChanterelleProject.ClientServices.Services
 
         public IEnumerable<UtilisateurClientFullAttributeForView> GetAll()
         {
-            return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateurClientFullAttributeForView()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurCLient
-           
+            return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateurClientFullAttributeForView()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
+
         }
 
         public int Insert(UtilisateurClient entity)

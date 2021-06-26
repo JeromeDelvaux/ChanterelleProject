@@ -46,7 +46,7 @@ namespace ChanterelleProject.GlobalServices.Services
         {
             int? idNewSpecialisationParaMedicalGlobal;
 
-            Commands command = new Commands("SP_ChtlePrj_AddSpecialisationParaMedicalGlobal", true);
+            Commands command = new Commands("SP_ChtlePrj_AddSpecialisationParaMedical", true);
             command.AddParameter("Intitule", entity.Intitule);
 
             idNewSpecialisationParaMedicalGlobal = (int?)_connection.ExecuteScalar(command);
@@ -56,9 +56,9 @@ namespace ChanterelleProject.GlobalServices.Services
 
         public bool Update(int key, SpecialisationParaMedicalGlobal entity)
         {
-            Commands command = new Commands("SP_ChtlePrj_UpdateSpecialisationParaMedicalGlobal", true);
+            Commands command = new Commands("SP_ChtlePrj_UpdateSpecialisationParaMedical", true);
             command.AddParameter("Id", key);
-            command.AddParameter("Nom", entity.Intitule);
+            command.AddParameter("Intitule", entity.Intitule);
 
             int nbRows = _connection.ExecuteNonQuery(command);
             return nbRows == 1;

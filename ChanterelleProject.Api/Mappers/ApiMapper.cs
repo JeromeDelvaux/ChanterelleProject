@@ -36,5 +36,17 @@ namespace ChanterelleProject.Api.Mappers
                 utilisateur.TypeUtilisateur_Id,
                 utilisateur.MotDePasse);
         }
+        internal static SpecialisationParaMedicalClient ToSpecialisationParaMedicalClient(this FormsCreateSpecialisationParaMedical specialisationParaMedical)
+        {
+            return new SpecialisationParaMedicalClient(
+                0,
+                specialisationParaMedical.Intitule);
+        }
+        internal static SpecialisationParaMedicalClient ToSpecialisationParaMedicalClient(this FormsUpdateSpecialisationParaMedical specialisationParaMedical)
+        {
+            return new SpecialisationParaMedicalClient(
+                0,
+                specialisationParaMedical.Intitule);
+        }
     }
 }
