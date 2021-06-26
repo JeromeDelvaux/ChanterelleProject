@@ -62,17 +62,16 @@
     <Folder Include="Views" />
     <Folder Include="Programmability\Functions" />
     <Folder Include="Programmability\StoredProcedures" />
+    <Folder Include="Programmability\StoredProcedures\Utilisateur" />
+    <Folder Include="Programmability\StoredProcedures\Authentication" />
+    <Folder Include="Programmability\StoredProcedures\ParaMedical" />
+    <Folder Include="Programmability\StoredProcedures\SpecialisationParaMedical" />
+    <Folder Include="Programmability\StoredProcedures\Traitement" />
+    <Folder Include="Views\Utilisateur" />
+    <Folder Include="Views\SpecialisationParaMedical" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Programmability\Functions\SF_ChtlePrj_SalageEtHash.sql" />
-    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_AddParaMedical.sql" />
-    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_AddUtilisateur.sql" />
-    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_CheckPassword.sql" />
-    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_DeleteUtilisateur.sql" />
-    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_GetAllUtilisateurs.sql" />
-    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_GetUtilisateursById.sql" />
-    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_UpdateUtilisateur.sql" />
-    <Build Include="Views\V_ChtlePrj_AllUtilisateurs.sql" />
     <Build Include="Tables\AllocationClasses.sql" />
     <Build Include="Tables\AllocationParaMedicals.sql" />
     <Build Include="Tables\Classe.sql" />
@@ -84,11 +83,29 @@
     <Build Include="Tables\Traitement.sql" />
     <Build Include="Tables\TypeUtilisateur.sql" />
     <Build Include="Tables\Utilisateur.sql" />
-    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_DeleteTraitement.sql" />
-    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_GetTraitement.sql" />
-    <Build Include="Programmability\StoredProcedures\SP_ChtlePrj_GetAllTraitementForOneEleve.sql" />
+    <Build Include="Programmability\Functions\SF_ChtlePrj_VerifNumRegistreNational.sql" />
+    <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_AddUtilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\Authentication\SP_ChtlePrj_CheckPassword.sql" />
+    <Build Include="Programmability\StoredProcedures\ParaMedical\SP_ChtlePrj_AddParaMedical.sql" />
+    <Build Include="Programmability\StoredProcedures\SpecialisationParaMedical\SP_ChtlePrj_DeleteSpecialisationParaMedical.sql" />
+    <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_DeleteTraitement.sql" />
+    <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_DeleteUtilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_GetAllTraitementForOneEleve.sql" />
+    <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_GetAllUtilisateurs.sql" />
+    <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_GetTraitement.sql" />
+    <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_GetUtilisateursById.sql" />
+    <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_UpdateUtilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\SpecialisationParaMedical\SP_ChtlePrj_GetSpecialisationParaMedicalById.sql" />
+    <Build Include="Views\Utilisateur\V_ChtlePrj_AllUtilisateurs.sql" />
+    <Build Include="Views\SpecialisationParaMedical\V_ChtlePrj_AllSpecialisationParaMedical.sql" />
+    <Build Include="Programmability\StoredProcedures\SpecialisationParaMedical\SP_ChtlePrj_GetAllSpecialisationParaMedical.sql" />
+    <Build Include="Programmability\StoredProcedures\SpecialisationParaMedical\SP_ChtlePrj_AddSpecialisationParaMedical.sql" />
+    <Build Include="Programmability\StoredProcedures\SpecialisationParaMedical\SP_ChtlePrj_UpdateSpecialisationParaMedical.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ChanterelleProject.DataBase.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\InitialisationTables_TypeUtilisateur_Utilisateur.sql" />
   </ItemGroup>
 </Project>

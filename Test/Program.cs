@@ -5,8 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Test
 {
@@ -19,8 +18,8 @@ namespace Test
             UtilisateurServicesGlobal utilisateurServices = new UtilisateurServicesGlobal(connection);
             UtilisateurGlobal utilisateur = new UtilisateurGlobal()
             {
-                Nom = "bigboom",
-                Prenom = "bilku",
+                Nom = "Doe",
+                Prenom = "John",
                 Adresse = "Rue de morgue casier C",
                 DateDebutContrat = DateTime.Now,
                 DateNaissance = new DateTime(1970, 1, 1),

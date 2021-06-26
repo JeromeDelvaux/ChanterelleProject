@@ -63,5 +63,13 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 Eleve_Id = Convert.ToInt32(dataRecord["Eleve_Id"]),
                };
         }
+        internal static SpecialisationParaMedicalGlobal ToSpecialisationParaMedicalGlobal(this IDataRecord dataRecord)
+        {
+            return new SpecialisationParaMedicalGlobal()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                Intitule = Convert.ToString(dataRecord["Intitule"]),
+            };
+        }
     }
 }

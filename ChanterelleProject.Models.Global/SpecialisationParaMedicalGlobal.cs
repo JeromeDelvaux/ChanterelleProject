@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ChanterelleProject.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ChanterelleProject.Models.Global
 {
-    public class SpecialisationParaMedicalGlobal
+    public class SpecialisationParaMedicalGlobal: IEntity<int>
     {
         public int Id { get; set; }
         public string Intitule { get; set; }

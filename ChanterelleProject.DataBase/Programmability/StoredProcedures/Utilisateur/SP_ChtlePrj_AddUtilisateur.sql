@@ -15,9 +15,11 @@ As
 Begin
 	Begin Transaction
 	Begin Try
+
+	IF([dbo].SF_ChtlePrj_VerifNumRegistreNational(@RegistreNational)=1)
+	BEGIN
 		Declare @Uid UNIQUEIDENTIFIER;
 		Declare @DateNow DATETIME2(7)=sysdatetime();
-
 		Set @Uid = NEWID();
 
 		Insert into Utilisateur(
@@ -54,6 +56,12 @@ Begin
 		
 		Commit;
 		Return 0;
+	END
+	ELSE
+	BEGIN
+	Rollback;
+		Return -2;
+	END
 	End Try
 	Begin Catch
 		Rollback;
