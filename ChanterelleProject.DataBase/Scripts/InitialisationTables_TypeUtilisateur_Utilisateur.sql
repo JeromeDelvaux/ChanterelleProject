@@ -56,7 +56,7 @@ Set @Uid = NEWID();
 Insert into dbo.Utilisateur(Nom,Prenom,Adressse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
 values 
 (
-'Donals',
+'Donald',
 'Duck',
 'Rue de la tunne, 301 , 15000 WaltDisney',
 '1986-06-25', 

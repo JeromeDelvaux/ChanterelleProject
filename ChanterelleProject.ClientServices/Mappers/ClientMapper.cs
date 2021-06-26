@@ -8,9 +8,9 @@ namespace ChanterelleProject.ClientServices.Mappers
 {
     internal static class ClientMapper
     {
-        internal static UtilisateurClientView ToUtilisateursClientView(this UtilisateurGlobalView utilisateur)
+        internal static UtilisateurClientFullAttributeForView ToUtilisateurClientFullAttributeForView(this UtilisateurGlobalFullAttributeForView utilisateur)
         {
-            return new UtilisateurClientView(
+            return new UtilisateurClientFullAttributeForView(
                 utilisateur.Id,
                 utilisateur.Nom,
                 utilisateur.Prenom,
@@ -30,15 +30,13 @@ namespace ChanterelleProject.ClientServices.Mappers
         internal static UtilisateurGlobal ToUtilisateursGlobal(this UtilisateurClient utilisateur)
         {
             return new UtilisateurGlobal()
-            {
-                Id = utilisateur.Id,
+            { 
                 Nom = utilisateur.Nom,
                 Prenom = utilisateur.Prenom,
                 Adresse = utilisateur.Adresse,
                 DateNaissance = utilisateur.DateNaissance,
                 RegistreNational = utilisateur.RegistreNational,
                 Sexe = utilisateur.Sexe,
-                DateDerniereModif = utilisateur.DateDerniereModif,
                 DateDebutContrat = utilisateur.DateDebutContrat,
                 Telephone = utilisateur.Telephone,
                 Mail = utilisateur.Mail,

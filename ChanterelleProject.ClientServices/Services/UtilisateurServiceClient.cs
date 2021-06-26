@@ -7,12 +7,12 @@ using ChanterelleProject.Interfaces;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient, UtilisateurClientView>
+    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient, UtilisateurClientFullAttributeForView>
     {
-        private readonly IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalView> _globalUtilisateurServices;
+        private readonly IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView> _globalUtilisateurServices;
 
 
-        public UtilisateurServiceClient(IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalView> globalUtilisateurServices)
+        public UtilisateurServiceClient(IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView> globalUtilisateurServices)
         {
             _globalUtilisateurServices = globalUtilisateurServices;
         }
@@ -22,14 +22,14 @@ namespace ChanterelleProject.ClientServices.Services
             return _globalUtilisateurServices.Delete(key);
         }
 
-        public UtilisateurClientView Get(int key)
+        public UtilisateurClientFullAttributeForView Get(int key)
         {
-            return _globalUtilisateurServices.Get(key).ToUtilisateursClientView();
+            return _globalUtilisateurServices.Get(key).ToUtilisateurClientFullAttributeForView();
         }
 
-        public IEnumerable<UtilisateurClientView> GetAll()
+        public IEnumerable<UtilisateurClientFullAttributeForView> GetAll()
         {
-            return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateursClientView()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurCLient
+            return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateurClientFullAttributeForView()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurCLient
            
         }
 

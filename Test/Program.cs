@@ -13,7 +13,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            List<UtilisateurGlobalView> l = new List<UtilisateurGlobalView>();
+            List<UtilisateurGlobalFullAttributeForView> l = new List<UtilisateurGlobalFullAttributeForView>();
             Connection connection = new Connection(SqlClientFactory.Instance, @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ChanterelleProjectDataBase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             UtilisateurServicesGlobal utilisateurServices = new UtilisateurServicesGlobal(connection);
             UtilisateurGlobal utilisateur = new UtilisateurGlobal()

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace ChanterelleProject.Interfaces
 {
-    public interface IUtilisateur<TKey, TEntity, TEntityFull>
-        where TEntity : IEntity<TKey> 
+    public interface IUtilisateur<TKey, TEntity, TEntityFullAttributeForView>
+        where TEntityFullAttributeForView : IEntity<TKey> 
     {
         // Create
         TKey Insert(TEntity entity);
@@ -17,7 +17,7 @@ namespace ChanterelleProject.Interfaces
         bool Delete(TKey key);
 
         //Read
-        TEntityFull Get(TKey key);
-        IEnumerable<TEntityFull> GetAll();
+        TEntityFullAttributeForView Get(TKey key);
+        IEnumerable<TEntityFullAttributeForView> GetAll();
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class UtilisateurServicesGlobal : IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalView>
+    public class UtilisateurServicesGlobal : IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView>
     {
         private readonly IConnection _connection;
        
@@ -26,17 +26,17 @@ namespace ChanterelleProject.GlobalServices.Services
             return id != 0;
         }
 
-        public UtilisateurGlobalView Get(int key)
+        public UtilisateurGlobalFullAttributeForView Get(int key)
         {
             Commands command = new Commands("SP_ChtlePrj_GetUtilisateursById", true);
             command.AddParameter("@Id", key);
-            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurView()).SingleOrDefault();
+            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurGlobalFullAttributeForView()).SingleOrDefault();
         }
 
-        public IEnumerable<UtilisateurGlobalView> GetAll()
+        public IEnumerable<UtilisateurGlobalFullAttributeForView> GetAll()
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllUtilisateurs", true);
-            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurView());
+            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurGlobalFullAttributeForView());
         }
 
         public int Insert(UtilisateurGlobal entity)

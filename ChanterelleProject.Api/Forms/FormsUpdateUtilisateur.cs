@@ -8,7 +8,6 @@ namespace ChanterelleProject.Api.Forms
 {
     public class FormsUpdateUtilisateur
     {
-        public int Id { get; set; }
         [Required]
         public string Nom { get; set; }
         [Required]
@@ -21,7 +20,6 @@ namespace ChanterelleProject.Api.Forms
         public string RegistreNational { get; set; }
         [Required]
         public string Sexe { get; set; }
-        public DateTime DateDerniereModif { get; set; }
         [Required]
         public DateTime DateDebutContrat { get; set; }
         [Required]
