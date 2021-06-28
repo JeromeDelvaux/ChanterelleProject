@@ -5,9 +5,8 @@ using System.Text;
 
 namespace ChanterelleProject.Models.Global
 {
-    public class UtilisateurGlobalFullAttributeForView : IEntity<int>
+    public class ParaMedicalGlobal 
     {
-        public int Id { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Adresse { get; set; }
@@ -18,8 +17,9 @@ namespace ChanterelleProject.Models.Global
         public DateTime DateDebutContrat { get; set; }
         public string Telephone { get; set; }
         public string Mail { get; set; }
-        public string IntituleTypeUtilisateur { get; set; }
+        public int TypeUtilisateur_Id { get; set; }
+        public string MotDePasse { get; set; }
         public string NumInami { get; set; }
-        public string IntituleSpecialisation { get; set; }
+        public int? SpecialisationId { get; set; }
     }
 }

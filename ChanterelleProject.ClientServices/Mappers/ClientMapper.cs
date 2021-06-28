@@ -8,24 +8,23 @@ namespace ChanterelleProject.ClientServices.Mappers
 {
     internal static class ClientMapper
     {
-        internal static UtilisateurClientFullAttributeForView ToUtilisateurClientFullAttributeForView(this UtilisateurGlobalFullAttributeForView utilisateur)
+        internal static UtilisateurClientFullAttributeForView ToUtilisateurClientFullAttributeForView(this UtilisateurGlobalFullAttributeForView utilisateurGlobalFullAttributeForView)
         {
             return new UtilisateurClientFullAttributeForView(
-                utilisateur.Id,
-                utilisateur.Nom,
-                utilisateur.Prenom,
-                utilisateur.Adresse,
-                utilisateur.DateNaissance,
-                utilisateur.RegistreNational,
-                utilisateur.Sexe,
-                utilisateur.DateDerniereModif,
-                utilisateur.DateDebutContrat,
-                utilisateur.Telephone,
-                utilisateur.Mail,
-                utilisateur.TypeUtilisateur_Id,
-                utilisateur.MotDePasse,
-                utilisateur.NumInami,
-                utilisateur.SpecialisationId);
+                utilisateurGlobalFullAttributeForView.Id,
+                utilisateurGlobalFullAttributeForView.Nom,
+                utilisateurGlobalFullAttributeForView.Prenom,
+                utilisateurGlobalFullAttributeForView.Adresse,
+                utilisateurGlobalFullAttributeForView.DateNaissance,
+                utilisateurGlobalFullAttributeForView.RegistreNational,
+                utilisateurGlobalFullAttributeForView.Sexe,
+                utilisateurGlobalFullAttributeForView.DateDerniereModif,
+                utilisateurGlobalFullAttributeForView.DateDebutContrat,
+                utilisateurGlobalFullAttributeForView.Telephone,
+                utilisateurGlobalFullAttributeForView.Mail,
+                utilisateurGlobalFullAttributeForView.IntituleTypeUtilisateur,
+                utilisateurGlobalFullAttributeForView.NumInami,
+                utilisateurGlobalFullAttributeForView.IntituleSpecialisation);
         }
         internal static UtilisateurGlobal ToUtilisateursGlobal(this UtilisateurClient utilisateur)
         {
@@ -44,18 +43,37 @@ namespace ChanterelleProject.ClientServices.Mappers
                 MotDePasse = utilisateur.MotDePasse
             };
         }
+        internal static ParaMedicalGlobal ToParaMedicalGlobal(this ParaMedicalClient paraMedicalClient)
+        {
+            return new ParaMedicalGlobal()
+            {
+                Nom = paraMedicalClient.Nom,
+                Prenom = paraMedicalClient.Prenom,
+                Adresse = paraMedicalClient.Adresse,
+                DateNaissance = paraMedicalClient.DateNaissance,
+                RegistreNational = paraMedicalClient.RegistreNational,
+                Sexe = paraMedicalClient.Sexe,
+                DateDebutContrat = paraMedicalClient.DateDebutContrat,
+                Telephone = paraMedicalClient.Telephone,
+                Mail = paraMedicalClient.Mail,
+                TypeUtilisateur_Id = paraMedicalClient.TypeUtilisateur_Id,
+                MotDePasse = paraMedicalClient.MotDePasse,
+                NumInami= paraMedicalClient.NumInami,
+                SpecialisationId = paraMedicalClient.SpecialisationId
+            };
+        }
         internal static SpecialisationParaMedicalClient ToSpecialisationParaMedicalClient(this SpecialisationParaMedicalGlobal specialisationParaMedicalGlobal)
         {
             return new SpecialisationParaMedicalClient(
                 specialisationParaMedicalGlobal.Id,
-                specialisationParaMedicalGlobal.Intitule);
+                specialisationParaMedicalGlobal.IntituleSpecialisation);
         }
         internal static SpecialisationParaMedicalGlobal ToSpecialisationParaMedicalGlobal(this SpecialisationParaMedicalClient specialisationParaMedicalClient)
         {
             return new SpecialisationParaMedicalGlobal()
             {
                 Id= 0,
-                Intitule= specialisationParaMedicalClient.Intitule
+                IntituleSpecialisation = specialisationParaMedicalClient.IntituleSpecialisation
             };
         }
     }

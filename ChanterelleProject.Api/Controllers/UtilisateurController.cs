@@ -12,10 +12,10 @@ namespace ChanterelleProject.Api.Controllers
     [ApiController]
     public class UtilisateurController : ControllerBase
     {
-        private readonly IUtilisateur<int,UtilisateurClient,UtilisateurClientFullAttributeForView> _utilisateursServiceClient;
+        private readonly IUtilisateur<int,UtilisateurClient,UtilisateurClientFullAttributeForView, ParaMedicalClient> _utilisateursServiceClient;
 
 
-        public UtilisateurController(IUtilisateur<int,UtilisateurClient, UtilisateurClientFullAttributeForView> utilisateursServiceClient)
+        public UtilisateurController(IUtilisateur<int,UtilisateurClient, UtilisateurClientFullAttributeForView, ParaMedicalClient> utilisateursServiceClient)
         {
             this._utilisateursServiceClient = utilisateursServiceClient;
         }
@@ -38,7 +38,7 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Delete/{id}")]
         public IActionResult Delete(int id)
         {
-            if (_utilisateursServiceClient.Delete(id))
+            if (_utilisateursServiceClient.DeleteUtilisateur(id))
             {
                 return Ok(); //Retourne le statutCode 200
             }
@@ -49,10 +49,10 @@ namespace ChanterelleProject.Api.Controllers
         }
 
         [HttpPost]
-        [Route("Create")]
-        public IActionResult Create([FromBody] FormsCreateUtilisateur formsCreateUtilisateur)
+        [Route("CreateUtilisateur")]
+        public IActionResult CreateUtilisateur([FromBody] FormsCreateUtilisateur formsCreateUtilisateur)
         {
-            int idNewUtilisateur = _utilisateursServiceClient.Insert(formsCreateUtilisateur.ToUtilisateursClient());
+            int idNewUtilisateur = _utilisateursServiceClient.InsertUtilisateur(formsCreateUtilisateur.ToUtilisateursClient());
             if (idNewUtilisateur == 0)
             {
                 return BadRequest();
@@ -64,10 +64,39 @@ namespace ChanterelleProject.Api.Controllers
         }
 
         [HttpPut]
-        [Route("Update/{id}")]
-        public IActionResult Update(int id,[FromBody] FormsUpdateUtilisateur formsUpdateUtilisateur)
+        [Route("UpdateUtilisateur/{id}")]
+        public IActionResult UpdateUtilisateur(int id,[FromBody] FormsUpdateUtilisateur formsUpdateUtilisateur)
         {
-            bool resultTransaction = _utilisateursServiceClient.Update(id, formsUpdateUtilisateur.ToUtilisateursClient());
+            bool resultTransaction = _utilisateursServiceClient.UpdateUtilisateur(id, formsUpdateUtilisateur.ToUtilisateursClient());
+            if (resultTransaction == false)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok(resultTransaction);
+            }
+        }
+        [HttpPost]
+        [Route("CreateParaMedical")]
+        public IActionResult CreateParaMedical([FromBody] FormsCreateParaMedical formsCreateCreateParaMedical)
+        {
+            int idNewUtilisateur = _utilisateursServiceClient.InsertParaMedical(formsCreateCreateParaMedical.ToParaMedicalClient());
+            if (idNewUtilisateur == 0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok(idNewUtilisateur);
+            }
+        }
+
+        [HttpPut]
+        [Route("UpdateParaMedical/{id}")]
+        public IActionResult UpdateParaMedical(int id, [FromBody] FormsUpdateParaMedical formsUpdateParaMedical)
+        {
+            bool resultTransaction = _utilisateursServiceClient.UpdateParaMedical(id, formsUpdateParaMedical.ToParaMedicalClient());
             if (resultTransaction == false)
             {
                 return BadRequest();

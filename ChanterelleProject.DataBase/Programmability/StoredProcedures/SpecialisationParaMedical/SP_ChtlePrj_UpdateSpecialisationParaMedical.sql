@@ -6,7 +6,7 @@ Begin
 	Begin Transaction
 	Begin Try
 		UPDATE SpecialisationParaMedical
-		SET Intitule = @Intitule	
+		SET IntituleSpecialisation = @Intitule	
 		WHERE Id = @Id
 
 			Commit;

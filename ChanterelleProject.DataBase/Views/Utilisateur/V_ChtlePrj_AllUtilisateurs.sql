@@ -11,10 +11,13 @@
 		U.DateDebutContrat,
 		U.Telephone,
 		U.Mail,
-		TU.Intitule,
+		TU.IntituleTypeUtilisateur,
 		P.NumInami,
-		P.Specialisation_Id
+		SP.IntituleSpecialisation
 
 		FROM Utilisateur U left JOIN ParaMedical P
 		ON U.Id  = P.Id left JOIN TypeUtilisateur TU 
-		ON U.Id=TU.Id WHERE U.Actif='True'
+		ON U.TypeUtilisateur_Id=TU.Id left JOIN SpecialisationParaMedical SP
+		ON P.Specialisation_Id = SP.Id
+		
+		WHERE U.Actif='True'

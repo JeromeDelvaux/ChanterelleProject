@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class UtilisateurServicesGlobal : IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView>
+    public class UtilisateurServicesGlobal : IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView, ParaMedicalGlobal>
     {
         private readonly IConnection _connection;
        
@@ -15,7 +15,8 @@ namespace ChanterelleProject.GlobalServices.Services
         {
             _connection = connection;
         }
-        public bool Delete(int key)
+
+        public bool DeleteUtilisateur(int key)
         {
             int id;
 
@@ -39,7 +40,31 @@ namespace ChanterelleProject.GlobalServices.Services
             return _connection.ExecuteReader(command, sp => sp.ToUtilisateurGlobalFullAttributeForView());
         }
 
-        public int Insert(UtilisateurGlobal entity)
+        public int InsertParaMedical(ParaMedicalGlobal entity)
+        {
+            int? idNewUtilisateur;
+
+            Commands command = new Commands("SP_ChtlePrj_AddParaMedical", true);
+            command.AddParameter("Nom", entity.Nom);
+            command.AddParameter("Prenom", entity.Prenom);
+            command.AddParameter("Adresse", entity.Adresse);
+            command.AddParameter("DateNaissance", entity.DateNaissance);
+            command.AddParameter("RegistreNational", entity.RegistreNational);
+            command.AddParameter("Sexe", entity.Sexe);
+            command.AddParameter("DateDebutContrat", entity.DateDebutContrat);
+            command.AddParameter("Telephone", entity.Telephone);
+            command.AddParameter("Mail", entity.Mail);
+            command.AddParameter("TypeUtilisateurId", entity.TypeUtilisateur_Id);
+            command.AddParameter("MotDePasse", entity.MotDePasse);
+            command.AddParameter("NumInami", entity.NumInami);
+            command.AddParameter("SpecialisationId", entity.SpecialisationId);
+
+            idNewUtilisateur = (int?)_connection.ExecuteScalar(command);
+
+            return (command.ReturnValue == 0) ? idNewUtilisateur.Value : -1;
+        }
+
+        public int InsertUtilisateur(UtilisateurGlobal entity)
         {
             int? idNewUtilisateur;
 
@@ -61,7 +86,29 @@ namespace ChanterelleProject.GlobalServices.Services
             return (command.ReturnValue == 0) ? idNewUtilisateur.Value : -1;
         }
 
-        public bool Update(int key, UtilisateurGlobal entity)
+        public bool UpdateParaMedical(int key, ParaMedicalGlobal entity)
+        {
+            Commands command = new Commands("SP_ChtlePrj_UpdateParaMedical", true);
+            command.AddParameter("Id", key);
+            command.AddParameter("Nom", entity.Nom);
+            command.AddParameter("Prenom", entity.Prenom);
+            command.AddParameter("Adresse", entity.Adresse);
+            command.AddParameter("DateNaissance", entity.DateNaissance);
+            command.AddParameter("RegistreNational", entity.RegistreNational);
+            command.AddParameter("Sexe", entity.Sexe);
+            command.AddParameter("DateDebutContrat", entity.DateDebutContrat);
+            command.AddParameter("Telephone", entity.Telephone);
+            command.AddParameter("Mail", entity.Mail);
+            command.AddParameter("TypeUtilisateurId", entity.TypeUtilisateur_Id);
+            command.AddParameter("MotDePasse", entity.MotDePasse);
+            command.AddParameter("NumInami", entity.NumInami);
+            command.AddParameter("SpecialisationId", entity.SpecialisationId);
+
+            int nbRows = _connection.ExecuteNonQuery(command);
+            return nbRows == 1;
+        }
+
+        public bool UpdateUtilisateur(int key, UtilisateurGlobal entity)
         {
             Commands command = new Commands("SP_ChtlePrj_UpdateUtilisateur", true);
             command.AddParameter("Id", key);

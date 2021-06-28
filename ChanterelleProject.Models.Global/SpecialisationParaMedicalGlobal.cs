@@ -8,6 +8,6 @@ namespace ChanterelleProject.Models.Global
     public class SpecialisationParaMedicalGlobal: IEntity<int>
     {
         public int Id { get; set; }
-        public string Intitule { get; set; }
+        public string IntituleSpecialisation { get; set; }
     }
 }

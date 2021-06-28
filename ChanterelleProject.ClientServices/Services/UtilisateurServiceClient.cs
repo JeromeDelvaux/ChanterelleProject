@@ -7,19 +7,19 @@ using ChanterelleProject.Interfaces;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient, UtilisateurClientFullAttributeForView>
+    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient, UtilisateurClientFullAttributeForView, ParaMedicalClient>
     {
-        private readonly IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView> _globalUtilisateurServices;
+        private readonly IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView, ParaMedicalGlobal> _globalUtilisateurServices;
 
 
-        public UtilisateurServiceClient(IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView> globalUtilisateurServices)
+        public UtilisateurServiceClient(IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView, ParaMedicalGlobal> globalUtilisateurServices)
         {
             _globalUtilisateurServices = globalUtilisateurServices;
         }
 
-        public bool Delete(int key)
+        public bool DeleteUtilisateur(int key)
         {
-            return _globalUtilisateurServices.Delete(key);
+            return _globalUtilisateurServices.DeleteUtilisateur(key);
         }
 
         public UtilisateurClientFullAttributeForView Get(int key)
@@ -33,14 +33,24 @@ namespace ChanterelleProject.ClientServices.Services
 
         }
 
-        public int Insert(UtilisateurClient entity)
+        public int InsertParaMedical(ParaMedicalClient entity)
         {
-            return _globalUtilisateurServices.Insert(entity.ToUtilisateursGlobal());
+            return _globalUtilisateurServices.InsertParaMedical(entity.ToParaMedicalGlobal());
         }
 
-        public bool Update(int key, UtilisateurClient entity)
+        public int InsertUtilisateur(UtilisateurClient entity)
         {
-            return _globalUtilisateurServices.Update(key, entity.ToUtilisateursGlobal());
+            return _globalUtilisateurServices.InsertUtilisateur(entity.ToUtilisateursGlobal());
+        }
+
+        public bool UpdateParaMedical(int key, ParaMedicalClient entity)
+        {
+            return _globalUtilisateurServices.UpdateParaMedical(key, entity.ToParaMedicalGlobal());
+        }
+
+        public bool UpdateUtilisateur(int key, UtilisateurClient entity)
+        {
+            return _globalUtilisateurServices.UpdateUtilisateur(key, entity.ToUtilisateursGlobal());
         }
 
         //public bool CheckPassword(string password, string mail)

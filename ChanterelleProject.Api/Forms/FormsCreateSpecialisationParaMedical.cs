@@ -9,6 +9,6 @@ namespace ChanterelleProject.Api.Forms
     public class FormsCreateSpecialisationParaMedical
     {
         [Required]
-        public string Intitule { get; set; }
+        public string IntituleSpecialisation { get; set; }
     }
 }

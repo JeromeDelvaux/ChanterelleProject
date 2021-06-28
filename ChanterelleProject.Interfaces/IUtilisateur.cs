@@ -4,20 +4,15 @@ using System.Text;
 
 namespace ChanterelleProject.Interfaces
 {
-    public interface IUtilisateur<TKey, TEntity, TEntityFullAttributeForView>
-        where TEntityFullAttributeForView : IEntity<TKey> 
+    public interface IUtilisateur<TKey, TUtilisateur, TUtilisateurFullAttributeForView, TParaMedical>
+        where TUtilisateurFullAttributeForView : IEntity<TKey> 
     {
-        // Create
-        TKey Insert(TEntity entity);
-
-        // Update
-        bool Update(TKey key, TEntity entity);
-
-        // Delete
-        bool Delete(TKey key);
-
-        //Read
-        TEntityFullAttributeForView Get(TKey key);
-        IEnumerable<TEntityFullAttributeForView> GetAll();
+        TKey InsertUtilisateur(TUtilisateur entity);
+        bool UpdateUtilisateur(TKey key, TUtilisateur entity);
+        bool DeleteUtilisateur(TKey key);
+        TKey InsertParaMedical(TParaMedical entity);
+        bool UpdateParaMedical(TKey key, TParaMedical entity);
+        TUtilisateurFullAttributeForView Get(TKey key);
+        IEnumerable<TUtilisateurFullAttributeForView> GetAll();
     }
 }

@@ -35,8 +35,8 @@ namespace ChanterelleProject.Api
             });
             services.AddSingleton<IConnection>((sp) => new Connection(SqlClientFactory.Instance, Configuration.GetConnectionString("ConnectionChanterelleDbProject")));
             
-            services.AddSingleton<IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView>, UtilisateurServicesGlobal>();
-            services.AddSingleton<IUtilisateur<int, UtilisateurClient, UtilisateurClientFullAttributeForView>, UtilisateurServiceClient>();
+            services.AddSingleton<IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView,ParaMedicalGlobal>, UtilisateurServicesGlobal>();
+            services.AddSingleton<IUtilisateur<int, UtilisateurClient, UtilisateurClientFullAttributeForView,ParaMedicalClient>, UtilisateurServiceClient>();
 
             services.AddSingleton<ISpecialisationParaMedical<int, SpecialisationParaMedicalGlobal>, SpecialisationParaMedicalServicesGlobal>();
             services.AddSingleton<ISpecialisationParaMedical<int, SpecialisationParaMedicalClient>, SpecialisationParaMedicalServicesClient>();

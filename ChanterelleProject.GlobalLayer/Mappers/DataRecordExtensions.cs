@@ -23,9 +23,9 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 DateDebutContrat = Convert.ToDateTime(dataRecord["DateDebutContrat"]),
                 Telephone = Convert.ToString(dataRecord["Telephone"]),
                 Mail = Convert.ToString(dataRecord["Mail"]),
-                TypeUtilisateur_Id = Convert.ToInt32(dataRecord["TypeUtilisateur_Id"]),
+                IntituleTypeUtilisateur = Convert.ToString(dataRecord["IntituleTypeUtilisateur"]),
                 NumInami = dataRecord["NumInami"] is DBNull ? null : Convert.ToString(dataRecord["NumInami"]),
-                SpecialisationId = dataRecord["Specialisation_Id"] is DBNull ? 0 : Convert.ToInt32(dataRecord["Specialisation_Id"])
+                IntituleSpecialisation = dataRecord["IntituleSpecialisation"] is DBNull ? null : Convert.ToString(dataRecord["IntituleSpecialisation"])
             };
         }
         internal static TraitementGlobal ToTraitement(this IDataRecord dataRecord)
@@ -50,7 +50,7 @@ namespace ChanterelleProject.GlobalServices.Mappers
             return new SpecialisationParaMedicalGlobal()
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
-                Intitule = Convert.ToString(dataRecord["Intitule"]),
+                IntituleSpecialisation = Convert.ToString(dataRecord["IntituleSpecialisation"]),
             };
         }
     }

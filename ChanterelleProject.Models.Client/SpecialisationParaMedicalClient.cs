@@ -7,13 +7,13 @@ namespace ChanterelleProject.Models.Client
 {
     public class SpecialisationParaMedicalClient:IEntity<int>
     {
-        public SpecialisationParaMedicalClient(int id, string intitule)
+        public SpecialisationParaMedicalClient(int id, string intituleSpecialisation)
         {
             Id = id;
-            Intitule = intitule;
+            IntituleSpecialisation = intituleSpecialisation;
         }
 
         public int Id { get; set; }
-        public string Intitule { get; set; }
+        public string IntituleSpecialisation { get; set; }
     }
 }

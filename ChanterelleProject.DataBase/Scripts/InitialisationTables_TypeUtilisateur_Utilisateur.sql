@@ -1,11 +1,11 @@
 ﻿
 /*Insertion Table: TypeUtilisateur*/
 
-		Insert into dbo.TypeUtilisateur(Intitule)
+		Insert into dbo.TypeUtilisateur(IntituleTypeUtilisateur)
 		values ('Directrice')
-		Insert into dbo.TypeUtilisateur(Intitule)
+		Insert into dbo.TypeUtilisateur(IntituleTypeUtilisateur)
 		values ('EquipePluridisciplinaire')
-		Insert into dbo.TypeUtilisateur(Intitule)
+		Insert into dbo.TypeUtilisateur(IntituleTypeUtilisateur)
 		values ('AssistanteSocial')
 
 
@@ -14,7 +14,7 @@
 	/*InsertionUtilisateur1*/
 		Declare @Uid UNIQUEIDENTIFIER;
 		Declare @DateNow DATETIME2(7)=sysdatetime();
-		Set @Uid = NEWID();
+		SET @Uid = NEWID();
 
 		Insert into dbo.Utilisateur(Nom,Prenom,Adressse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
 		values 
@@ -35,7 +35,7 @@
 
 	/*InsertionUtilisateur2*/
 		SET @DateNow =sysdatetime();
-		Set @Uid = NEWID();
+		SET @Uid = NEWID();
 
 		Insert into dbo.Utilisateur(Nom,Prenom,Adressse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
 		values 
@@ -56,7 +56,7 @@
 
 	/*InsertionUtilisateur3*/
 		SET @DateNow =sysdatetime();
-		Set @Uid = NEWID();
+		SET @Uid = NEWID();
 
 		Insert into dbo.Utilisateur(Nom,Prenom,Adressse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
 		values 
@@ -76,11 +76,36 @@
 		@Uid);
 
 
-/*Insertion Table: TypeUtilisateur*/
+/*Insertion Table: SpecialisationParaMedical*/
 
-		Insert into dbo.SpecialisationParaMedical(Intitule)
+		Insert into dbo.SpecialisationParaMedical(IntituleSpecialisation)
 		values ('Pediatre')
-		Insert into dbo.SpecialisationParaMedical(Intitule)
-		values ('kinesithérapeute')
-		Insert into dbo.SpecialisationParaMedical(Intitule)
+		Insert into dbo.SpecialisationParaMedical(IntituleSpecialisation)
+		values ('Kinesithérapeute')
+		Insert into dbo.SpecialisationParaMedical(IntituleSpecialisation)
 		values ('Logopede')
+
+/*InsertionParaMedical1*/
+		Declare @IdParaMedical int;
+		SET @DateNow =sysdatetime();
+		SET @Uid = NEWID();
+
+		Insert into dbo.Utilisateur(Nom,Prenom,Adressse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
+		values 
+		(
+		'Cendrillon',
+		'Lecendriller',
+		'Rue de la coquine, 356 , 15000 WaltDisney',
+		'1992-06-25', 
+		@DateNow,
+		'22112928389',
+		'Femme',
+		@DateNow,
+		'0476589546',
+		'donald.duck@waltdisney.com',
+		1,
+		[dbo].SF_ChtlePrj_SalageEtHash('Test1234=',@Uid),
+		@Uid);
+
+		Set @IdParaMedical = SCOPE_IDENTITY(); /*Recupération du dernier id encodé*/
+		Insert into ParaMedical(Id,NumInami,Specialisation_Id) values (@IdParaMedical,22112928389,1);

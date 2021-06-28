@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[SP_ChtlePrj_AddParaMedical]
 	@Nom NVARCHAR(50),
 	@Prenom NVARCHAR(50),
-	@Adressse NVARCHAR(250),
+	@Adresse NVARCHAR(250),
 	@DateNaissance DATE,
 	@RegistreNational CHAR(11),
 	@Sexe NVARCHAR(5),
@@ -11,7 +11,7 @@
 	@TypeUtilisateurId INT,
 	@MotDePasse Nvarchar(20),
 	@NumInami Nvarchar(50),
-	@SpecialiteId INT
+	@SpecialisationId INT
 	
 As
 Begin
@@ -20,7 +20,6 @@ Begin
 		Declare @Id int;
 		Declare @Uid UNIQUEIDENTIFIER;
 		Declare @DateNow DATETIME2(7)=sysdatetime();/*Récupère la date actuelle*/
-		Declare @Specialisation_Id int;
 
 		Set @Uid = NEWID();
 
@@ -44,7 +43,7 @@ Begin
 		values (
 		@Nom,
 		@Prenom,
-		@Adressse,
+		@Adresse,
 		@DateNaissance,
 		@RegistreNational,
 		@Sexe,
@@ -58,7 +57,7 @@ Begin
 		
 		Set @Id = SCOPE_IDENTITY(); /*Recupération du dernier id encodé*/
 
-		Insert into ParaMedical(Id,NumInami,Specialisation_Id) values (@Id,@NumInami,@SpecialiteId);
+		Insert into ParaMedical(Id,NumInami,Specialisation_Id) values (@Id,@NumInami,@SpecialisationId);
 		Commit;
 		Return 0;
 	End Try

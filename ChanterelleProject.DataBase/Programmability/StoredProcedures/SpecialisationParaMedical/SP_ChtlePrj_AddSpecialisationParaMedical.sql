@@ -5,7 +5,7 @@ Begin
 	Begin Transaction
 	Begin Try
 	BEGIN
-		Insert into SpecialisationParaMedical(Intitule)
+		Insert into SpecialisationParaMedical(IntituleSpecialisation)
 		Output inserted.[Id]
 		values (@Intitule);
 		
