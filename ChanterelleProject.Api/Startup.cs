@@ -35,13 +35,14 @@ namespace ChanterelleProject.Api
             });
             services.AddSingleton<IConnection>((sp) => new Connection(SqlClientFactory.Instance, Configuration.GetConnectionString("ConnectionChanterelleDbProject")));
             
-            services.AddSingleton<IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView,ParaMedicalGlobal>, UtilisateurServicesGlobal>();
-            services.AddSingleton<IUtilisateur<int, UtilisateurClient, UtilisateurClientFullAttributeForView,ParaMedicalClient>, UtilisateurServiceClient>();
+            services.AddSingleton<IUtilisateur<int, UtilisateurGlobal, UtilisateurFullAttributeForViewGlobal,ParaMedicalGlobal>, UtilisateurServicesGlobal>();
+            services.AddSingleton<IUtilisateur<int, UtilisateurClient, UtilisateurFullAttributeForViewClient,ParaMedicalClient>, UtilisateurServiceClient>();
 
             services.AddSingleton<ISpecialisationParaMedical<int, SpecialisationParaMedicalGlobal>, SpecialisationParaMedicalServicesGlobal>();
             services.AddSingleton<ISpecialisationParaMedical<int, SpecialisationParaMedicalClient>, SpecialisationParaMedicalServicesClient>();
 
-
+            services.AddSingleton<ITypeUtilisateur<int, TypeUtilisateurGlobal>, TypeUtilisateurServicesGlobal>();
+            services.AddSingleton<ITypeUtilisateur<int, TypeUtilisateurClient>, TypeUtilisateurServicesClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

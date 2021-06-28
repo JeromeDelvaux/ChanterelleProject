@@ -1,12 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[SP_ChtlePrj_UpdateSpecialisationParaMedical]
 	@Id INT,
-	@Intitule NVARCHAR(50)
+	@IntituleSpecialisation NVARCHAR(50)
 As
 Begin
 	Begin Transaction
 	Begin Try
 		UPDATE SpecialisationParaMedical
-		SET IntituleSpecialisation = @Intitule	
+		SET IntituleSpecialisation = @IntituleSpecialisation	
 		WHERE Id = @Id
 
 			Commit;

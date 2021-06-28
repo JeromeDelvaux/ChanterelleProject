@@ -8,9 +8,9 @@ namespace ChanterelleProject.GlobalServices.Mappers
 {
     public static class DataRecordExtensions
     {
-        internal static UtilisateurGlobalFullAttributeForView ToUtilisateurGlobalFullAttributeForView(this IDataRecord dataRecord)
+        internal static UtilisateurFullAttributeForViewGlobal ToUtilisateurGlobalFullAttributeForView(this IDataRecord dataRecord)
         {
-            return new UtilisateurGlobalFullAttributeForView()
+            return new UtilisateurFullAttributeForViewGlobal()
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 Nom = Convert.ToString(dataRecord["Nom"]),
@@ -51,6 +51,14 @@ namespace ChanterelleProject.GlobalServices.Mappers
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 IntituleSpecialisation = Convert.ToString(dataRecord["IntituleSpecialisation"]),
+            };
+        }
+        internal static TypeUtilisateurGlobal ToTypeUtilisateurGlobal(this IDataRecord dataRecord)
+        {
+            return new TypeUtilisateurGlobal()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                IntituleTypeUtilisateur = Convert.ToString(dataRecord["IntituleTypeUtilisateur"]),
             };
         }
     }

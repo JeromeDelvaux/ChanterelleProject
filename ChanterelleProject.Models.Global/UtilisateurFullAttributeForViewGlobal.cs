@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ChanterelleProject.Models.Global
 {
-    public class UtilisateurGlobalFullAttributeForView : IEntity<int>
+    public class UtilisateurFullAttributeForViewGlobal : IEntity<int>
     {
         public int Id { get; set; }
         public string Nom { get; set; }

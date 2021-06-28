@@ -8,39 +8,39 @@ namespace ChanterelleProject.ClientServices.Mappers
 {
     internal static class ClientMapper
     {
-        internal static UtilisateurClientFullAttributeForView ToUtilisateurClientFullAttributeForView(this UtilisateurGlobalFullAttributeForView utilisateurGlobalFullAttributeForView)
+        internal static UtilisateurFullAttributeForViewClient ToUtilisateurClientFullAttributeForView(this UtilisateurFullAttributeForViewGlobal utilisateurFullAttributeForViewGlobal)
         {
-            return new UtilisateurClientFullAttributeForView(
-                utilisateurGlobalFullAttributeForView.Id,
-                utilisateurGlobalFullAttributeForView.Nom,
-                utilisateurGlobalFullAttributeForView.Prenom,
-                utilisateurGlobalFullAttributeForView.Adresse,
-                utilisateurGlobalFullAttributeForView.DateNaissance,
-                utilisateurGlobalFullAttributeForView.RegistreNational,
-                utilisateurGlobalFullAttributeForView.Sexe,
-                utilisateurGlobalFullAttributeForView.DateDerniereModif,
-                utilisateurGlobalFullAttributeForView.DateDebutContrat,
-                utilisateurGlobalFullAttributeForView.Telephone,
-                utilisateurGlobalFullAttributeForView.Mail,
-                utilisateurGlobalFullAttributeForView.IntituleTypeUtilisateur,
-                utilisateurGlobalFullAttributeForView.NumInami,
-                utilisateurGlobalFullAttributeForView.IntituleSpecialisation);
+            return new UtilisateurFullAttributeForViewClient(
+                utilisateurFullAttributeForViewGlobal.Id,
+                utilisateurFullAttributeForViewGlobal.Nom,
+                utilisateurFullAttributeForViewGlobal.Prenom,
+                utilisateurFullAttributeForViewGlobal.Adresse,
+                utilisateurFullAttributeForViewGlobal.DateNaissance,
+                utilisateurFullAttributeForViewGlobal.RegistreNational,
+                utilisateurFullAttributeForViewGlobal.Sexe,
+                utilisateurFullAttributeForViewGlobal.DateDerniereModif,
+                utilisateurFullAttributeForViewGlobal.DateDebutContrat,
+                utilisateurFullAttributeForViewGlobal.Telephone,
+                utilisateurFullAttributeForViewGlobal.Mail,
+                utilisateurFullAttributeForViewGlobal.IntituleTypeUtilisateur,
+                utilisateurFullAttributeForViewGlobal.NumInami,
+                utilisateurFullAttributeForViewGlobal.IntituleSpecialisation);
         }
-        internal static UtilisateurGlobal ToUtilisateursGlobal(this UtilisateurClient utilisateur)
+        internal static UtilisateurGlobal ToUtilisateursGlobal(this UtilisateurClient utilisateurClient)
         {
             return new UtilisateurGlobal()
             { 
-                Nom = utilisateur.Nom,
-                Prenom = utilisateur.Prenom,
-                Adresse = utilisateur.Adresse,
-                DateNaissance = utilisateur.DateNaissance,
-                RegistreNational = utilisateur.RegistreNational,
-                Sexe = utilisateur.Sexe,
-                DateDebutContrat = utilisateur.DateDebutContrat,
-                Telephone = utilisateur.Telephone,
-                Mail = utilisateur.Mail,
-                TypeUtilisateur_Id = utilisateur.TypeUtilisateur_Id,
-                MotDePasse = utilisateur.MotDePasse
+                Nom = utilisateurClient.Nom,
+                Prenom = utilisateurClient.Prenom,
+                Adresse = utilisateurClient.Adresse,
+                DateNaissance = utilisateurClient.DateNaissance,
+                RegistreNational = utilisateurClient.RegistreNational,
+                Sexe = utilisateurClient.Sexe,
+                DateDebutContrat = utilisateurClient.DateDebutContrat,
+                Telephone = utilisateurClient.Telephone,
+                Mail = utilisateurClient.Mail,
+                TypeUtilisateur_Id = utilisateurClient.TypeUtilisateur_Id,
+                MotDePasse = utilisateurClient.MotDePasse
             };
         }
         internal static ParaMedicalGlobal ToParaMedicalGlobal(this ParaMedicalClient paraMedicalClient)
@@ -74,6 +74,20 @@ namespace ChanterelleProject.ClientServices.Mappers
             {
                 Id= 0,
                 IntituleSpecialisation = specialisationParaMedicalClient.IntituleSpecialisation
+            };
+        }
+        internal static TypeUtilisateurClient ToTypeUtilisateurClient(this TypeUtilisateurGlobal typeUtilisateurGlobal)
+        {
+            return new TypeUtilisateurClient(
+                typeUtilisateurGlobal.Id,
+                typeUtilisateurGlobal.IntituleTypeUtilisateur);
+        }
+        internal static TypeUtilisateurGlobal ToTypeUtilisateurGlobal(this TypeUtilisateurClient typeUtilisateurClient)
+        {
+            return new TypeUtilisateurGlobal()
+            {
+                Id = 0,
+                IntituleTypeUtilisateur = typeUtilisateurClient.IntituleTypeUtilisateur
             };
         }
     }

@@ -12,24 +12,24 @@ namespace ChanterelleProject.Api.Controllers
     [ApiController]
     public class UtilisateurController : ControllerBase
     {
-        private readonly IUtilisateur<int,UtilisateurClient,UtilisateurClientFullAttributeForView, ParaMedicalClient> _utilisateursServiceClient;
+        private readonly IUtilisateur<int,UtilisateurClient,UtilisateurFullAttributeForViewClient, ParaMedicalClient> _utilisateursServiceClient;
 
 
-        public UtilisateurController(IUtilisateur<int,UtilisateurClient, UtilisateurClientFullAttributeForView, ParaMedicalClient> utilisateursServiceClient)
+        public UtilisateurController(IUtilisateur<int,UtilisateurClient, UtilisateurFullAttributeForViewClient, ParaMedicalClient> utilisateursServiceClient)
         {
             this._utilisateursServiceClient = utilisateursServiceClient;
         }
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<UtilisateurClientFullAttributeForView> GetAll()
+        public IEnumerable<UtilisateurFullAttributeForViewClient> GetAll()
         {
             return _utilisateursServiceClient.GetAll();
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public UtilisateurClientFullAttributeForView GetOne(int id)
+        public UtilisateurFullAttributeForViewClient GetOne(int id)
         {
             return _utilisateursServiceClient.Get(id);
         }

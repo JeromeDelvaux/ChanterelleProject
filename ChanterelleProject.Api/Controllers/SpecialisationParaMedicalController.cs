@@ -16,32 +16,32 @@ namespace ChanterelleProject.Api.Controllers
     [ApiController]
     public class SpecialisationParaMedicalController : ControllerBase
     {
-        private ISpecialisationParaMedical<int, SpecialisationParaMedicalClient> _specialisationParaMedicalClient;
+        private ISpecialisationParaMedical<int, SpecialisationParaMedicalClient> _specialisationParaMedicalServicesClient;
 
         public SpecialisationParaMedicalController(ISpecialisationParaMedical<int, SpecialisationParaMedicalClient> specialisationParaMedicalClient)
         {
-            _specialisationParaMedicalClient = specialisationParaMedicalClient;
+            _specialisationParaMedicalServicesClient = specialisationParaMedicalClient;
         }
 
         [HttpGet]
         [Route("GetAll")]
         public IEnumerable<SpecialisationParaMedicalClient> GetAll()
         {
-            return _specialisationParaMedicalClient.GetAll();
+            return _specialisationParaMedicalServicesClient.GetAll();
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
         public SpecialisationParaMedicalClient GetOne(int id)
         {
-            return _specialisationParaMedicalClient.Get(id);
+            return _specialisationParaMedicalServicesClient.Get(id);
         }
 
         [HttpDelete]
         [Route("Delete/{id}")]
         public IActionResult Delete(int id)
         {
-            if (_specialisationParaMedicalClient.Delete(id))
+            if (_specialisationParaMedicalServicesClient.Delete(id))
             {
                 return Ok(); //Retourne le statutCode 200
             }
@@ -55,7 +55,7 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Create")]
         public IActionResult Create([FromBody] FormsCreateSpecialisationParaMedical formsCreateSpecialisationParaMedical)
         {
-            int idNewSpecialisation = _specialisationParaMedicalClient.Insert(formsCreateSpecialisationParaMedical.ToSpecialisationParaMedicalClient());
+            int idNewSpecialisation = _specialisationParaMedicalServicesClient.Insert(formsCreateSpecialisationParaMedical.ToSpecialisationParaMedicalClient());
             if (idNewSpecialisation == 0)
             {
                 return BadRequest();
@@ -70,7 +70,7 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Update/{id}")]
         public IActionResult Update(int id, [FromBody] FormsUpdateSpecialisationParaMedical formsUpdateSpecialisationParaMedical)
         {
-            bool resultTransaction = _specialisationParaMedicalClient.Update(id, formsUpdateSpecialisationParaMedical.ToSpecialisationParaMedicalClient());
+            bool resultTransaction = _specialisationParaMedicalServicesClient.Update(id, formsUpdateSpecialisationParaMedical.ToSpecialisationParaMedicalClient());
             if (resultTransaction == false)
             {
                 return BadRequest();

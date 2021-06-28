@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[SP_ChtlePrj_AddSpecialisationParaMedical]
-	@Intitule NVARCHAR(50)
+	@IntituleSpecialisation NVARCHAR(50)
 As
 Begin
 	Begin Transaction
@@ -7,7 +7,7 @@ Begin
 	BEGIN
 		Insert into SpecialisationParaMedical(IntituleSpecialisation)
 		Output inserted.[Id]
-		values (@Intitule);
+		values (@IntituleSpecialisation);
 		
 		Commit;
 		Return 0;

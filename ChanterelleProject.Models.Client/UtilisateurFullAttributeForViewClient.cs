@@ -5,9 +5,9 @@ using System.Text;
 
 namespace ChanterelleProject.Models.Client
 {
-    public class UtilisateurClientFullAttributeForView : IEntity<int>
+    public class UtilisateurFullAttributeForViewClient : IEntity<int>
     {
-        public UtilisateurClientFullAttributeForView(int id, string nom, string prenom, string adresse, DateTime dateNaissance, string registreNational, string sexe, DateTime dateDerniereModif, DateTime dateDebutContrat, string telephone, string mail, string intituleTypeUtilisateur, string numInami, string intituleSpecialisation)
+        public UtilisateurFullAttributeForViewClient(int id, string nom, string prenom, string adresse, DateTime dateNaissance, string registreNational, string sexe, DateTime dateDerniereModif, DateTime dateDebutContrat, string telephone, string mail, string intituleTypeUtilisateur, string numInami, string intituleSpecialisation)
         {
             Id = id;
             Nom = nom;

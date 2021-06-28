@@ -69,6 +69,8 @@
     <Folder Include="Programmability\StoredProcedures\Traitement" />
     <Folder Include="Views\Utilisateur" />
     <Folder Include="Views\SpecialisationParaMedical" />
+    <Folder Include="Programmability\StoredProcedures\TypeUtilisateur" />
+    <Folder Include="Views\TypeUtilisateur" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Programmability\Functions\SF_ChtlePrj_SalageEtHash.sql" />
@@ -102,6 +104,12 @@
     <Build Include="Programmability\StoredProcedures\SpecialisationParaMedical\SP_ChtlePrj_UpdateSpecialisationParaMedical.sql" />
     <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_AddParaMedical.sql" />
     <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_UpdateParaMedical.sql" />
+    <Build Include="Programmability\StoredProcedures\TypeUtilisateur\SP_ChtlePrj_DeleteTypeUtilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\TypeUtilisateur\SP_ChtlePrj_GetTypeUtilisateurById.sql" />
+    <Build Include="Views\TypeUtilisateur\V_ChtlePrj_AllTypeUtilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\TypeUtilisateur\SP_ChtlePrj_GetAllTypeUtilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\TypeUtilisateur\SP_ChtlePrj_AddTypeUtilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\TypeUtilisateur\SP_ChtlePrj_UpdateTypeUtilisateur.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ChanterelleProject.DataBase.publish.xml" />

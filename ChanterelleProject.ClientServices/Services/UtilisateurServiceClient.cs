@@ -7,12 +7,12 @@ using ChanterelleProject.Interfaces;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient, UtilisateurClientFullAttributeForView, ParaMedicalClient>
+    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient, UtilisateurFullAttributeForViewClient, ParaMedicalClient>
     {
-        private readonly IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView, ParaMedicalGlobal> _globalUtilisateurServices;
+        private readonly IUtilisateur<int, UtilisateurGlobal, UtilisateurFullAttributeForViewGlobal, ParaMedicalGlobal> _globalUtilisateurServices;
 
 
-        public UtilisateurServiceClient(IUtilisateur<int, UtilisateurGlobal, UtilisateurGlobalFullAttributeForView, ParaMedicalGlobal> globalUtilisateurServices)
+        public UtilisateurServiceClient(IUtilisateur<int, UtilisateurGlobal, UtilisateurFullAttributeForViewGlobal, ParaMedicalGlobal> globalUtilisateurServices)
         {
             _globalUtilisateurServices = globalUtilisateurServices;
         }
@@ -22,12 +22,12 @@ namespace ChanterelleProject.ClientServices.Services
             return _globalUtilisateurServices.DeleteUtilisateur(key);
         }
 
-        public UtilisateurClientFullAttributeForView Get(int key)
+        public UtilisateurFullAttributeForViewClient Get(int key)
         {
             return _globalUtilisateurServices.Get(key).ToUtilisateurClientFullAttributeForView();
         }
 
-        public IEnumerable<UtilisateurClientFullAttributeForView> GetAll()
+        public IEnumerable<UtilisateurFullAttributeForViewClient> GetAll()
         {
             return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateurClientFullAttributeForView()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
 
