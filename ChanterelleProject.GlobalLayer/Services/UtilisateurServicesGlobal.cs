@@ -1,6 +1,7 @@
 ﻿using ChanterelleProject.GlobalServices.Mappers;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Global;
+using ChanterelleProject.Models.Global.ModelsGlobalForViews;
 using ConnectionDataBase;
 using System.Collections.Generic;
 using System.Linq;

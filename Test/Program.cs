@@ -1,5 +1,6 @@
 ﻿using ChanterelleProject.GlobalServices.Services;
 using ChanterelleProject.Models.Global;
+using ChanterelleProject.Models.Global.ModelsGlobalForViews;
 using ConnectionDataBase;
 using System;
 using System.Collections.Generic;

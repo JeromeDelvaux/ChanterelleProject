@@ -9,7 +9,7 @@ using System.Text;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class SpecialisationParaMedicalServicesGlobal : ISpecialisationParaMedical<int, SpecialisationParaMedicalGlobal>
+    public class SpecialisationParaMedicalServicesGlobal : IServices<int, SpecialisationParaMedicalGlobal>
     {
         private readonly IConnection _connection;
 

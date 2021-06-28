@@ -9,11 +9,11 @@ using System.Text;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class TypeUtilisateurServicesClient : ITypeUtilisateur<int, TypeUtilisateurClient>
+    public class TypeUtilisateurServicesClient : IServices<int, TypeUtilisateurClient>
     {
-        private readonly ITypeUtilisateur<int, TypeUtilisateurGlobal> _TypeUtilisateurServicesGlobal;
+        private readonly IServices<int, TypeUtilisateurGlobal> _TypeUtilisateurServicesGlobal;
 
-        public TypeUtilisateurServicesClient(ITypeUtilisateur<int, TypeUtilisateurGlobal> typeUtilisateurServicesGlobal)
+        public TypeUtilisateurServicesClient(IServices<int, TypeUtilisateurGlobal> typeUtilisateurServicesGlobal)
         {
             _TypeUtilisateurServicesGlobal = typeUtilisateurServicesGlobal;
         }

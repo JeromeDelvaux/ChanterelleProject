@@ -4,6 +4,8 @@ using ChanterelleProject.ClientServices.Mappers;
 using System.Linq;
 using ChanterelleProject.Models.Global;
 using ChanterelleProject.Interfaces;
+using ChanterelleProject.Models.Client.ModelClientForViews;
+using ChanterelleProject.Models.Global.ModelsGlobalForViews;
 
 namespace ChanterelleProject.ClientServices.Services
 {

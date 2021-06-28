@@ -2,6 +2,7 @@
 using ChanterelleProject.Api.Mappers;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;
+using ChanterelleProject.Models.Client.ModelClientForViews;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 

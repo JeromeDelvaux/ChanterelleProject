@@ -15,9 +15,9 @@ namespace ChanterelleProject.Api.Controllers
     [ApiController]
     public class TypeUtilisateurController : ControllerBase
     {
-        private ITypeUtilisateur<int, TypeUtilisateurClient> _typeUtilisateurServicesClient;
+        private IServices<int, TypeUtilisateurClient> _typeUtilisateurServicesClient;
 
-        public TypeUtilisateurController(ITypeUtilisateur<int, TypeUtilisateurClient> typeUtilisateurServicesClient)
+        public TypeUtilisateurController(IServices<int, TypeUtilisateurClient> typeUtilisateurServicesClient)
         {
             _typeUtilisateurServicesClient = typeUtilisateurServicesClient;
         }

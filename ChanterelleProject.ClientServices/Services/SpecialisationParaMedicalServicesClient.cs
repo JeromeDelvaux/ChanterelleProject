@@ -9,11 +9,11 @@ using System.Text;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class SpecialisationParaMedicalServicesClient : ISpecialisationParaMedical<int, SpecialisationParaMedicalClient>
+    public class SpecialisationParaMedicalServicesClient : IServices<int, SpecialisationParaMedicalClient>
     {
-        private readonly ISpecialisationParaMedical<int, SpecialisationParaMedicalGlobal> _SpecialisationParaMedicalServicesGlobal;
+        private readonly IServices<int, SpecialisationParaMedicalGlobal> _SpecialisationParaMedicalServicesGlobal;
 
-        public SpecialisationParaMedicalServicesClient(ISpecialisationParaMedical<int, SpecialisationParaMedicalGlobal> specialisationParaMedicalServicesGlobal)
+        public SpecialisationParaMedicalServicesClient(IServices<int, SpecialisationParaMedicalGlobal> specialisationParaMedicalServicesGlobal)
         {
             _SpecialisationParaMedicalServicesGlobal = specialisationParaMedicalServicesGlobal;
         }

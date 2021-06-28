@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ChanterelleProject.Interfaces
 {
-    public interface ISpecialisationParaMedical<TKey, TEntity>
+    public interface IServices<TKey, TEntity>
         where TEntity : IEntity<TKey>
     {
         // Create

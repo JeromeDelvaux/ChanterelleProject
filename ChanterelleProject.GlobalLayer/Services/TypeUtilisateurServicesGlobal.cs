@@ -9,7 +9,7 @@ using System.Text;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class TypeUtilisateurServicesGlobal : ITypeUtilisateur<int, TypeUtilisateurGlobal>
+    public class TypeUtilisateurServicesGlobal : IServices<int, TypeUtilisateurGlobal>
     {
         private readonly IConnection _connection;
 

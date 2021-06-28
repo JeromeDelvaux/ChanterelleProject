@@ -16,9 +16,9 @@ namespace ChanterelleProject.Api.Controllers
     [ApiController]
     public class SpecialisationParaMedicalController : ControllerBase
     {
-        private ISpecialisationParaMedical<int, SpecialisationParaMedicalClient> _specialisationParaMedicalServicesClient;
+        private IServices<int, SpecialisationParaMedicalClient> _specialisationParaMedicalServicesClient;
 
-        public SpecialisationParaMedicalController(ISpecialisationParaMedical<int, SpecialisationParaMedicalClient> specialisationParaMedicalClient)
+        public SpecialisationParaMedicalController(IServices<int, SpecialisationParaMedicalClient> specialisationParaMedicalClient)
         {
             _specialisationParaMedicalServicesClient = specialisationParaMedicalClient;
         }

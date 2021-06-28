@@ -1,4 +1,5 @@
 ﻿using ChanterelleProject.Models.Global;
+using ChanterelleProject.Models.Global.ModelsGlobalForViews;
 using System;
 using System.Collections.Generic;
 using System.Data;

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChanterelleProject.Models.Client
+namespace ChanterelleProject.Models.Client.ModelClientForViews
 {
     public class UtilisateurFullAttributeForViewClient : IEntity<int>
     {

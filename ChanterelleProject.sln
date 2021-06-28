@@ -41,7 +41,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07_ChanterelleProject.Interfaces", "07_ChanterelleProject.Interfaces", "{6DBB384A-CA00-4550-881A-047B68325BE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChanterelleProject.Interfaces", "ChanterelleProject.Interfaces\ChanterelleProject.Interfaces.csproj", "{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChanterelleProject.Interfaces", "ChanterelleProject.Interfaces\ChanterelleProject.Interfaces.csproj", "{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

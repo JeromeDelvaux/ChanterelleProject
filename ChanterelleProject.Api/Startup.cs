@@ -2,7 +2,9 @@ using ChanterelleProject.ClientServices.Services;
 using ChanterelleProject.GlobalServices.Services;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;
+using ChanterelleProject.Models.Client.ModelClientForViews;
 using ChanterelleProject.Models.Global;
+using ChanterelleProject.Models.Global.ModelsGlobalForViews;
 using ConnectionDataBase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,11 +40,11 @@ namespace ChanterelleProject.Api
             services.AddSingleton<IUtilisateur<int, UtilisateurGlobal, UtilisateurFullAttributeForViewGlobal,ParaMedicalGlobal>, UtilisateurServicesGlobal>();
             services.AddSingleton<IUtilisateur<int, UtilisateurClient, UtilisateurFullAttributeForViewClient,ParaMedicalClient>, UtilisateurServiceClient>();
 
-            services.AddSingleton<ISpecialisationParaMedical<int, SpecialisationParaMedicalGlobal>, SpecialisationParaMedicalServicesGlobal>();
-            services.AddSingleton<ISpecialisationParaMedical<int, SpecialisationParaMedicalClient>, SpecialisationParaMedicalServicesClient>();
+            services.AddSingleton<IServices<int, SpecialisationParaMedicalGlobal>, SpecialisationParaMedicalServicesGlobal>();
+            services.AddSingleton<IServices<int, SpecialisationParaMedicalClient>, SpecialisationParaMedicalServicesClient>();
 
-            services.AddSingleton<ITypeUtilisateur<int, TypeUtilisateurGlobal>, TypeUtilisateurServicesGlobal>();
-            services.AddSingleton<ITypeUtilisateur<int, TypeUtilisateurClient>, TypeUtilisateurServicesClient>();
+            services.AddSingleton<IServices<int, TypeUtilisateurGlobal>, TypeUtilisateurServicesGlobal>();
+            services.AddSingleton<IServices<int, TypeUtilisateurClient>, TypeUtilisateurServicesClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
