@@ -94,5 +94,31 @@ namespace ChanterelleProject.Api.Mappers
                 0,
                 formsUpdateTypeUtilisateur.IntituleTypeUtilisateur);
         }
+        internal static MedecinExterneClient ToMedecinExterneClient(this FormsCreateMedecinExterne formsCreateMedecinExterne)
+        {
+            return new MedecinExterneClient(
+                0,
+                formsCreateMedecinExterne.NumInami,
+                formsCreateMedecinExterne.Nom,
+                formsCreateMedecinExterne.Prenom,
+                formsCreateMedecinExterne.Adresse,
+                formsCreateMedecinExterne.Mail,
+                formsCreateMedecinExterne.DateNaissance,
+                formsCreateMedecinExterne.TelephonePerso,
+                formsCreateMedecinExterne.TelephoneCabinet);
+        }
+        internal static MedecinExterneClient ToMedecinExterneClient(this FormsUpdateMedecinExterne formsUpdateMedecinExterne)
+        {
+            return new MedecinExterneClient(
+                0,
+                formsUpdateMedecinExterne.NumInami,
+                formsUpdateMedecinExterne.Nom,
+                formsUpdateMedecinExterne.Prenom,
+                formsUpdateMedecinExterne.Adresse,
+                formsUpdateMedecinExterne.Mail,
+                formsUpdateMedecinExterne.DateNaissance,
+                formsUpdateMedecinExterne.TelephonePerso,
+                formsUpdateMedecinExterne.TelephoneCabinet);
+        }
     }
 }

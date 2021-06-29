@@ -62,5 +62,21 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 IntituleTypeUtilisateur = Convert.ToString(dataRecord["IntituleTypeUtilisateur"]),
             };
         }
+        internal static MedecinExterneGlobal ToMedecinExterneGlobal(this IDataRecord dataRecord)
+        {
+            return new MedecinExterneGlobal()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                NumInami = dataRecord["NumInami"] is DBNull ? null : Convert.ToString(dataRecord["NumInami"]),
+                Nom = Convert.ToString(dataRecord["Nom"]),
+                Prenom = Convert.ToString(dataRecord["Prenom"]),
+                Adresse = Convert.ToString(dataRecord["Adressse"]),
+                Mail = dataRecord["Mail"] is DBNull ? null : Convert.ToString(dataRecord["Mail"]),
+                DateNaissance = Convert.ToDateTime(dataRecord["DateNaissance"]),
+                TelephonePerso = dataRecord["TelephonePerso"] is DBNull ? null : Convert.ToString(dataRecord["TelephonePerso"]),
+                TelephoneCabinet = Convert.ToString(dataRecord["TelephoneCabinet"]),
+            };
+        }
+
     }
 }

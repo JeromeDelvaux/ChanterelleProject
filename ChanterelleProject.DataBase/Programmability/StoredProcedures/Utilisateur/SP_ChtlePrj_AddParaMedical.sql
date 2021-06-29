@@ -6,7 +6,7 @@
 	@RegistreNational CHAR(11),
 	@Sexe NVARCHAR(5),
 	@DateDebutContrat DATE,
-	@Telephone INT,
+	@Telephone NVARCHAR(12),
 	@Mail NVARCHAR(350),
 	@TypeUtilisateurId INT,
 	@MotDePasse Nvarchar(20),

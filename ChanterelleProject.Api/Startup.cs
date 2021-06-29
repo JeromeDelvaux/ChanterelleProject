@@ -45,6 +45,9 @@ namespace ChanterelleProject.Api
 
             services.AddSingleton<IServices<int, TypeUtilisateurGlobal>, TypeUtilisateurServicesGlobal>();
             services.AddSingleton<IServices<int, TypeUtilisateurClient>, TypeUtilisateurServicesClient>();
+
+            services.AddSingleton<IServices<int, MedecinExterneGlobal>, MedecinExterneServicesGlobal>();
+            services.AddSingleton<IServices<int, MedecinExterneClient>, MedecinExterneServicesClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -92,6 +92,35 @@ namespace ChanterelleProject.ClientServices.Mappers
                 IntituleTypeUtilisateur = typeUtilisateurClient.IntituleTypeUtilisateur
             };
         }
+
+        internal static MedecinExterneClient ToMedecinExterneClient(this MedecinExterneGlobal medecinExterneGlobalGlobal)
+        {
+            return new MedecinExterneClient(
+                medecinExterneGlobalGlobal.Id,
+                medecinExterneGlobalGlobal.NumInami,
+                medecinExterneGlobalGlobal.Nom,
+                medecinExterneGlobalGlobal.Prenom,
+                medecinExterneGlobalGlobal.Adresse,
+                medecinExterneGlobalGlobal.Mail,
+                medecinExterneGlobalGlobal.DateNaissance,
+                medecinExterneGlobalGlobal.TelephonePerso,
+                medecinExterneGlobalGlobal.TelephoneCabinet);
+        }
+        internal static MedecinExterneGlobal ToMedecinExterneGlobal(this MedecinExterneClient medecinExterneClient)
+        {
+            return new MedecinExterneGlobal()
+            {
+                Id=medecinExterneClient.Id,
+                NumInami = medecinExterneClient.NumInami,
+                Nom = medecinExterneClient.Nom,
+                Prenom = medecinExterneClient.Prenom,
+                Adresse = medecinExterneClient.Adresse, 
+                Mail = medecinExterneClient.Mail,
+                DateNaissance = medecinExterneClient.DateNaissance,
+                TelephonePerso = medecinExterneClient.TelephonePerso,
+                TelephoneCabinet= medecinExterneClient.TelephoneCabinet,
+            };
+        }
     }
 }
 

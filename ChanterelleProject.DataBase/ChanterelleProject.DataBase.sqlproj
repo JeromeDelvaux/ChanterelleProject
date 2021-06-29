@@ -71,6 +71,8 @@
     <Folder Include="Views\SpecialisationParaMedical" />
     <Folder Include="Programmability\StoredProcedures\TypeUtilisateur" />
     <Folder Include="Views\TypeUtilisateur" />
+    <Folder Include="Programmability\StoredProcedures\MedecinExterne" />
+    <Folder Include="Views\MedecinExterne" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Programmability\Functions\SF_ChtlePrj_SalageEtHash.sql" />
@@ -110,6 +112,12 @@
     <Build Include="Programmability\StoredProcedures\TypeUtilisateur\SP_ChtlePrj_GetAllTypeUtilisateur.sql" />
     <Build Include="Programmability\StoredProcedures\TypeUtilisateur\SP_ChtlePrj_AddTypeUtilisateur.sql" />
     <Build Include="Programmability\StoredProcedures\TypeUtilisateur\SP_ChtlePrj_UpdateTypeUtilisateur.sql" />
+    <Build Include="Programmability\StoredProcedures\MedecinExterne\SP_ChtlePrj_DeleteMedecinExterne.sql" />
+    <Build Include="Programmability\StoredProcedures\MedecinExterne\SP_ChtlePrj_GetMedecinExterneById.sql" />
+    <Build Include="Views\MedecinExterne\V_ChtlePrj_AllMedecinExterne.sql" />
+    <Build Include="Programmability\StoredProcedures\MedecinExterne\SP_ChtlePrj_GetAllMedecinExterne.sql" />
+    <Build Include="Programmability\StoredProcedures\MedecinExterne\SP_ChtlePrj_AddMedecinExterne.sql" />
+    <Build Include="Programmability\StoredProcedures\MedecinExterne\SP_ChtlePrj_UpdateMedecinExterne.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ChanterelleProject.DataBase.publish.xml" />

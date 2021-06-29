@@ -7,8 +7,8 @@
 	[Adressse] NVARCHAR(250) NOT NULL,
 	[Mail] NVARCHAR(350),
 	[DateNaissance] DATE NOT NULL,
-	[TelephonePerso] INT,
-	[TelephoneCabinet] INT NOT NULL,
+	[TelephonePerso] CHAR(12),
+	[TelephoneCabinet] CHAR(12) NOT NULL,
 	[Actif] BIT NOT NULL DEFAULT 1,
 
 	Constraint PK_MedecinExterne Primary Key (Id),
