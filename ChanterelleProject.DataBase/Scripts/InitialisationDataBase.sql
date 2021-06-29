@@ -128,3 +128,9 @@
 			'1995-03-18', 
 			'0276582541',
 			'0496579526');
+
+/*Insertion Table: Classe*/
+
+	/*Classe1*/
+			Insert into dbo.Classe(IntituleClasse,NbEleveMax,Utilisateur_Id)
+			values ('Les Canard Jaune',14,1);

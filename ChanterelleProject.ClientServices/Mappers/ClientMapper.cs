@@ -10,7 +10,7 @@ namespace ChanterelleProject.ClientServices.Mappers
 {
     internal static class ClientMapper
     {
-        internal static UtilisateurFullAttributeForViewClient ToUtilisateurClientFullAttributeForView(this UtilisateurFullAttributeForViewGlobal utilisateurFullAttributeForViewGlobal)
+        internal static UtilisateurFullAttributeForViewClient ToUtilisateurFullAttributeForViewClient(this UtilisateurFullAttributeForViewGlobal utilisateurFullAttributeForViewGlobal)
         {
             return new UtilisateurFullAttributeForViewClient(
                 utilisateurFullAttributeForViewGlobal.Id,
@@ -119,6 +119,23 @@ namespace ChanterelleProject.ClientServices.Mappers
                 DateNaissance = medecinExterneClient.DateNaissance,
                 TelephonePerso = medecinExterneClient.TelephonePerso,
                 TelephoneCabinet= medecinExterneClient.TelephoneCabinet,
+            };
+        }
+        internal static ClasseFullAttributeForViewClient ToClasseFullAttributeForViewClient(this ClasseFullAttributeForViewGlobal classeFullAttributeForViewGlobal)
+        {
+            return new ClasseFullAttributeForViewClient(
+                classeFullAttributeForViewGlobal.Id,
+                classeFullAttributeForViewGlobal.IntituleClasse,
+                classeFullAttributeForViewGlobal.NbEleveMax,
+                classeFullAttributeForViewGlobal.NomTitulaire);
+        }
+        internal static ClasseGlobal ToClasseGlobal(this ClasseClient classeClient)
+        {
+            return new ClasseGlobal()
+            {
+                IntituleClasse = classeClient.IntituleClasse,
+                NbEleveMax=classeClient.NbEleveMax,
+                Utilisateur_Id=classeClient.Utilisateur_Id
             };
         }
     }

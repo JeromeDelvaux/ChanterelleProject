@@ -3,8 +3,9 @@ using System;
 
 namespace ChanterelleProject.Models.Global
 {
-    public class UtilisateurGlobal 
+    public class UtilisateurGlobal : IEntity<int>
     {
+        public int Id { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Adresse { get; set; }

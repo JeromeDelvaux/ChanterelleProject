@@ -9,6 +9,7 @@ namespace ChanterelleProject.Api.Mappers
         internal static UtilisateurClient ToUtilisateursClient(this FormsCreateUtilisateur formsCreateUtilisateur)
         {
             return new UtilisateurClient(
+                0,
                 formsCreateUtilisateur.Nom,
                 formsCreateUtilisateur.Prenom,
                 formsCreateUtilisateur.Adresse,
@@ -24,6 +25,7 @@ namespace ChanterelleProject.Api.Mappers
         internal static UtilisateurClient ToUtilisateursClient(this FormsUpdateUtilisateur formsUpdateUtilisateur)
         {
             return new UtilisateurClient(
+                0,
                 formsUpdateUtilisateur.Nom,
                 formsUpdateUtilisateur.Prenom,
                 formsUpdateUtilisateur.Adresse,
@@ -39,6 +41,7 @@ namespace ChanterelleProject.Api.Mappers
         internal static ParaMedicalClient ToParaMedicalClient(this FormsCreateParaMedical formsCreateParaMedical)
         {
             return new ParaMedicalClient(
+                0,
                 formsCreateParaMedical.Nom,
                 formsCreateParaMedical.Prenom,
                 formsCreateParaMedical.Adresse,
@@ -56,6 +59,7 @@ namespace ChanterelleProject.Api.Mappers
         internal static ParaMedicalClient ToParaMedicalClient(this FormsUpdateParaMedical formsUpdateParaMedical)
         {
             return new ParaMedicalClient(
+                0,
                 formsUpdateParaMedical.Nom,
                 formsUpdateParaMedical.Prenom,
                 formsUpdateParaMedical.Adresse,
@@ -119,6 +123,22 @@ namespace ChanterelleProject.Api.Mappers
                 formsUpdateMedecinExterne.DateNaissance,
                 formsUpdateMedecinExterne.TelephonePerso,
                 formsUpdateMedecinExterne.TelephoneCabinet);
+        }
+        internal static ClasseClient ToClasseClient(this FormsCreateClasse formsCreateClasse)
+        {
+            return new ClasseClient(
+                0,
+                formsCreateClasse.IntituleClasse,
+                formsCreateClasse.NbEleveMax,
+                formsCreateClasse.Utilisateur_Id);
+        }
+        internal static ClasseClient ToClasseClient(this FormsUpdateClasse formsUpdateClasse)
+        {
+            return new ClasseClient(
+                0,
+                formsUpdateClasse.IntituleClasse,
+                formsUpdateClasse.NbEleveMax,
+                formsUpdateClasse.Utilisateur_Id);
         }
     }
 }

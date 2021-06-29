@@ -73,6 +73,8 @@
     <Folder Include="Views\TypeUtilisateur" />
     <Folder Include="Programmability\StoredProcedures\MedecinExterne" />
     <Folder Include="Views\MedecinExterne" />
+    <Folder Include="Programmability\StoredProcedures\Classe" />
+    <Folder Include="Views\Classe" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Programmability\Functions\SF_ChtlePrj_SalageEtHash.sql" />
@@ -118,11 +120,17 @@
     <Build Include="Programmability\StoredProcedures\MedecinExterne\SP_ChtlePrj_GetAllMedecinExterne.sql" />
     <Build Include="Programmability\StoredProcedures\MedecinExterne\SP_ChtlePrj_AddMedecinExterne.sql" />
     <Build Include="Programmability\StoredProcedures\MedecinExterne\SP_ChtlePrj_UpdateMedecinExterne.sql" />
+    <Build Include="Programmability\StoredProcedures\Classe\SP_ChtlePrj_DeleteClasse.sql" />
+    <Build Include="Programmability\StoredProcedures\Classe\SP_ChtlePrj_GetClasseById.sql" />
+    <Build Include="Programmability\StoredProcedures\Classe\SP_ChtlePrj_GetAllClasse.sql" />
+    <Build Include="Programmability\StoredProcedures\Classe\SP_ChtlePrj_AddClasse.sql" />
+    <Build Include="Programmability\StoredProcedures\Classe\SP_ChtlePrj_UpdateClasse.sql" />
+    <Build Include="Views\Classe\V_ChtlePrj_AllClasse.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ChanterelleProject.DataBase.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="Scripts\InitialisationTables_TypeUtilisateur_Utilisateur.sql" />
+    <PostDeploy Include="Scripts\InitialisationDataBase.sql" />
   </ItemGroup>
 </Project>

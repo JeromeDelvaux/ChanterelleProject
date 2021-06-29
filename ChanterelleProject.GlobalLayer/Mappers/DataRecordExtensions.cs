@@ -77,6 +77,18 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 TelephoneCabinet = Convert.ToString(dataRecord["TelephoneCabinet"]),
             };
         }
+        internal static ClasseFullAttributeForViewGlobal ToClasseFullAttributeForViewGlobal(this IDataRecord dataRecord)
+        {
+            return new ClasseFullAttributeForViewGlobal()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                IntituleClasse= Convert.ToString(dataRecord["IntituleClasse"]),
+                NbEleveMax= Convert.ToInt32(dataRecord["NbEleveMax"]),
+                NomTitulaire=Convert.ToString(dataRecord["NomTitulaire"])
+            };
+        }
+
+
 
     }
 }

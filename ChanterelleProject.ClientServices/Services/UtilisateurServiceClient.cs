@@ -26,12 +26,12 @@ namespace ChanterelleProject.ClientServices.Services
 
         public UtilisateurFullAttributeForViewClient Get(int key)
         {
-            return _globalUtilisateurServices.Get(key).ToUtilisateurClientFullAttributeForView();
+            return _globalUtilisateurServices.Get(key).ToUtilisateurFullAttributeForViewClient();
         }
 
         public IEnumerable<UtilisateurFullAttributeForViewClient> GetAll()
         {
-            return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateurClientFullAttributeForView()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
+            return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateurFullAttributeForViewClient()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
 
         }
 
