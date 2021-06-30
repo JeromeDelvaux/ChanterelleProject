@@ -134,3 +134,15 @@
 	/*Classe1*/
 			Insert into dbo.Classe(IntituleClasse,NbEleveMax,Utilisateur_Id)
 			values ('Les Canard Jaune',14,1);
+
+/*Insertion Table: AllocationParaMedicals*/
+
+	/*AllocationParaMedicals1*/
+			Insert into dbo.AllocationParaMedicals(DateDebut,Classe_Id,ParaMedical_Id)
+			values ('1995-03-18',1,4);
+
+/*Insertion Table: AllocationClasses*/
+
+	/*AllocationClasses1*/
+			Insert into dbo.AllocationClasses(DateDebut,Classe_Id,Utilisateur_Id)
+			values ('2020-03-18',1,3);

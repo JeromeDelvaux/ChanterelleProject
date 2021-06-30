@@ -84,11 +84,29 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 IntituleClasse= Convert.ToString(dataRecord["IntituleClasse"]),
                 NbEleveMax= Convert.ToInt32(dataRecord["NbEleveMax"]),
-                NomTitulaire=Convert.ToString(dataRecord["NomTitulaire"])
+                NomTitulaire=Convert.ToString(dataRecord["Nom"])
             };
         }
-
-
+        internal static AllocationParaMedicalsFullAttributeForViewGlobal ToAllocationParaMedicalsFullAttributeForViewGlobal(this IDataRecord dataRecord)
+        {
+            return new AllocationParaMedicalsFullAttributeForViewGlobal()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                DateDebut = Convert.ToDateTime(dataRecord["DateDebut"]),
+                NomClasse = Convert.ToString(dataRecord["IntituleClasse"]),
+                NomParaMedical= Convert.ToString(dataRecord["Nom"])
+            };
+        }
+        internal static AllocationClassesFullAttributeForViewGlobal ToAllocationClassesFullAttributeForViewGlobal(this IDataRecord dataRecord)
+        {
+            return new AllocationClassesFullAttributeForViewGlobal()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                DateDebut = Convert.ToDateTime(dataRecord["DateDebut"]),
+                NomClasse = Convert.ToString(dataRecord["IntituleClasse"]),
+                NomProfesseur = Convert.ToString(dataRecord["Nom"])
+            };
+        }
 
     }
 }

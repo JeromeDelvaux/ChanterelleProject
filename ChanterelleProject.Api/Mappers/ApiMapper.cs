@@ -1,6 +1,6 @@
 ﻿using ChanterelleProject.Api.Forms;
 using ChanterelleProject.Models.Client;
-
+using System;
 
 namespace ChanterelleProject.Api.Mappers
 {
@@ -139,6 +139,38 @@ namespace ChanterelleProject.Api.Mappers
                 formsUpdateClasse.IntituleClasse,
                 formsUpdateClasse.NbEleveMax,
                 formsUpdateClasse.Utilisateur_Id);
+        }
+        internal static AllocationParaMedicalsClient ToAllocationParaMedicalsClient(this FormsCreateAllocationParaMedicals formsCreateAllocationParaMedicals)
+        {
+            return new AllocationParaMedicalsClient(
+                0,
+                formsCreateAllocationParaMedicals.DateDebut,
+                formsCreateAllocationParaMedicals.Class_Id,
+                formsCreateAllocationParaMedicals.ParaMedical_Id);
+        }
+        internal static AllocationParaMedicalsClient ToAllocationParaMedicalsClient(this FormsUpdateAllocationParaMedicals formsUpdateAllocationParaMedicals)
+        {
+            return new AllocationParaMedicalsClient(
+                0,
+                new DateTime(),
+                formsUpdateAllocationParaMedicals.Class_Id,
+                formsUpdateAllocationParaMedicals.ParaMedical_Id);
+        }
+        internal static AllocationClassesClient ToAllocationClassesClient(this FormsCreateAllocationClasses formsCreateAllocationClasses)
+        {
+            return new AllocationClassesClient(
+                0,
+                formsCreateAllocationClasses.DateDebut,
+                formsCreateAllocationClasses.Class_Id,
+                formsCreateAllocationClasses.Utilisateur_Id);
+        }
+        internal static AllocationClassesClient ToAllocationClassesClient(this FormsUpdateAllocationClasses formsUpdateAllocationClasses)
+        {
+            return new AllocationClassesClient(
+                0,
+                new DateTime(),
+                formsUpdateAllocationClasses.Class_Id,
+                formsUpdateAllocationClasses.Utilisateur_Id);
         }
     }
 }

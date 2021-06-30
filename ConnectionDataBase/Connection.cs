@@ -89,7 +89,6 @@ namespace ConnectionDataBase
             }
         }
 
-
         private DbCommand CreateCommand(Commands command, DbConnection connection)
         {
             DbCommand cmd = connection.CreateCommand();

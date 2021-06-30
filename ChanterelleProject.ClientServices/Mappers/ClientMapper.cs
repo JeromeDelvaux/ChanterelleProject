@@ -138,6 +138,40 @@ namespace ChanterelleProject.ClientServices.Mappers
                 Utilisateur_Id=classeClient.Utilisateur_Id
             };
         }
+        internal static AllocationParaMedicalsFullAttributeForViewClient ToAllocationParaMedicalsFullAttributeForViewClient(this AllocationParaMedicalsFullAttributeForViewGlobal allocationParaMedicalsFullAttributeForViewGlobal)
+        {
+            return new AllocationParaMedicalsFullAttributeForViewClient(
+                allocationParaMedicalsFullAttributeForViewGlobal.Id,
+                allocationParaMedicalsFullAttributeForViewGlobal.DateDebut,
+                allocationParaMedicalsFullAttributeForViewGlobal.NomClasse,
+                allocationParaMedicalsFullAttributeForViewGlobal.NomParaMedical);
+        }
+        internal static AllocationParaMedicalsGlobal ToAllocationParaMedicalsGlobal(this AllocationParaMedicalsClient allocationParaMedicalsClient)
+        {
+            return new AllocationParaMedicalsGlobal()
+            {
+                DateDebut = allocationParaMedicalsClient.DateDebut,
+                Classe_Id = allocationParaMedicalsClient.Classe_Id,
+                ParaMedical_Id = allocationParaMedicalsClient.ParaMedical_Id
+            };
+        }
+        internal static AllocationClassesFullAttributeForViewClient ToAllocationClassesFullAttributeForViewClient(this AllocationClassesFullAttributeForViewGlobal allocationClassesFullAttributeForViewGlobal)
+        {
+            return new AllocationClassesFullAttributeForViewClient(
+                allocationClassesFullAttributeForViewGlobal.Id,
+                allocationClassesFullAttributeForViewGlobal.DateDebut,
+                allocationClassesFullAttributeForViewGlobal.NomClasse,
+                allocationClassesFullAttributeForViewGlobal.NomProfesseur);
+        }
+        internal static AllocationClassesGlobal ToAllocationClassesGlobal(this AllocationClassesClient allocationClassesClient)
+        {
+            return new AllocationClassesGlobal()
+            {
+                DateDebut = allocationClassesClient.DateDebut,
+                Classe_Id = allocationClassesClient.Classe_Id,
+                Utilisateur_Id = allocationClassesClient.Utilisateur_Id
+            };
+        }
     }
 }
 

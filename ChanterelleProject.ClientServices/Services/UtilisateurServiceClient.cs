@@ -32,7 +32,6 @@ namespace ChanterelleProject.ClientServices.Services
         public IEnumerable<UtilisateurFullAttributeForViewClient> GetAll()
         {
             return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateurFullAttributeForViewClient()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
-
         }
 
         public int InsertParaMedical(ParaMedicalClient entity)

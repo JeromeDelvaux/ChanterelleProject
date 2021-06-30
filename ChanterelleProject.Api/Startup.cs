@@ -52,6 +52,11 @@ namespace ChanterelleProject.Api
             services.AddSingleton<IClasse<int, ClasseGlobal, ClasseFullAttributeForViewGlobal>, ClasseServicesGlobal>();
             services.AddSingleton<IClasse<int, ClasseClient, ClasseFullAttributeForViewClient>, ClasseServicesClient>();
 
+            services.AddSingleton<IAllocationParaMedicals<int, AllocationParaMedicalsGlobal, AllocationParaMedicalsFullAttributeForViewGlobal>, AllocationParaMedicalsServicesGlobal>();
+            services.AddSingleton<IAllocationParaMedicals<int, AllocationParaMedicalsClient, AllocationParaMedicalsFullAttributeForViewClient>, AllocationParaMedicalsServicesClient>();
+
+            services.AddSingleton<IAllocationClasses<int, AllocationClassesGlobal, AllocationClassesFullAttributeForViewGlobal>, AllocationClassesServicesGlobal>();
+            services.AddSingleton<IAllocationClasses<int, AllocationClassesClient, AllocationClassesFullAttributeForViewClient>, AllocationClassesServicesClient>();
 
         }
 
