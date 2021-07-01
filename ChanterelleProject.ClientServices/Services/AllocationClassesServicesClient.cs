@@ -4,18 +4,16 @@ using ChanterelleProject.Models.Client;
 using ChanterelleProject.Models.Client.ModelClientForViews;
 using ChanterelleProject.Models.Global;
 using ChanterelleProject.Models.Global.ModelsGlobalForViews;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class AllocationClassesServicesClient : IAllocationClasses<int, AllocationClassesClient, AllocationClassesFullAttributeForViewClient>
+    public class AllocationClassesServicesClient : IAllocationClasses<int, AllocationClassesClient, AllocationClassesViewClient>
     {
-        private readonly IAllocationClasses<int, AllocationClassesGlobal, AllocationClassesFullAttributeForViewGlobal> _allocationClassesServicesGlobal;
+        private readonly IAllocationClasses<int, AllocationClassesGlobal, AllocationClassesViewGlobal> _allocationClassesServicesGlobal;
 
-        public AllocationClassesServicesClient(IAllocationClasses<int, AllocationClassesGlobal, AllocationClassesFullAttributeForViewGlobal> allocationClassesServicesGlobal)
+        public AllocationClassesServicesClient(IAllocationClasses<int, AllocationClassesGlobal, AllocationClassesViewGlobal> allocationClassesServicesGlobal)
         {
             _allocationClassesServicesGlobal = allocationClassesServicesGlobal;
         }
@@ -25,14 +23,14 @@ namespace ChanterelleProject.ClientServices.Services
             return _allocationClassesServicesGlobal.DeleteAllocationClasses(key);
         }
 
-        public AllocationClassesFullAttributeForViewClient Get(int key)
+        public AllocationClassesViewClient Get(int key)
         {
-            return _allocationClassesServicesGlobal.Get(key).ToAllocationClassesFullAttributeForViewClient(); ;
+            return _allocationClassesServicesGlobal.Get(key).ToAllocationClassesViewClient(); ;
         }
 
-        public IEnumerable<AllocationClassesFullAttributeForViewClient> GetAll()
+        public IEnumerable<AllocationClassesViewClient> GetAll()
         {
-            return _allocationClassesServicesGlobal.GetAll().Select(u => u.ToAllocationClassesFullAttributeForViewClient()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
+            return _allocationClassesServicesGlobal.GetAll().Select(u => u.ToAllocationClassesViewClient()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
         }
 
         public int InsertAllocationClasses(AllocationClassesClient entity)

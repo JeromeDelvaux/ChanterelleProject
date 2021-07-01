@@ -9,12 +9,12 @@ using ChanterelleProject.Models.Global.ModelsGlobalForViews;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient, UtilisateurFullAttributeForViewClient, ParaMedicalClient>
+    public class UtilisateurServiceClient : IUtilisateur<int, UtilisateurClient, UtilisateurViewClient, ParaMedicalClient>
     {
-        private readonly IUtilisateur<int, UtilisateurGlobal, UtilisateurFullAttributeForViewGlobal, ParaMedicalGlobal> _globalUtilisateurServices;
+        private readonly IUtilisateur<int, Models.Global.UtilisateurGlobal, Models.Global.ModelsGlobalForViews.UtilisateurViewGlobal, ParaMedicalGlobal> _globalUtilisateurServices;
 
 
-        public UtilisateurServiceClient(IUtilisateur<int, UtilisateurGlobal, UtilisateurFullAttributeForViewGlobal, ParaMedicalGlobal> globalUtilisateurServices)
+        public UtilisateurServiceClient(IUtilisateur<int, Models.Global.UtilisateurGlobal, Models.Global.ModelsGlobalForViews.UtilisateurViewGlobal, ParaMedicalGlobal> globalUtilisateurServices)
         {
             _globalUtilisateurServices = globalUtilisateurServices;
         }
@@ -24,14 +24,14 @@ namespace ChanterelleProject.ClientServices.Services
             return _globalUtilisateurServices.DeleteUtilisateur(key);
         }
 
-        public UtilisateurFullAttributeForViewClient Get(int key)
+        public UtilisateurViewClient Get(int key)
         {
-            return _globalUtilisateurServices.Get(key).ToUtilisateurFullAttributeForViewClient();
+            return _globalUtilisateurServices.Get(key).ToUtilisateurViewClient();
         }
 
-        public IEnumerable<UtilisateurFullAttributeForViewClient> GetAll()
+        public IEnumerable<UtilisateurViewClient> GetAll()
         {
-            return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateurFullAttributeForViewClient()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
+            return _globalUtilisateurServices.GetAll().Select(u => u.ToUtilisateurViewClient()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
         }
 
         public int InsertParaMedical(ParaMedicalClient entity)

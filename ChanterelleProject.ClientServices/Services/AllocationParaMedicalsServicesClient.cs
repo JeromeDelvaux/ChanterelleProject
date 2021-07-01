@@ -11,11 +11,11 @@ using System.Text;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class AllocationParaMedicalsServicesClient : IAllocationParaMedicals<int, AllocationParaMedicalsClient, AllocationParaMedicalsFullAttributeForViewClient>
+    public class AllocationParaMedicalsServicesClient : IAllocationParaMedicals<int, AllocationParaMedicalsClient, AllocationParaMedicalsViewClient>
     {
-        private readonly IAllocationParaMedicals<int, AllocationParaMedicalsGlobal, AllocationParaMedicalsFullAttributeForViewGlobal> _allocationParaMedicalsServicesGlobal;
+        private readonly IAllocationParaMedicals<int, Models.Global.AllocationParaMedicalsGlobal, Models.Global.ModelsGlobalForViews.AllocationParaMedicalsViewGlobal> _allocationParaMedicalsServicesGlobal;
         
-        public AllocationParaMedicalsServicesClient(IAllocationParaMedicals<int, AllocationParaMedicalsGlobal, AllocationParaMedicalsFullAttributeForViewGlobal> allocationParaMedicalsServicesGlobal)
+        public AllocationParaMedicalsServicesClient(IAllocationParaMedicals<int, Models.Global.AllocationParaMedicalsGlobal, Models.Global.ModelsGlobalForViews.AllocationParaMedicalsViewGlobal> allocationParaMedicalsServicesGlobal)
         {
             _allocationParaMedicalsServicesGlobal = allocationParaMedicalsServicesGlobal;
         }
@@ -25,14 +25,14 @@ namespace ChanterelleProject.ClientServices.Services
             return _allocationParaMedicalsServicesGlobal.DeleteAllocationParaMedicals(key);
         }
 
-        public AllocationParaMedicalsFullAttributeForViewClient Get(int key)
+        public AllocationParaMedicalsViewClient Get(int key)
         {
-            return _allocationParaMedicalsServicesGlobal.Get(key).ToAllocationParaMedicalsFullAttributeForViewClient(); ;
+            return _allocationParaMedicalsServicesGlobal.Get(key).ToAllocationParaMedicalsViewClient(); ;
         }
 
-        public IEnumerable<AllocationParaMedicalsFullAttributeForViewClient> GetAll()
+        public IEnumerable<AllocationParaMedicalsViewClient> GetAll()
         {
-            return _allocationParaMedicalsServicesGlobal.GetAll().Select(u => u.ToAllocationParaMedicalsFullAttributeForViewClient()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
+            return _allocationParaMedicalsServicesGlobal.GetAll().Select(u => u.ToAllocationParaMedicalsViewClient()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
 
         }
 

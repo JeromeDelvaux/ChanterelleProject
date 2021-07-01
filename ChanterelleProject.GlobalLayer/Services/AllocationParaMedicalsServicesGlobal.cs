@@ -10,7 +10,7 @@ using System.Text;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class AllocationParaMedicalsServicesGlobal : IAllocationParaMedicals<int, AllocationParaMedicalsGlobal, AllocationParaMedicalsFullAttributeForViewGlobal>
+    public class AllocationParaMedicalsServicesGlobal : IAllocationParaMedicals<int, Models.Global.AllocationParaMedicalsGlobal, Models.Global.ModelsGlobalForViews.AllocationParaMedicalsViewGlobal>
     {
         private readonly IConnection _connection;
 
@@ -29,20 +29,20 @@ namespace ChanterelleProject.GlobalServices.Services
             return id != 0;
         }
 
-        public AllocationParaMedicalsFullAttributeForViewGlobal Get(int key)
+        public Models.Global.ModelsGlobalForViews.AllocationParaMedicalsViewGlobal Get(int key)
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllocationParaMedicalsById", true);
             command.AddParameter("@Id", key);
-            return _connection.ExecuteReader(command, sp => sp.ToAllocationParaMedicalsFullAttributeForViewGlobal()).SingleOrDefault();
+            return _connection.ExecuteReader(command, sp => sp.ToAllocationParaMedicalsViewGlobal()).SingleOrDefault();
         }
 
-        public IEnumerable<AllocationParaMedicalsFullAttributeForViewGlobal> GetAll()
+        public IEnumerable<Models.Global.ModelsGlobalForViews.AllocationParaMedicalsViewGlobal> GetAll()
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllAllocationParaMedicals", true);
-            return _connection.ExecuteReader(command, sp => sp.ToAllocationParaMedicalsFullAttributeForViewGlobal());
+            return _connection.ExecuteReader(command, sp => sp.ToAllocationParaMedicalsViewGlobal());
         }
 
-        public int InsertAllocationParaMedicals(AllocationParaMedicalsGlobal entity)
+        public int InsertAllocationParaMedicals(Models.Global.AllocationParaMedicalsGlobal entity)
         {
             int? idNewAllocationParaMedicals;
 
@@ -56,7 +56,7 @@ namespace ChanterelleProject.GlobalServices.Services
             return (command.ReturnValue == 0) ? idNewAllocationParaMedicals.Value : -1;
         }
 
-        public bool UpdateAllocationParaMedicals(int key, AllocationParaMedicalsGlobal entity)
+        public bool UpdateAllocationParaMedicals(int key, Models.Global.AllocationParaMedicalsGlobal entity)
         {
             Commands command = new Commands("SP_ChtlePrj_UpdateAllocationParaMedicals", true);
             command.AddParameter("Id", key);

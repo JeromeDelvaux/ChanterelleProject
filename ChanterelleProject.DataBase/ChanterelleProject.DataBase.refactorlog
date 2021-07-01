@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="f8f17ae6-a587-43a1-a21a-ded2012e58e3" ChangeDateTime="06/30/2021 12:42:53">
+    <Property Name="ElementName" Value="[dbo].[Traitement].[TargetPieceJointe]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Traitement]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TargetPresciptionMedical" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3bceed2a-2687-4574-a441-6ef07867be32" ChangeDateTime="06/30/2021 12:43:15">
+    <Property Name="ElementName" Value="[dbo].[Traitement].[TargetPresciptionMedical]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Traitement]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TargetPrescriptionMedical" />
+  </Operation>
+</Operations>

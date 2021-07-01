@@ -10,7 +10,7 @@ using System.Text;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class AllocationClassesServicesGlobal : IAllocationClasses<int, AllocationClassesGlobal, AllocationClassesFullAttributeForViewGlobal>
+    public class AllocationClassesServicesGlobal : IAllocationClasses<int, AllocationClassesGlobal, AllocationClassesViewGlobal>
     {
         private readonly IConnection _connection;
 
@@ -30,17 +30,17 @@ namespace ChanterelleProject.GlobalServices.Services
             return id != 0;
         }
 
-        public AllocationClassesFullAttributeForViewGlobal Get(int key)
+        public AllocationClassesViewGlobal Get(int key)
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllocationClassesById", true);
             command.AddParameter("@Id", key);
-            return _connection.ExecuteReader(command, sp => sp.ToAllocationClassesFullAttributeForViewGlobal()).SingleOrDefault();
+            return _connection.ExecuteReader(command, sp => sp.ToAllocationClassesViewGlobal()).SingleOrDefault();
         }
 
-        public IEnumerable<AllocationClassesFullAttributeForViewGlobal> GetAll()
+        public IEnumerable<AllocationClassesViewGlobal> GetAll()
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllAllocationClasses", true);
-            return _connection.ExecuteReader(command, sp => sp.ToAllocationClassesFullAttributeForViewGlobal());
+            return _connection.ExecuteReader(command, sp => sp.ToAllocationClassesViewGlobal());
         }
 
         public int InsertAllocationClasses(AllocationClassesGlobal entity)

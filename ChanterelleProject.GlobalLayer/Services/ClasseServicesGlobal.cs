@@ -10,7 +10,7 @@ using System.Text;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class ClasseServicesGlobal : IClasse<int, ClasseGlobal, ClasseFullAttributeForViewGlobal>
+    public class ClasseServicesGlobal : IClasse<int, ClasseGlobal, ClasseViewGlobal>
     {
         private readonly IConnection _connection;
 
@@ -30,17 +30,17 @@ namespace ChanterelleProject.GlobalServices.Services
             return id != 0;
         }
 
-        public ClasseFullAttributeForViewGlobal Get(int key)
+        public ClasseViewGlobal Get(int key)
         {
             Commands command = new Commands("SP_ChtlePrj_GetClasseById", true);
             command.AddParameter("@Id", key);
-            return _connection.ExecuteReader(command, sp => sp.ToClasseFullAttributeForViewGlobal()).SingleOrDefault();
+            return _connection.ExecuteReader(command, sp => sp.ToClasseViewGlobal()).SingleOrDefault();
         }
 
-        public IEnumerable<ClasseFullAttributeForViewGlobal> GetAll()
+        public IEnumerable<ClasseViewGlobal> GetAll()
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllClasse", true);
-            return _connection.ExecuteReader(command, sp => sp.ToClasseFullAttributeForViewGlobal());
+            return _connection.ExecuteReader(command, sp => sp.ToClasseViewGlobal());
         }
 
         public int InsertClasse(ClasseGlobal entity)

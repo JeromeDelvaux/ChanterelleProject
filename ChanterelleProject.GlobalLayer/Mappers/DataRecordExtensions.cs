@@ -9,9 +9,9 @@ namespace ChanterelleProject.GlobalServices.Mappers
 {
     public static class DataRecordExtensions
     {
-        internal static UtilisateurFullAttributeForViewGlobal ToUtilisateurGlobalFullAttributeForView(this IDataRecord dataRecord)
+        internal static UtilisateurViewGlobal ToUtilisateurViewGlobal(this IDataRecord dataRecord)
         {
-            return new UtilisateurFullAttributeForViewGlobal()
+            return new UtilisateurViewGlobal()
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 Nom = Convert.ToString(dataRecord["Nom"]),
@@ -38,10 +38,8 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 Posologie = Convert.ToString(dataRecord["Posologie"]),
                 DateDebut = Convert.ToDateTime(dataRecord["DateDebut"]),
                 DateFin = Convert.ToDateTime(dataRecord["DateFin"]),
-                NomCreateur = Convert.ToString(dataRecord["NomCreateur"]),
                 Objectif = Convert.ToString(dataRecord["Objectif"]),
-                actif = Convert.ToBoolean(dataRecord["actif"]),
-                TargetPieceJointe = Convert.ToString(dataRecord["TargetPieceJointe"]),
+                TargetPrescriptionMedical = Convert.ToString(dataRecord["TargetPrescriptionMedical"]),
                 Utilisateur_Id = Convert.ToInt32(dataRecord["Utilisateur_Id"]),
                 Eleve_Id = Convert.ToInt32(dataRecord["Eleve_Id"]),
                };
@@ -77,9 +75,9 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 TelephoneCabinet = Convert.ToString(dataRecord["TelephoneCabinet"]),
             };
         }
-        internal static ClasseFullAttributeForViewGlobal ToClasseFullAttributeForViewGlobal(this IDataRecord dataRecord)
+        internal static ClasseViewGlobal ToClasseViewGlobal(this IDataRecord dataRecord)
         {
-            return new ClasseFullAttributeForViewGlobal()
+            return new ClasseViewGlobal()
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 IntituleClasse= Convert.ToString(dataRecord["IntituleClasse"]),
@@ -87,9 +85,9 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 NomTitulaire=Convert.ToString(dataRecord["Nom"])
             };
         }
-        internal static AllocationParaMedicalsFullAttributeForViewGlobal ToAllocationParaMedicalsFullAttributeForViewGlobal(this IDataRecord dataRecord)
+        internal static AllocationParaMedicalsViewGlobal ToAllocationParaMedicalsViewGlobal(this IDataRecord dataRecord)
         {
-            return new AllocationParaMedicalsFullAttributeForViewGlobal()
+            return new AllocationParaMedicalsViewGlobal()
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 DateDebut = Convert.ToDateTime(dataRecord["DateDebut"]),
@@ -97,9 +95,9 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 NomParaMedical= Convert.ToString(dataRecord["Nom"])
             };
         }
-        internal static AllocationClassesFullAttributeForViewGlobal ToAllocationClassesFullAttributeForViewGlobal(this IDataRecord dataRecord)
+        internal static AllocationClassesViewGlobal ToAllocationClassesViewGlobal(this IDataRecord dataRecord)
         {
-            return new AllocationClassesFullAttributeForViewGlobal()
+            return new AllocationClassesViewGlobal()
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 DateDebut = Convert.ToDateTime(dataRecord["DateDebut"]),
@@ -107,6 +105,20 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 NomProfesseur = Convert.ToString(dataRecord["Nom"])
             };
         }
-
+        internal static TraitementViewGlobal ToTraitementViewGlobal(this IDataRecord dataRecord)
+        {
+            return new TraitementViewGlobal()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                NomMedicament= Convert.ToString(dataRecord["NomMedicament"]),
+                Posologie = Convert.ToString(dataRecord["Posologie"]),
+                DateDebut = Convert.ToDateTime(dataRecord["DateDebut"]),
+                DateFin= dataRecord["DateFin"] is DBNull ? null : Convert.ToDateTime(dataRecord["DateFin"]),
+                Objectif= Convert.ToString(dataRecord["Objectif"]),
+                TargetPrescriptionMedical= Convert.ToString(dataRecord["TargetPrescriptionMedical"]),
+                NomCreateur= Convert.ToString(dataRecord["NomCreateur"]),
+                NomEleve = Convert.ToString(dataRecord["NomEleve"])
+            };
+        }
     }
 }

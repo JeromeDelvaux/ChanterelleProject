@@ -1,4 +1,5 @@
-﻿using ChanterelleProject.Api.Forms;
+﻿using ChanterelleProject.Api.Forms.Create;
+using ChanterelleProject.Api.Forms.Update;
 using ChanterelleProject.Api.Mappers;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;

@@ -1,4 +1,5 @@
-﻿using ChanterelleProject.Api.Forms;
+﻿using ChanterelleProject.Api.Forms.Create;
+using ChanterelleProject.Api.Forms.Update;
 using ChanterelleProject.Api.Mappers;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;
@@ -16,23 +17,23 @@ namespace ChanterelleProject.Api.Controllers
     [ApiController]
     public class AllocationParaMedicalsController : ControllerBase
     {
-        private IAllocationParaMedicals<int, AllocationParaMedicalsClient, AllocationParaMedicalsFullAttributeForViewClient> _allocationParaMedicalsServicesClient;
+        private IAllocationParaMedicals<int, AllocationParaMedicalsClient, AllocationParaMedicalsViewClient> _allocationParaMedicalsServicesClient;
 
-        public AllocationParaMedicalsController(IAllocationParaMedicals<int, AllocationParaMedicalsClient, AllocationParaMedicalsFullAttributeForViewClient> allocationParaMedicalsServicesClient)
+        public AllocationParaMedicalsController(IAllocationParaMedicals<int, AllocationParaMedicalsClient, AllocationParaMedicalsViewClient> allocationParaMedicalsServicesClient)
         {
             _allocationParaMedicalsServicesClient = allocationParaMedicalsServicesClient;
         }
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<AllocationParaMedicalsFullAttributeForViewClient> GetAll()
+        public IEnumerable<AllocationParaMedicalsViewClient> GetAll()
         {
             return _allocationParaMedicalsServicesClient.GetAll();
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public AllocationParaMedicalsFullAttributeForViewClient GetOne(int id)
+        public AllocationParaMedicalsViewClient GetOne(int id)
         {
             return _allocationParaMedicalsServicesClient.Get(id);
         }

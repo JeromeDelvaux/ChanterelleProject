@@ -1,4 +1,5 @@
-﻿using ChanterelleProject.Api.Forms;
+﻿using ChanterelleProject.Api.Forms.Create;
+using ChanterelleProject.Api.Forms.Update;
 using ChanterelleProject.Api.Mappers;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;
@@ -13,24 +14,24 @@ namespace ChanterelleProject.Api.Controllers
     [ApiController]
     public class UtilisateurController : ControllerBase
     {
-        private readonly IUtilisateur<int,UtilisateurClient,UtilisateurFullAttributeForViewClient, ParaMedicalClient> _utilisateursServiceClient;
+        private readonly IUtilisateur<int,UtilisateurClient,UtilisateurViewClient, ParaMedicalClient> _utilisateursServiceClient;
 
 
-        public UtilisateurController(IUtilisateur<int,UtilisateurClient, UtilisateurFullAttributeForViewClient, ParaMedicalClient> utilisateursServiceClient)
+        public UtilisateurController(IUtilisateur<int,UtilisateurClient, UtilisateurViewClient, ParaMedicalClient> utilisateursServiceClient)
         {
             this._utilisateursServiceClient = utilisateursServiceClient;
         }
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<UtilisateurFullAttributeForViewClient> GetAll()
+        public IEnumerable<UtilisateurViewClient> GetAll()
         {
             return _utilisateursServiceClient.GetAll();
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public UtilisateurFullAttributeForViewClient GetOne(int id)
+        public UtilisateurViewClient GetOne(int id)
         {
             return _utilisateursServiceClient.Get(id);
         }

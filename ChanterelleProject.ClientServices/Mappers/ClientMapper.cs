@@ -10,28 +10,28 @@ namespace ChanterelleProject.ClientServices.Mappers
 {
     internal static class ClientMapper
     {
-        internal static UtilisateurFullAttributeForViewClient ToUtilisateurFullAttributeForViewClient(this UtilisateurFullAttributeForViewGlobal utilisateurFullAttributeForViewGlobal)
+        internal static UtilisateurViewClient ToUtilisateurViewClient(this UtilisateurViewGlobal utilisateurViewGlobal)
         {
-            return new UtilisateurFullAttributeForViewClient(
-                utilisateurFullAttributeForViewGlobal.Id,
-                utilisateurFullAttributeForViewGlobal.Nom,
-                utilisateurFullAttributeForViewGlobal.Prenom,
-                utilisateurFullAttributeForViewGlobal.Adresse,
-                utilisateurFullAttributeForViewGlobal.DateNaissance,
-                utilisateurFullAttributeForViewGlobal.RegistreNational,
-                utilisateurFullAttributeForViewGlobal.Sexe,
-                utilisateurFullAttributeForViewGlobal.DateDerniereModif,
-                utilisateurFullAttributeForViewGlobal.DateDebutContrat,
-                utilisateurFullAttributeForViewGlobal.Telephone,
-                utilisateurFullAttributeForViewGlobal.Mail,
-                utilisateurFullAttributeForViewGlobal.IntituleTypeUtilisateur,
-                utilisateurFullAttributeForViewGlobal.NumInami,
-                utilisateurFullAttributeForViewGlobal.IntituleSpecialisation);
+            return new UtilisateurViewClient(
+                utilisateurViewGlobal.Id,
+                utilisateurViewGlobal.Nom,
+                utilisateurViewGlobal.Prenom,
+                utilisateurViewGlobal.Adresse,
+                utilisateurViewGlobal.DateNaissance,
+                utilisateurViewGlobal.RegistreNational,
+                utilisateurViewGlobal.Sexe,
+                utilisateurViewGlobal.DateDerniereModif,
+                utilisateurViewGlobal.DateDebutContrat,
+                utilisateurViewGlobal.Telephone,
+                utilisateurViewGlobal.Mail,
+                utilisateurViewGlobal.IntituleTypeUtilisateur,
+                utilisateurViewGlobal.NumInami,
+                utilisateurViewGlobal.IntituleSpecialisation);
         }
         internal static UtilisateurGlobal ToUtilisateursGlobal(this UtilisateurClient utilisateurClient)
         {
             return new UtilisateurGlobal()
-            { 
+            {
                 Nom = utilisateurClient.Nom,
                 Prenom = utilisateurClient.Prenom,
                 Adresse = utilisateurClient.Adresse,
@@ -60,7 +60,7 @@ namespace ChanterelleProject.ClientServices.Mappers
                 Mail = paraMedicalClient.Mail,
                 TypeUtilisateur_Id = paraMedicalClient.TypeUtilisateur_Id,
                 MotDePasse = paraMedicalClient.MotDePasse,
-                NumInami= paraMedicalClient.NumInami,
+                NumInami = paraMedicalClient.NumInami,
                 SpecialisationId = paraMedicalClient.SpecialisationId
             };
         }
@@ -74,7 +74,7 @@ namespace ChanterelleProject.ClientServices.Mappers
         {
             return new SpecialisationParaMedicalGlobal()
             {
-                Id= 0,
+                Id = 0,
                 IntituleSpecialisation = specialisationParaMedicalClient.IntituleSpecialisation
             };
         }
@@ -92,7 +92,6 @@ namespace ChanterelleProject.ClientServices.Mappers
                 IntituleTypeUtilisateur = typeUtilisateurClient.IntituleTypeUtilisateur
             };
         }
-
         internal static MedecinExterneClient ToMedecinExterneClient(this MedecinExterneGlobal medecinExterneGlobalGlobal)
         {
             return new MedecinExterneClient(
@@ -110,41 +109,41 @@ namespace ChanterelleProject.ClientServices.Mappers
         {
             return new MedecinExterneGlobal()
             {
-                Id=medecinExterneClient.Id,
+                Id = medecinExterneClient.Id,
                 NumInami = medecinExterneClient.NumInami,
                 Nom = medecinExterneClient.Nom,
                 Prenom = medecinExterneClient.Prenom,
-                Adresse = medecinExterneClient.Adresse, 
+                Adresse = medecinExterneClient.Adresse,
                 Mail = medecinExterneClient.Mail,
                 DateNaissance = medecinExterneClient.DateNaissance,
                 TelephonePerso = medecinExterneClient.TelephonePerso,
-                TelephoneCabinet= medecinExterneClient.TelephoneCabinet,
+                TelephoneCabinet = medecinExterneClient.TelephoneCabinet,
             };
         }
-        internal static ClasseFullAttributeForViewClient ToClasseFullAttributeForViewClient(this ClasseFullAttributeForViewGlobal classeFullAttributeForViewGlobal)
+        internal static ClasseViewClient ToClasseViewClient(this ClasseViewGlobal classeViewGlobal)
         {
-            return new ClasseFullAttributeForViewClient(
-                classeFullAttributeForViewGlobal.Id,
-                classeFullAttributeForViewGlobal.IntituleClasse,
-                classeFullAttributeForViewGlobal.NbEleveMax,
-                classeFullAttributeForViewGlobal.NomTitulaire);
+            return new ClasseViewClient(
+                classeViewGlobal.Id,
+                classeViewGlobal.IntituleClasse,
+                classeViewGlobal.NbEleveMax,
+                classeViewGlobal.NomTitulaire);
         }
         internal static ClasseGlobal ToClasseGlobal(this ClasseClient classeClient)
         {
             return new ClasseGlobal()
             {
                 IntituleClasse = classeClient.IntituleClasse,
-                NbEleveMax=classeClient.NbEleveMax,
-                Utilisateur_Id=classeClient.Utilisateur_Id
+                NbEleveMax = classeClient.NbEleveMax,
+                Utilisateur_Id = classeClient.Utilisateur_Id
             };
         }
-        internal static AllocationParaMedicalsFullAttributeForViewClient ToAllocationParaMedicalsFullAttributeForViewClient(this AllocationParaMedicalsFullAttributeForViewGlobal allocationParaMedicalsFullAttributeForViewGlobal)
+        internal static AllocationParaMedicalsViewClient ToAllocationParaMedicalsViewClient(this AllocationParaMedicalsViewGlobal allocationParaMedicalsViewGlobal)
         {
-            return new AllocationParaMedicalsFullAttributeForViewClient(
-                allocationParaMedicalsFullAttributeForViewGlobal.Id,
-                allocationParaMedicalsFullAttributeForViewGlobal.DateDebut,
-                allocationParaMedicalsFullAttributeForViewGlobal.NomClasse,
-                allocationParaMedicalsFullAttributeForViewGlobal.NomParaMedical);
+            return new AllocationParaMedicalsViewClient(
+                allocationParaMedicalsViewGlobal.Id,
+                allocationParaMedicalsViewGlobal.DateDebut,
+                allocationParaMedicalsViewGlobal.NomClasse,
+                allocationParaMedicalsViewGlobal.NomParaMedical);
         }
         internal static AllocationParaMedicalsGlobal ToAllocationParaMedicalsGlobal(this AllocationParaMedicalsClient allocationParaMedicalsClient)
         {
@@ -155,13 +154,13 @@ namespace ChanterelleProject.ClientServices.Mappers
                 ParaMedical_Id = allocationParaMedicalsClient.ParaMedical_Id
             };
         }
-        internal static AllocationClassesFullAttributeForViewClient ToAllocationClassesFullAttributeForViewClient(this AllocationClassesFullAttributeForViewGlobal allocationClassesFullAttributeForViewGlobal)
+        internal static AllocationClassesViewClient ToAllocationClassesViewClient(this AllocationClassesViewGlobal allocationClassesViewGlobal)
         {
-            return new AllocationClassesFullAttributeForViewClient(
-                allocationClassesFullAttributeForViewGlobal.Id,
-                allocationClassesFullAttributeForViewGlobal.DateDebut,
-                allocationClassesFullAttributeForViewGlobal.NomClasse,
-                allocationClassesFullAttributeForViewGlobal.NomProfesseur);
+            return new AllocationClassesViewClient(
+                allocationClassesViewGlobal.Id,
+                allocationClassesViewGlobal.DateDebut,
+                allocationClassesViewGlobal.NomClasse,
+                allocationClassesViewGlobal.NomProfesseur);
         }
         internal static AllocationClassesGlobal ToAllocationClassesGlobal(this AllocationClassesClient allocationClassesClient)
         {
@@ -170,6 +169,34 @@ namespace ChanterelleProject.ClientServices.Mappers
                 DateDebut = allocationClassesClient.DateDebut,
                 Classe_Id = allocationClassesClient.Classe_Id,
                 Utilisateur_Id = allocationClassesClient.Utilisateur_Id
+            };
+        }
+        internal static TraitementViewClient ToTraitementViewClient(this TraitementViewGlobal traitementViewGlobal)
+        {
+            return new TraitementViewClient(
+                traitementViewGlobal.Id,
+                traitementViewGlobal.NomMedicament,
+                traitementViewGlobal.Posologie,
+                traitementViewGlobal.DateDebut,
+                traitementViewGlobal.DateFin,
+                traitementViewGlobal.Objectif,
+                traitementViewGlobal.TargetPrescriptionMedical,
+                traitementViewGlobal.NomCreateur,
+                traitementViewGlobal.NomEleve);
+        }
+        internal static TraitementGlobal ToTraitementGlobal(this TraitementClient traitementClient)
+        {
+            return new TraitementGlobal()
+            {
+                Id = traitementClient.Id,
+                NomMedicament = traitementClient.NomMedicament,
+                Posologie = traitementClient.Posologie,
+                DateDebut = traitementClient.DateDebut,
+                DateFin = traitementClient.DateFin,
+                Objectif = traitementClient.Objectif,
+                TargetPrescriptionMedical = traitementClient.TargetPrescriptionMedical,
+                Utilisateur_Id = traitementClient.Utilisateur_Id,
+                Eleve_Id = traitementClient.Eleve_Id
             };
         }
     }

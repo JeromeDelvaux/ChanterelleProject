@@ -1,4 +1,5 @@
-﻿using ChanterelleProject.Api.Forms;
+﻿using ChanterelleProject.Api.Forms.Create;
+using ChanterelleProject.Api.Forms.Update;
 using ChanterelleProject.Api.Mappers;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;
@@ -16,23 +17,23 @@ namespace ChanterelleProject.Api.Controllers
     [ApiController]
     public class AllocationClassesController : ControllerBase
     {
-        private IAllocationClasses<int, AllocationClassesClient, AllocationClassesFullAttributeForViewClient> _allocationClassesServicesClient;
+        private IAllocationClasses<int, AllocationClassesClient, AllocationClassesViewClient> _allocationClassesServicesClient;
 
-        public AllocationClassesController(IAllocationClasses<int, AllocationClassesClient, AllocationClassesFullAttributeForViewClient> allocationClassesServicesClient)
+        public AllocationClassesController(IAllocationClasses<int, AllocationClassesClient, AllocationClassesViewClient> allocationClassesServicesClient)
         {
             _allocationClassesServicesClient = allocationClassesServicesClient;
         }
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<AllocationClassesFullAttributeForViewClient> GetAll()
+        public IEnumerable<AllocationClassesViewClient> GetAll()
         {
             return _allocationClassesServicesClient.GetAll();
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public AllocationClassesFullAttributeForViewClient GetOne(int id)
+        public AllocationClassesViewClient GetOne(int id)
         {
             return _allocationClassesServicesClient.Get(id);
         }

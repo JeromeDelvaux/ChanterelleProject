@@ -1,4 +1,5 @@
-﻿using ChanterelleProject.Api.Forms;
+﻿using ChanterelleProject.Api.Forms.Create;
+using ChanterelleProject.Api.Forms.Update;
 using ChanterelleProject.Models.Client;
 using System;
 
@@ -171,6 +172,32 @@ namespace ChanterelleProject.Api.Mappers
                 new DateTime(),
                 formsUpdateAllocationClasses.Class_Id,
                 formsUpdateAllocationClasses.Utilisateur_Id);
+        }
+        internal static TraitementClient ToTraitementClient(this FormsCreateTraitement formsCreateTraitement)
+        {
+            return new TraitementClient(
+                0,
+                formsCreateTraitement.NomMedicament,
+                formsCreateTraitement.Posologie,
+                formsCreateTraitement.DateDebut,
+                formsCreateTraitement.DateFin,
+                formsCreateTraitement.Objectif,
+                formsCreateTraitement.TargetPrescriptionMedical,
+                formsCreateTraitement.Eleve_Id,
+                formsCreateTraitement.Utilisateur_Id);
+        }
+        internal static TraitementClient ToTraitementClient(this FormsUpdateTraitement formsUpdateTraitement)
+        {
+            return new TraitementClient(
+                0,
+                formsUpdateTraitement.NomMedicament,
+                formsUpdateTraitement.Posologie,
+                formsUpdateTraitement.DateDebut,
+                formsUpdateTraitement.DateFin,
+                formsUpdateTraitement.Objectif,
+                formsUpdateTraitement.TargetPrescriptionMedical,
+                formsUpdateTraitement.Eleve_Id,
+                formsUpdateTraitement.Utilisateur_Id);
         }
     }
 }

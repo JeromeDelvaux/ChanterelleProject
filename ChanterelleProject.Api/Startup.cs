@@ -37,8 +37,8 @@ namespace ChanterelleProject.Api
             });
             services.AddSingleton<IConnection>((sp) => new Connection(SqlClientFactory.Instance, Configuration.GetConnectionString("ConnectionChanterelleDbProject")));
             
-            services.AddSingleton<IUtilisateur<int, UtilisateurGlobal, UtilisateurFullAttributeForViewGlobal,ParaMedicalGlobal>, UtilisateurServicesGlobal>();
-            services.AddSingleton<IUtilisateur<int, UtilisateurClient, UtilisateurFullAttributeForViewClient,ParaMedicalClient>, UtilisateurServiceClient>();
+            services.AddSingleton<IUtilisateur<int, Models.Global.UtilisateurGlobal, UtilisateurViewGlobal, ParaMedicalGlobal>, UtilisateurServicesGlobal>();
+            services.AddSingleton<IUtilisateur<int, UtilisateurClient, UtilisateurViewClient,ParaMedicalClient>, UtilisateurServiceClient>();
 
             services.AddSingleton<IServices<int, SpecialisationParaMedicalGlobal>, SpecialisationParaMedicalServicesGlobal>();
             services.AddSingleton<IServices<int, SpecialisationParaMedicalClient>, SpecialisationParaMedicalServicesClient>();
@@ -49,14 +49,17 @@ namespace ChanterelleProject.Api
             services.AddSingleton<IServices<int, MedecinExterneGlobal>, MedecinExterneServicesGlobal>();
             services.AddSingleton<IServices<int, MedecinExterneClient>, MedecinExterneServicesClient>();
 
-            services.AddSingleton<IClasse<int, ClasseGlobal, ClasseFullAttributeForViewGlobal>, ClasseServicesGlobal>();
-            services.AddSingleton<IClasse<int, ClasseClient, ClasseFullAttributeForViewClient>, ClasseServicesClient>();
+            services.AddSingleton<IClasse<int, ClasseGlobal, ClasseViewGlobal>, ClasseServicesGlobal>();
+            services.AddSingleton<IClasse<int, ClasseClient, ClasseViewClient>, ClasseServicesClient>();
 
-            services.AddSingleton<IAllocationParaMedicals<int, AllocationParaMedicalsGlobal, AllocationParaMedicalsFullAttributeForViewGlobal>, AllocationParaMedicalsServicesGlobal>();
-            services.AddSingleton<IAllocationParaMedicals<int, AllocationParaMedicalsClient, AllocationParaMedicalsFullAttributeForViewClient>, AllocationParaMedicalsServicesClient>();
+            services.AddSingleton<IAllocationParaMedicals<int, AllocationParaMedicalsGlobal, AllocationParaMedicalsViewGlobal>, AllocationParaMedicalsServicesGlobal>();
+            services.AddSingleton<IAllocationParaMedicals<int, AllocationParaMedicalsClient, AllocationParaMedicalsViewClient>, AllocationParaMedicalsServicesClient>();
 
-            services.AddSingleton<IAllocationClasses<int, AllocationClassesGlobal, AllocationClassesFullAttributeForViewGlobal>, AllocationClassesServicesGlobal>();
-            services.AddSingleton<IAllocationClasses<int, AllocationClassesClient, AllocationClassesFullAttributeForViewClient>, AllocationClassesServicesClient>();
+            services.AddSingleton<IAllocationClasses<int, AllocationClassesGlobal, AllocationClassesViewGlobal>, AllocationClassesServicesGlobal>();
+            services.AddSingleton<IAllocationClasses<int, AllocationClassesClient, AllocationClassesViewClient>, AllocationClassesServicesClient>();
+            
+            services.AddSingleton<ITraitement<int, TraitementGlobal, TraitementViewGlobal>, TraitementServicesGlobal>();
+            services.AddSingleton<ITraitement<int, TraitementClient, TraitementViewClient>, TraitementServicesClient>();
 
         }
 

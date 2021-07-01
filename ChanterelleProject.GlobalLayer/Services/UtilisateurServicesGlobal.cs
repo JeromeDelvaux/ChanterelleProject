@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class UtilisateurServicesGlobal : IUtilisateur<int, UtilisateurGlobal, UtilisateurFullAttributeForViewGlobal, ParaMedicalGlobal>
+    public class UtilisateurServicesGlobal : IUtilisateur<int, Models.Global.UtilisateurGlobal, Models.Global.ModelsGlobalForViews.UtilisateurViewGlobal, ParaMedicalGlobal>
     {
         private readonly IConnection _connection;
        
@@ -28,17 +28,17 @@ namespace ChanterelleProject.GlobalServices.Services
             return id != 0;
         }
 
-        public UtilisateurFullAttributeForViewGlobal Get(int key)
+        public Models.Global.ModelsGlobalForViews.UtilisateurViewGlobal Get(int key)
         {
             Commands command = new Commands("SP_ChtlePrj_GetUtilisateursById", true);
             command.AddParameter("@Id", key);
-            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurGlobalFullAttributeForView()).SingleOrDefault();
+            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurViewGlobal()).SingleOrDefault();
         }
 
-        public IEnumerable<UtilisateurFullAttributeForViewGlobal> GetAll()
+        public IEnumerable<Models.Global.ModelsGlobalForViews.UtilisateurViewGlobal> GetAll()
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllUtilisateurs", true);
-            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurGlobalFullAttributeForView());
+            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurViewGlobal());
         }
 
         public int InsertParaMedical(ParaMedicalGlobal entity)
@@ -65,7 +65,7 @@ namespace ChanterelleProject.GlobalServices.Services
             return (command.ReturnValue == 0) ? idNewUtilisateur.Value : -1;
         }
 
-        public int InsertUtilisateur(UtilisateurGlobal entity)
+        public int InsertUtilisateur(Models.Global.UtilisateurGlobal entity)
         {
             int? idNewUtilisateur;
 
@@ -109,7 +109,7 @@ namespace ChanterelleProject.GlobalServices.Services
             return nbRows == 1;
         }
 
-        public bool UpdateUtilisateur(int key, UtilisateurGlobal entity)
+        public bool UpdateUtilisateur(int key, Models.Global.UtilisateurGlobal entity)
         {
             Commands command = new Commands("SP_ChtlePrj_UpdateUtilisateur", true);
             command.AddParameter("Id", key);

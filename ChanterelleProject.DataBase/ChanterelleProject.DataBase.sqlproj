@@ -78,6 +78,7 @@
     <Folder Include="Views\AllocationParaMedicals" />
     <Folder Include="Programmability\StoredProcedures\AllocationClasses" />
     <Folder Include="Views\AllocationClasses" />
+    <Folder Include="Views\Traitement" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Programmability\Functions\SF_ChtlePrj_SalageEtHash.sql" />
@@ -98,9 +99,7 @@
     <Build Include="Programmability\StoredProcedures\SpecialisationParaMedical\SP_ChtlePrj_DeleteSpecialisationParaMedical.sql" />
     <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_DeleteTraitement.sql" />
     <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_DeleteUtilisateur.sql" />
-    <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_GetAllTraitementForOneEleve.sql" />
     <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_GetAllUtilisateurs.sql" />
-    <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_GetTraitement.sql" />
     <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_GetUtilisateursById.sql" />
     <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_UpdateUtilisateur.sql" />
     <Build Include="Programmability\StoredProcedures\SpecialisationParaMedical\SP_ChtlePrj_GetSpecialisationParaMedicalById.sql" />
@@ -141,11 +140,19 @@
     <Build Include="Programmability\StoredProcedures\AllocationClasses\SP_ChtlePrj_AddAllocationClasses.sql" />
     <Build Include="Programmability\StoredProcedures\AllocationClasses\SP_ChtlePrj_UpdateAllocationClasses.sql" />
     <Build Include="Views\AllocationClasses\V_ChtlePrj_AllAllocationClasses.sql" />
+    <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_GetTraitementById.sql" />
+    <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_GetAllTraitement.sql" />
+    <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_AddTraitement.sql" />
+    <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_UpdateTraitement.sql" />
+    <Build Include="Views\Traitement\V_ChtlePrj_AllTraitement.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ChanterelleProject.DataBase.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\InitialisationDataBase.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ChanterelleProject.DataBase.refactorlog" />
   </ItemGroup>
 </Project>

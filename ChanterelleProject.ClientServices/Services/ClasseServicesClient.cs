@@ -10,11 +10,11 @@ using System.Linq;
 
 namespace ChanterelleProject.ClientServices.Services
 {
-    public class ClasseServicesClient : IClasse<int, ClasseClient, ClasseFullAttributeForViewClient>
+    public class ClasseServicesClient : IClasse<int, ClasseClient, ClasseViewClient>
     {
-        private readonly IClasse<int, ClasseGlobal, ClasseFullAttributeForViewGlobal> _classeServicesGlobal;
+        private readonly IClasse<int, ClasseGlobal, ClasseViewGlobal> _classeServicesGlobal;
 
-        public ClasseServicesClient(IClasse<int, ClasseGlobal, ClasseFullAttributeForViewGlobal> classeServicesGlobal)
+        public ClasseServicesClient(IClasse<int, ClasseGlobal, ClasseViewGlobal> classeServicesGlobal)
         {
             _classeServicesGlobal = classeServicesGlobal;
         }
@@ -24,14 +24,14 @@ namespace ChanterelleProject.ClientServices.Services
             return _classeServicesGlobal.DeleteClasse(key);
         }
 
-        public ClasseFullAttributeForViewClient Get(int key)
+        public ClasseViewClient Get(int key)
         {
-            return _classeServicesGlobal.Get(key).ToClasseFullAttributeForViewClient();
+            return _classeServicesGlobal.Get(key).ToClasseViewClient();
         }
 
-        public IEnumerable<ClasseFullAttributeForViewClient> GetAll()
+        public IEnumerable<ClasseViewClient> GetAll()
         {
-            return _classeServicesGlobal.GetAll().Select(s => s.ToClasseFullAttributeForViewClient());
+            return _classeServicesGlobal.GetAll().Select(s => s.ToClasseViewClient());
         }
 
         public int InsertClasse(ClasseClient entity)
