@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChanterelleProject.Models.Global.ModelsGlobalForViews
+namespace ChanterelleProject.Models.Global
 {
-    public class EleveViewGlobal: IEntity<int>
+    public class EleveGlobal : IEntity<int>
     {
         public int Id { get; set; }
         public string Nom { get; set; }
@@ -14,10 +14,7 @@ namespace ChanterelleProject.Models.Global.ModelsGlobalForViews
         public DateTime DateNaissance { get; set; }
         public string RegistreNational { get; set; }
         public string Sexe { get; set; }
-        public DateTime DateDerniereModif { get; set; }
-        public DateTime DateInscription { get; set; }
-        public string NomMedecinExterne { get; set; }
-        public string NomClasse{ get; set; }
-        public IEnumerable<TraitementViewGlobal> TraitementsAdministres { get; set; }
+        public int MedecinExterne_Id { get; set; }
+        public int Classe_Id { get; set; }
     }
 }

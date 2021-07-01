@@ -1,15 +1,12 @@
-﻿CREATE PROCEDURE [dbo].[SP_ChtlePrj_AddUtilisateur]
+﻿CREATE PROCEDURE [dbo].[SP_ChtlePrj_AddEleve]
 	@Nom NVARCHAR(50),
 	@Prenom NVARCHAR(50),
 	@Adresse NVARCHAR(250),
 	@DateNaissance DATE,
 	@RegistreNational CHAR(11),
 	@Sexe NVARCHAR(5),
-	@DateDebutContrat DATE,
-	@Telephone NVARCHAR(12),
-	@Mail NVARCHAR(350),
-	@TypeUtilisateurId INT,
-	@MotDePasse Nvarchar(20)
+	@Classe_Id INT,
+	@MedecinExterne_Id INT
 
 As
 Begin
@@ -18,11 +15,9 @@ Begin
 
 	IF([dbo].SF_ChtlePrj_VerifNumRegistreNational(@RegistreNational)=1)
 	BEGIN
-		Declare @Uid UNIQUEIDENTIFIER;
 		Declare @DateNow DATETIME2(7)=sysdatetime();
-		Set @Uid = NEWID();
 
-		Insert into Utilisateur(
+		Insert into Eleve(
 		Nom,
 		Prenom,
 		Adresse,
@@ -30,12 +25,8 @@ Begin
 		RegistreNational,
 		Sexe,
 		DateDerniereModif,
-		DateDebutContrat,
-		Telephone,
-		Mail,
-		TypeUtilisateur_Id,
-		MotDePasse,
-		Salage)
+		Classe_Id,
+		MedecinExterne_Id)
 		
 		Output inserted.[Id]
 
@@ -47,12 +38,8 @@ Begin
 		@RegistreNational,
 		@Sexe,
 		@DateNow,
-		@DateDebutContrat,
-		@Telephone,
-		@Mail,
-		@TypeUtilisateurId,
-		[dbo].SF_ChtlePrj_SalageEtHash(@MotDePasse,@Uid),
-		@Uid);
+		@Classe_Id,
+		@MedecinExterne_Id);
 		
 		Commit;
 		Return 0;

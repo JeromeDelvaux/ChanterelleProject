@@ -16,7 +16,7 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 Nom = Convert.ToString(dataRecord["Nom"]),
                 Prenom = Convert.ToString(dataRecord["Prenom"]),
-                Adresse = Convert.ToString(dataRecord["Adressse"]),
+                Adresse = Convert.ToString(dataRecord["Adresse"]),
                 DateNaissance = Convert.ToDateTime(dataRecord["DateNaissance"]),
                 RegistreNational = Convert.ToString(dataRecord["RegistreNational"]),
                 Sexe = Convert.ToString(dataRecord["Sexe"]),
@@ -28,21 +28,6 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 NumInami = dataRecord["NumInami"] is DBNull ? null : Convert.ToString(dataRecord["NumInami"]),
                 IntituleSpecialisation = dataRecord["IntituleSpecialisation"] is DBNull ? null : Convert.ToString(dataRecord["IntituleSpecialisation"])
             };
-        }
-        internal static TraitementGlobal ToTraitement(this IDataRecord dataRecord)
-        {
-            return new TraitementGlobal()
-            {
-                Id = Convert.ToInt32(dataRecord["Id"]),
-                NomMedicament = Convert.ToString(dataRecord["NomMedicament"]),
-                Posologie = Convert.ToString(dataRecord["Posologie"]),
-                DateDebut = Convert.ToDateTime(dataRecord["DateDebut"]),
-                DateFin = Convert.ToDateTime(dataRecord["DateFin"]),
-                Objectif = Convert.ToString(dataRecord["Objectif"]),
-                TargetPrescriptionMedical = Convert.ToString(dataRecord["TargetPrescriptionMedical"]),
-                Utilisateur_Id = Convert.ToInt32(dataRecord["Utilisateur_Id"]),
-                Eleve_Id = Convert.ToInt32(dataRecord["Eleve_Id"]),
-               };
         }
         internal static SpecialisationParaMedicalGlobal ToSpecialisationParaMedicalGlobal(this IDataRecord dataRecord)
         {
@@ -68,7 +53,7 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 NumInami = dataRecord["NumInami"] is DBNull ? null : Convert.ToString(dataRecord["NumInami"]),
                 Nom = Convert.ToString(dataRecord["Nom"]),
                 Prenom = Convert.ToString(dataRecord["Prenom"]),
-                Adresse = Convert.ToString(dataRecord["Adressse"]),
+                Adresse = Convert.ToString(dataRecord["Adresse"]),
                 Mail = dataRecord["Mail"] is DBNull ? null : Convert.ToString(dataRecord["Mail"]),
                 DateNaissance = Convert.ToDateTime(dataRecord["DateNaissance"]),
                 TelephonePerso = dataRecord["TelephonePerso"] is DBNull ? null : Convert.ToString(dataRecord["TelephonePerso"]),
@@ -118,6 +103,23 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 TargetPrescriptionMedical= Convert.ToString(dataRecord["TargetPrescriptionMedical"]),
                 NomCreateur= Convert.ToString(dataRecord["NomCreateur"]),
                 NomEleve = Convert.ToString(dataRecord["NomEleve"])
+            };
+        }
+        internal static EleveViewGlobal ToEleveViewGlobal(this IDataRecord dataRecord)
+        {
+            return new EleveViewGlobal()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                Nom = Convert.ToString(dataRecord["Nom"]),
+                Prenom = Convert.ToString(dataRecord["Prenom"]),
+                Adresse = Convert.ToString(dataRecord["Adresse"]),
+                DateNaissance = Convert.ToDateTime(dataRecord["DateNaissance"]),
+                RegistreNational = Convert.ToString(dataRecord["RegistreNational"]),
+                Sexe = Convert.ToString(dataRecord["Sexe"]),
+                DateDerniereModif = Convert.ToDateTime(dataRecord["DateDerniereModif"]),
+                DateInscription = Convert.ToDateTime(dataRecord["DateDebutInsciption"]),
+                NomMedecinExterne = Convert.ToString(dataRecord["NomMedecinExterne"]),
+                NomClasse = Convert.ToString(dataRecord["NomClasse"])
             };
         }
     }

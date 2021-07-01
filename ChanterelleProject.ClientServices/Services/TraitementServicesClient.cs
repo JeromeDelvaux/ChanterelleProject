@@ -1,4 +1,5 @@
 ﻿using ChanterelleProject.ClientServices.Mappers;
+using ChanterelleProject.GlobalServices.InterfacesSpecifiques;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;
 using ChanterelleProject.Models.Client.ModelClientForViews;
@@ -13,9 +14,9 @@ namespace ChanterelleProject.ClientServices.Services
 {
     public class TraitementServicesClient : ITraitement<int, TraitementClient, TraitementViewClient>
     {
-        private readonly ITraitement<int, TraitementGlobal, TraitementViewGlobal> _traitementServicesGlobal;
+        private readonly ITraitementSpecifique _traitementServicesGlobal;
 
-        public TraitementServicesClient(ITraitement<int, TraitementGlobal, TraitementViewGlobal> traitementServicesGlobal)
+        public TraitementServicesClient(ITraitementSpecifique traitementServicesGlobal)
         {
             _traitementServicesGlobal = traitementServicesGlobal;
         }
@@ -34,7 +35,6 @@ namespace ChanterelleProject.ClientServices.Services
         {
             return _traitementServicesGlobal.GetAll().Select(u => u.ToTraitementViewClient()); // Parcours toute la liste,applique les modifications de la lambda a chaques elements et l'envoi à ToUtilisateurClientFullAttributeForView
         }
-
         public int InsertTraitement(TraitementClient entity)
         {
             return _traitementServicesGlobal.InsertTraitement(entity.ToTraitementGlobal()); ;

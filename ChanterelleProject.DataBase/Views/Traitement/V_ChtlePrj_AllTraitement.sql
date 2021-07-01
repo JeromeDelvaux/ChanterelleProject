@@ -8,10 +8,11 @@
 		T.Objectif,
 		T.TargetPrescriptionMedical,
 		U.Nom as [NomCreateur],
+		E.Id as[EleveId],
 		E.Nom as [NomEleve]
 
 		FROM Traitement T left JOIN Utilisateur U
 		ON T.Utilisateur_Id  = U.Id left JOIN Eleve E 
-		ON T.Utilisateur_Id=E.Id 
+		ON T.Eleve_Id=E.Id 
 		
 		WHERE T.Actif='True'

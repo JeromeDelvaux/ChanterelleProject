@@ -5,6 +5,7 @@ using System.Text;
 namespace ChanterelleProject.Interfaces
 {
     public interface IClasse<TKey, TEntity, TEntity2>
+        where TEntity : IEntity<TKey>
         where TEntity2 : IEntity<TKey>
     {
         TKey InsertClasse(TEntity entity);

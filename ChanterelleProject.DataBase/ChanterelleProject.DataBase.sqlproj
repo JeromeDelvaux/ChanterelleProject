@@ -79,6 +79,8 @@
     <Folder Include="Programmability\StoredProcedures\AllocationClasses" />
     <Folder Include="Views\AllocationClasses" />
     <Folder Include="Views\Traitement" />
+    <Folder Include="Programmability\StoredProcedures\Eleve" />
+    <Folder Include="Views\Eleve" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Programmability\Functions\SF_ChtlePrj_SalageEtHash.sql" />
@@ -145,6 +147,13 @@
     <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_AddTraitement.sql" />
     <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_UpdateTraitement.sql" />
     <Build Include="Views\Traitement\V_ChtlePrj_AllTraitement.sql" />
+    <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_GetTraitementByEleveId.sql" />
+    <Build Include="Programmability\StoredProcedures\Eleve\SP_ChtlePrj_DeleteEleve.sql" />
+    <Build Include="Programmability\StoredProcedures\Eleve\SP_ChtlePrj_GetEleveById.sql" />
+    <Build Include="Programmability\StoredProcedures\Eleve\SP_ChtlePrj_AddEleve.sql" />
+    <Build Include="Programmability\StoredProcedures\Eleve\SP_ChtlePrj_UpdateEleve.sql" />
+    <Build Include="Programmability\StoredProcedures\Eleve\SP_ChtlePrj_GetAllEleve.sql" />
+    <Build Include="Views\Eleve\V_ChtlePrj_AllEleve.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ChanterelleProject.DataBase.publish.xml" />

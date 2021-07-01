@@ -25,7 +25,7 @@ namespace ChanterelleProject.ClientServices.Services
 
         public AllocationClassesViewClient Get(int key)
         {
-            return _allocationClassesServicesGlobal.Get(key).ToAllocationClassesViewClient(); ;
+            return _allocationClassesServicesGlobal.Get(key).ToAllocationClassesViewClient();
         }
 
         public IEnumerable<AllocationClassesViewClient> GetAll()

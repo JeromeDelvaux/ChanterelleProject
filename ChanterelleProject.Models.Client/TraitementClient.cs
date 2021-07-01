@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ChanterelleProject.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ChanterelleProject.Models.Client
 {
-    public class TraitementClient
+    public class TraitementClient: IEntity<int>
     {
         public TraitementClient(int id, string nomMedicament, string posologie, DateTime dateDebut, DateTime dateFin, string objectif, string targetPrescriptionMedical, int utilisateur_Id, int eleve_Id)
         {

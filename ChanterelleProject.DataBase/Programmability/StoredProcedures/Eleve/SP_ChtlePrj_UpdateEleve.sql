@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SP_ChtlePrj_UpdateUtilisateur]
+﻿CREATE PROCEDURE [dbo].[SP_ChtlePrj_UpdateEleve]
 	@Id INT,
 	@Nom NVARCHAR(50),
 	@Prenom NVARCHAR(50),
@@ -6,30 +6,25 @@
 	@DateNaissance DATE,
 	@RegistreNational CHAR(11),
 	@Sexe NVARCHAR(5),
-	@DateDebutContrat DATE,
-	@Telephone INT,
-	@Mail NVARCHAR(350),
-	@TypeUtilisateurId INT,
-	@MotDePasse Nvarchar(20)
+	@Classe_Id INT,
+	@MedecinExterne_Id Nvarchar(20)
 As
 Begin
 	Begin Transaction
 	Begin Try
 	Declare @DateNow DATETIME2(7)=sysdatetime();
 
-		UPDATE Utilisateur
+		UPDATE Eleve
 		SET Nom = @Nom,
 			Prenom = @Prenom,
 			Adresse = @Adresse,
 			DateNaissance = @DateNaissance,
 			RegistreNational = @RegistreNational,
 			Sexe = @Sexe,
-			DateDebutContrat = @DateDebutContrat,
-			DateDerniereModif=@DateNow,
-			Telephone = @Telephone,
-			Mail = @Mail,
-			TypeUtilisateur_Id = @TypeUtilisateurId,
-			MotDePasse = [dbo].SF_ChtlePrj_SalageEtHash(@MotDePasse,[Salage])
+			DateDerniereModif = @DateNow,
+			Classe_Id=@Classe_Id,
+			MedecinExterne_Id=@MedecinExterne_Id
+
 		WHERE Id = @id
 			AND [Actif] = 1
 			Commit;
@@ -40,4 +35,3 @@ Begin
 		Return -1;
 	End Catch
 End
-

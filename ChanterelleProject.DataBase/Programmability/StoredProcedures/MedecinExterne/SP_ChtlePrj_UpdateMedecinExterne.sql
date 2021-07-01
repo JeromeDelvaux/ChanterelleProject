@@ -16,7 +16,7 @@ Begin
 		SET NumInami=@NumInami,
 			Nom = @Nom,
 			Prenom = @Prenom,
-			Adressse = @Adresse,
+			Adresse = @Adresse,
 			Mail = @Mail,
 			DateNaissance = @DateNaissance,
 			TelephonePerso=@TelephonePerso,

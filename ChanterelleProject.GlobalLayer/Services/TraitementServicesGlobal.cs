@@ -1,4 +1,5 @@
-﻿using ChanterelleProject.GlobalServices.Mappers;
+﻿using ChanterelleProject.GlobalServices.InterfacesSpecifiques;
+using ChanterelleProject.GlobalServices.Mappers;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Global;
 using ChanterelleProject.Models.Global.ModelsGlobalForViews;
@@ -9,7 +10,7 @@ using System.Linq;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class TraitementServicesGlobal : ITraitement<int,TraitementGlobal,TraitementViewGlobal>
+    public class TraitementServicesGlobal : ITraitementSpecifique
     {
         private readonly IConnection _connection;
 
@@ -76,6 +77,12 @@ namespace ChanterelleProject.GlobalServices.Services
 
             int nbRows = _connection.ExecuteNonQuery(command);
             return nbRows == 1;
+        }
+        public IEnumerable<TraitementViewGlobal> GetAllTraitementByEleveId(int key)
+        {
+            Commands command = new Commands("SP_ChtlePrj_GetTraitementByEleveId", true);
+            command.AddParameter("@Id", key);
+            return _connection.ExecuteReader(command, sp => sp.ToTraitementViewGlobal());
         }
     }
 }

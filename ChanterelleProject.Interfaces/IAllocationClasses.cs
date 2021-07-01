@@ -5,6 +5,7 @@ using System.Text;
 namespace ChanterelleProject.Interfaces
 {
     public interface IAllocationClasses<TKey, TEntity, TEntity2>
+        where TEntity : IEntity<TKey>
         where TEntity2 : IEntity<TKey>
     {
         TKey InsertAllocationClasses(TEntity entity);

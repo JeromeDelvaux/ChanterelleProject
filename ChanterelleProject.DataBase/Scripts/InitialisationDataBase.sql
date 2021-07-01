@@ -16,7 +16,7 @@
 		Declare @DateNow DATETIME2(7)=sysdatetime();
 		SET @Uid = NEWID();
 
-		Insert into dbo.Utilisateur(Nom,Prenom,Adressse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
+		Insert into dbo.Utilisateur(Nom,Prenom,Adresse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
 		values 
 		(
 		'Doe',
@@ -37,7 +37,7 @@
 		SET @DateNow =sysdatetime();
 		SET @Uid = NEWID();
 
-		Insert into dbo.Utilisateur(Nom,Prenom,Adressse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
+		Insert into dbo.Utilisateur(Nom,Prenom,Adresse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
 		values 
 		(
 		'Mouse',
@@ -58,7 +58,7 @@
 		SET @DateNow =sysdatetime();
 		SET @Uid = NEWID();
 
-		Insert into dbo.Utilisateur(Nom,Prenom,Adressse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
+		Insert into dbo.Utilisateur(Nom,Prenom,Adresse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
 		values 
 		(
 		'Donald',
@@ -92,7 +92,7 @@
 			SET @DateNow =sysdatetime();
 			SET @Uid = NEWID();
 
-			Insert into dbo.Utilisateur(Nom,Prenom,Adressse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
+			Insert into dbo.Utilisateur(Nom,Prenom,Adresse,DateNaissance,DateDebutContrat,RegistreNational,Sexe,DateDerniereModif,Telephone,Mail,TypeUtilisateur_Id,MotDePasse,Salage)
 			values 
 			(
 			'Cendrillon',
@@ -115,9 +115,8 @@
 /*Insertion Table: MedecinExterne*/
 
 	/*MedecinExterne1*/
-			
 
-			Insert into dbo.MedecinExterne(NumInami,Nom,Prenom,Adressse,Mail,DateNaissance,TelephonePerso,TelephoneCabinet)
+			Insert into dbo.MedecinExterne(NumInami,Nom,Prenom,Adresse,Mail,DateNaissance,TelephonePerso,TelephoneCabinet)
 			values 
 			(
 			'22112928389',
@@ -146,3 +145,56 @@
 	/*AllocationClasses1*/
 			Insert into dbo.AllocationClasses(DateDebut,Classe_Id,Utilisateur_Id)
 			values ('2020-03-18',1,3);
+
+/*Insertion Table: Eleve*/
+
+	/*Eleve1*/
+			Insert into dbo.Eleve(Nom,Prenom,Adresse,DateNaissance,RegistreNational,Sexe,DateDerniereModif,MedecinExterne_Id,Classe_Id)
+			values 
+			(
+			'Atchum',
+			'Lenain',
+			'Rue du rhume, 2 , 15000 WaltDisney',
+			'1975-03-22', 
+			'22112928389',
+			'homme',
+			'1975-03-22',
+			1,
+			1);
+
+/*Insertion Table: Traitement*/
+
+	/*Traitement1*/
+			Insert into dbo.Traitement(NomMedicament,Posologie,DateDebut,DateFin,Objectif,TargetPrescriptionMedical,Eleve_Id,Utilisateur_Id)
+			values 
+			(
+			'Dafalgan',
+			'2 fois/jour',
+			'2020-01-01',
+			'2021-01-01', 
+			'Calmer les maux de tetes',
+			'blablabla/blibliblbiblbi',
+			1,
+			2);
+	/*Traitement2*/
+			Insert into dbo.Traitement(NomMedicament,Posologie,DateDebut,DateFin,Objectif,TargetPrescriptionMedical,Eleve_Id,Utilisateur_Id)
+			values 
+			(
+			'Perdolan',
+			'2 fois/jour',
+			'2020-01-01',
+			'2021-01-01', 
+			'Calmer les crampes de ventre',
+			'blablabla/blablalba',
+			1,
+			2);
+
+/*Insertion Table: Inscription*/
+
+	/*Inscription1*/
+			Insert into dbo.Inscription(DateDebutInsciption,Eleve_Id,Utilisateur_Id)
+			values 
+			(
+			'2020-01-01',
+			1,
+			1);

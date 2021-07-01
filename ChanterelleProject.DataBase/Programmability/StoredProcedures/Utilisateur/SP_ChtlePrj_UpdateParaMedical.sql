@@ -23,7 +23,7 @@ Begin
 			UPDATE Utilisateur
 			SET Nom = @Nom,
 				Prenom = @Prenom,
-				Adressse = @Adresse,
+				Adresse = @Adresse,
 				DateNaissance = @DateNaissance,
 				RegistreNational = @RegistreNational,
 				Sexe = @Sexe,

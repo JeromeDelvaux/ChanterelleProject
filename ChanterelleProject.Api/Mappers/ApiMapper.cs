@@ -199,5 +199,31 @@ namespace ChanterelleProject.Api.Mappers
                 formsUpdateTraitement.Eleve_Id,
                 formsUpdateTraitement.Utilisateur_Id);
         }
+        internal static EleveClient ToEleveClient(this FormsCreateEleve formsCreateEleve)
+        {
+            return new EleveClient(
+                0,
+                formsCreateEleve.Nom,
+                formsCreateEleve.Prenom,
+                formsCreateEleve.Adresse,
+                formsCreateEleve.DateNaissance,
+                formsCreateEleve.RegistreNational,
+                formsCreateEleve.Sexe,
+                formsCreateEleve.MedecinExterne_Id,
+                formsCreateEleve.Classe_Id);
+        }
+        internal static EleveClient ToEleveClient(this FormsUpdateEleve formsUpdateEleve)
+        {
+            return new EleveClient(
+                0,
+                formsUpdateEleve.Nom,
+                formsUpdateEleve.Prenom,
+                formsUpdateEleve.Adresse,
+                formsUpdateEleve.DateNaissance,
+                formsUpdateEleve.RegistreNational,
+                formsUpdateEleve.Sexe,
+                formsUpdateEleve.MedecinExterne_Id,
+                formsUpdateEleve.Classe_Id);
+        }
     }
 }

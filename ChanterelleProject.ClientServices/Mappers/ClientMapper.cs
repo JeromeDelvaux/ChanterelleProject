@@ -1,9 +1,11 @@
-﻿using ChanterelleProject.Models.Client;
+﻿using ChanterelleProject.Interfaces;
+using ChanterelleProject.Models.Client;
 using ChanterelleProject.Models.Client.ModelClientForViews;
 using ChanterelleProject.Models.Global;
 using ChanterelleProject.Models.Global.ModelsGlobalForViews;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ChanterelleProject.ClientServices.Mappers
@@ -197,6 +199,38 @@ namespace ChanterelleProject.ClientServices.Mappers
                 TargetPrescriptionMedical = traitementClient.TargetPrescriptionMedical,
                 Utilisateur_Id = traitementClient.Utilisateur_Id,
                 Eleve_Id = traitementClient.Eleve_Id
+            };
+        }
+        internal static EleveViewClient ToEleveViewClient(this EleveViewGlobal eleveViewGlobal)
+        {
+            return new EleveViewClient(
+                eleveViewGlobal.Id,
+                eleveViewGlobal.Nom,
+                eleveViewGlobal.Prenom,
+                eleveViewGlobal.Adresse,
+                eleveViewGlobal.DateNaissance,
+                eleveViewGlobal.RegistreNational,
+                eleveViewGlobal.Sexe,
+                eleveViewGlobal.DateDerniereModif,
+                eleveViewGlobal.DateInscription,
+                eleveViewGlobal.NomMedecinExterne,
+                eleveViewGlobal.NomClasse,
+                eleveViewGlobal.TraitementsAdministres.Select(x => x.ToTraitementViewClient()) // Appel de la méthode ToTraitementViewClient afin de mapper la liste de TraitementViewGlobal vers traitementViewCLient
+                ) ;
+        }
+        internal static EleveGlobal ToEleveGlobal(this EleveClient eleveClient)
+        {
+            return new EleveGlobal()
+            {
+                Id = eleveClient.Id,
+                Nom = eleveClient.Nom,
+                Prenom = eleveClient.Prenom,
+                Adresse = eleveClient.Adresse,
+                DateNaissance = eleveClient.DateNaissance,
+                RegistreNational = eleveClient.RegistreNational,
+                Sexe = eleveClient.Sexe,
+                MedecinExterne_Id = eleveClient.MedecinExterne_Id,
+                Classe_Id=eleveClient.Classe_Id
             };
         }
     }

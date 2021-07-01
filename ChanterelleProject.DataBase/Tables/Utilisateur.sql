@@ -3,7 +3,7 @@
 	[Id] INT NOT NULL IDENTITY,
 	[Nom] NVARCHAR(50) NOT NULL,
 	[Prenom] NVARCHAR(50) NOT NULL,
-	[Adressse] NVARCHAR(250) NOT NULL,
+	[Adresse] NVARCHAR(250) NOT NULL,
 	[DateNaissance] DATE NOT NULL,
 	[RegistreNational] CHAR(11) NOT NULL,
 	[Sexe] NVARCHAR(5) NOT NULL,

@@ -1,4 +1,5 @@
 using ChanterelleProject.ClientServices.Services;
+using ChanterelleProject.GlobalServices.InterfacesSpecifiques;
 using ChanterelleProject.GlobalServices.Services;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;
@@ -57,9 +58,12 @@ namespace ChanterelleProject.Api
 
             services.AddSingleton<IAllocationClasses<int, AllocationClassesGlobal, AllocationClassesViewGlobal>, AllocationClassesServicesGlobal>();
             services.AddSingleton<IAllocationClasses<int, AllocationClassesClient, AllocationClassesViewClient>, AllocationClassesServicesClient>();
-            
-            services.AddSingleton<ITraitement<int, TraitementGlobal, TraitementViewGlobal>, TraitementServicesGlobal>();
+    
+            services.AddSingleton<ITraitementSpecifique, TraitementServicesGlobal>();
             services.AddSingleton<ITraitement<int, TraitementClient, TraitementViewClient>, TraitementServicesClient>();
+
+            services.AddSingleton<IEleve<int, EleveGlobal, EleveViewGlobal>, EleveServicesGlobal>();
+            services.AddSingleton<IEleve<int, EleveClient, EleveViewClient>, EleveServicesClient>();
 
         }
 

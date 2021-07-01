@@ -5,7 +5,9 @@ using System.Text;
 namespace ChanterelleProject.Interfaces
 {
     public interface IUtilisateur<TKey, TEntity, TEntity2, TEntity3>
-        where TEntity2 : IEntity<TKey> 
+        where TEntity : IEntity<TKey>
+        where TEntity2 : IEntity<TKey>
+        where TEntity3 : IEntity<TKey>
     {
         TKey InsertUtilisateur(TEntity entity);
         bool UpdateUtilisateur(TKey key, TEntity entity);

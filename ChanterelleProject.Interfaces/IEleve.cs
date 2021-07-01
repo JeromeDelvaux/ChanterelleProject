@@ -4,13 +4,13 @@ using System.Text;
 
 namespace ChanterelleProject.Interfaces
 {
-    public interface IAllocationParaMedicals<TKey, TEntity, TEntity2>
+    public interface IEleve<TKey, TEntity, TEntity2>
         where TEntity : IEntity<TKey>
         where TEntity2 : IEntity<TKey>
     {
-        TKey InsertAllocationParaMedicals(TEntity entity);
-        bool UpdateAllocationParaMedicals(TKey key, TEntity entity);
-        bool DeleteAllocationParaMedicals(TKey key);
+        TKey InsertEleve(TEntity entity);
+        bool UpdateEleve(TKey key, TEntity entity);
+        bool DeleteEleve(TKey key);
         TEntity2 Get(TKey key);
         IEnumerable<TEntity2> GetAll();
     }
