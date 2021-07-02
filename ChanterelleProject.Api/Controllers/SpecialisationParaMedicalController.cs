@@ -78,7 +78,7 @@ namespace ChanterelleProject.Api.Controllers
             }
             else
             {
-                bool resultTransaction = _specialisationParaMedicalServicesClient.Update(id, formsUpdateSpecialisationParaMedical.ToSpecialisationParaMedicalClient());
+                bool resultTransaction = _specialisationParaMedicalServicesClient.Update(id, formsCreateSpecialisationParaMedical.ToSpecialisationParaMedicalClient());
                 if (resultTransaction == false){return BadRequest();}
                 return Ok(resultTransaction);
             }

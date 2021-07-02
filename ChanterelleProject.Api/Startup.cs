@@ -1,3 +1,5 @@
+using ChanterelleProject.Api.Infrasctructure.SecurityToken;
+using ChanterelleProject.Api.Infrasctructure.SecurityToken.Interface;
 using ChanterelleProject.ClientServices.Services;
 using ChanterelleProject.GlobalServices.InterfacesSpecifiques;
 using ChanterelleProject.GlobalServices.Services;
@@ -38,7 +40,7 @@ namespace ChanterelleProject.Api
             });
             services.AddSingleton<IConnection>((sp) => new Connection(SqlClientFactory.Instance, Configuration.GetConnectionString("ConnectionChanterelleDbProject")));
             
-            services.AddSingleton<IUtilisateur<int, Models.Global.UtilisateurGlobal, UtilisateurViewGlobal, ParaMedicalGlobal>, UtilisateurServicesGlobal>();
+            services.AddSingleton<IUtilisateur<int, UtilisateurGlobal, UtilisateurViewGlobal, ParaMedicalGlobal>, UtilisateurServicesGlobal>();
             services.AddSingleton<IUtilisateur<int, UtilisateurClient, UtilisateurViewClient,ParaMedicalClient>, UtilisateurServiceClient>();
 
             services.AddSingleton<IServices<int, SpecialisationParaMedicalGlobal>, SpecialisationParaMedicalServicesGlobal>();
@@ -67,6 +69,8 @@ namespace ChanterelleProject.Api
 
             services.AddSingleton<IInscription<int, InscriptionGlobal, InscriptionViewGlobal>, InscriptionServicesGlobal>();
             services.AddSingleton<IInscription<int, InscriptionClient, InscriptionViewClient>, InscriptionServicesClient>();
+
+            services.AddSingleton<ITokenManager, TokenManager>();
 
         }
 

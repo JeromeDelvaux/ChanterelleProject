@@ -1,6 +1,7 @@
 ﻿using ChanterelleProject.Api.Forms;
 using ChanterelleProject.Api.Forms.Create;
 using ChanterelleProject.Api.Forms.Update;
+using ChanterelleProject.Api.Infrasctructure.SecurityToken.Interface;
 using ChanterelleProject.Api.Mappers;
 using ChanterelleProject.Interfaces;
 using ChanterelleProject.Models.Client;
@@ -16,10 +17,11 @@ namespace ChanterelleProject.Api.Controllers
     public class UtilisateurController : ControllerBase
     {
         private readonly IUtilisateur<int,UtilisateurClient,UtilisateurViewClient, ParaMedicalClient> _utilisateursServiceClient;
-
-        public UtilisateurController(IUtilisateur<int,UtilisateurClient, UtilisateurViewClient, ParaMedicalClient> utilisateursServiceClient)
+        private readonly ITokenManager _tokenManager;
+        public UtilisateurController(IUtilisateur<int,UtilisateurClient, UtilisateurViewClient, ParaMedicalClient> utilisateursServiceClient,ITokenManager tokenManager)
         {
             this._utilisateursServiceClient = utilisateursServiceClient;
+            this._tokenManager = tokenManager;
         }
 
         [HttpGet]
@@ -128,8 +130,10 @@ namespace ChanterelleProject.Api.Controllers
             else
             {
                 UtilisateurViewClient loginUtilisateur = _utilisateursServiceClient.LoginUtilisateur(formsLoginUtilisateur.Email, formsLoginUtilisateur.MotDePasse);
+                
+
                 if(loginUtilisateur is null){ return BadRequest(); }
-                return Ok(loginUtilisateur);
+                return Ok(_tokenManager.Authenticate(loginUtilisateur));
             }
         }
     }

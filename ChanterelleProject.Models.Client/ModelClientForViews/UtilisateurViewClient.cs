@@ -7,7 +7,7 @@ namespace ChanterelleProject.Models.Client.ModelClientForViews
 {
     public class UtilisateurViewClient : IEntity<int>
     {
-        public UtilisateurViewClient(int id, string nom, string prenom, string adresse, DateTime dateNaissance, string registreNational, string sexe, DateTime dateDerniereModif, DateTime dateDebutContrat, string telephone, string mail, string intituleTypeUtilisateur, string numInami, string intituleSpecialisation)
+        public UtilisateurViewClient(int id, string nom, string prenom, string adresse, DateTime dateNaissance, string registreNational, string sexe, DateTime dateDerniereModif, DateTime dateDebutContrat, string telephone, string mail, string intituleTypeUtilisateur, string numInami, string intituleSpecialisation,string token)
         {
             Id = id;
             Nom = nom;
@@ -23,6 +23,7 @@ namespace ChanterelleProject.Models.Client.ModelClientForViews
             IntituleTypeUtilisateur = intituleTypeUtilisateur;
             NumInami = numInami;
             IntituleSpecialisation = intituleSpecialisation;
+            Token = token;
         }
 
         public int Id { get; set; }
@@ -39,5 +40,6 @@ namespace ChanterelleProject.Models.Client.ModelClientForViews
         public string IntituleTypeUtilisateur { get; set; }
         public string NumInami { get; set; }
         public string IntituleSpecialisation { get; set; }
+        public string Token { get; set; }
     }
 }

@@ -131,12 +131,14 @@ namespace ChanterelleProject.GlobalServices.Services
 
         public UtilisateurViewGlobal LoginUtilisateur(string email, string password)
         {
+            UtilisateurViewGlobal utilisateurViewGlobal;
             Commands command = new Commands("SP_ChtlePrj_CheckPassword", true);
             command.AddParameter("@MotDePasse", password);
             command.AddParameter("@identifiant", email);
 
             password = null; //remise a null pour la sécurité du password avant le passage de garbage collector
 
+       
             return _connection.ExecuteReader(command, sp => sp.ToUtilisateurViewGlobal()).SingleOrDefault();
         }
     }

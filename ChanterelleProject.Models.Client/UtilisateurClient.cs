@@ -32,5 +32,6 @@ namespace ChanterelleProject.Models.Client
         public string Mail { get; set; }
         public int TypeUtilisateur_Id { get; set; }
         public string MotDePasse { get; set; }
+
     }
 }

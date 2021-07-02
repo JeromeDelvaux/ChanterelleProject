@@ -30,7 +30,8 @@ namespace ChanterelleProject.ClientServices.Mappers
                 utilisateurViewGlobal.Mail,
                 utilisateurViewGlobal.IntituleTypeUtilisateur,
                 utilisateurViewGlobal.NumInami,
-                utilisateurViewGlobal.IntituleSpecialisation);
+                utilisateurViewGlobal.IntituleSpecialisation,
+                null);
         }
         internal static UtilisateurGlobal ToUtilisateursGlobal(this UtilisateurClient utilisateurClient)
         {

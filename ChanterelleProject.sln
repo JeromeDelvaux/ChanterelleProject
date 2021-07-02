@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_ChanterelleProject.DataBase", "00_ChanterelleProject.DataBase", "{6EA898E2-6C6B-4E04-8D4D-F6783D8B98C0}"
+	ProjectSection(SolutionItems) = preProject
+		IdentifiantsUsers.txt = IdentifiantsUsers.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_ChanterelleProject.GlobalServices", "02_ChanterelleProject.GlobalServices", "{2A0C13BD-2CE3-4E76-89CD-20A39F84C9FC}"
 EndProject
@@ -16,8 +19,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_ChanterelleProject.Models.Global", "05_ChanterelleProject.Models.Global", "{95AA35B0-428A-46C5-BED7-5758E2DE4947}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06_ChanterelleProject.Models.Client", "06_ChanterelleProject.Models.Client", "{C74EC28D-4DD6-4A5C-855E-0B47FE52244C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08_Test", "08_Test", "{53139155-A126-44A7-869C-1608F5D4B39C}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ChanterelleProject.DataBase", "ChanterelleProject.DataBase\ChanterelleProject.DataBase.sqlproj", "{5999648C-9FA7-4974-BDE9-566DCEF17C19}"
 EndProject
@@ -36,8 +37,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChanterelleProject.Models.Global", "ChanterelleProject.Models.Global\ChanterelleProject.Models.Global.csproj", "{075A0A85-4E8E-404C-90DB-F39F743F66DE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChanterelleProject.Models.Client", "ChanterelleProject.Models.Client\ChanterelleProject.Models.Client.csproj", "{90611070-3174-480E-8A7C-26CFE03AB9E0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07_ChanterelleProject.Interfaces", "07_ChanterelleProject.Interfaces", "{6DBB384A-CA00-4550-881A-047B68325BE3}"
 EndProject
@@ -79,10 +78,6 @@ Global
 		{90611070-3174-480E-8A7C-26CFE03AB9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90611070-3174-480E-8A7C-26CFE03AB9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90611070-3174-480E-8A7C-26CFE03AB9E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,7 +96,6 @@ Global
 		{7F11577C-3652-4734-AB45-FD1C1AA9321E} = {92BDEB8F-C0BD-4752-9CEE-8411ACDF4626}
 		{075A0A85-4E8E-404C-90DB-F39F743F66DE} = {95AA35B0-428A-46C5-BED7-5758E2DE4947}
 		{90611070-3174-480E-8A7C-26CFE03AB9E0} = {C74EC28D-4DD6-4A5C-855E-0B47FE52244C}
-		{B5C2E0E6-F12D-48C7-A5AC-5A676DD52366} = {53139155-A126-44A7-869C-1608F5D4B39C}
 		{22B78642-A7D5-4BA3-ACF9-49C4D67D04BC} = {6DBB384A-CA00-4550-881A-047B68325BE3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

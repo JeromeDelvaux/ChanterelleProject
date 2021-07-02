@@ -104,7 +104,7 @@
 			'Femme',
 			@DateNow,
 			'0476589546',
-			'donald.duck@waltdisney.com',
+			'cendrillon.lecendriller@waltdisney.com',
 			1,
 			[dbo].SF_ChtlePrj_SalageEtHash('Test1234=',@Uid),
 			@Uid);

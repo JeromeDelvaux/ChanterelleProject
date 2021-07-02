@@ -1,0 +1,4 @@
+1) Mail = "john.doe@unknow.com"  MotDePasse = "Test1234="
+2) Mail = "mickey.mouse@waltdisney.com"  MotDePasse = "Test1234="
+3) Mail = "donald.duck@waltdisney.com"  MotDePasse = "Test1234="
+4) Mail = "cendrillon.lecendriller@waltdisney.com"  MotDePasse = "Test1234="
