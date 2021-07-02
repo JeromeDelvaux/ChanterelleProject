@@ -26,16 +26,16 @@ namespace ChanterelleProject.Api.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<AllocationParaMedicalsViewClient> GetAll()
+        public IActionResult GetAll()
         {
-            return _allocationParaMedicalsServicesClient.GetAll();
+            return Ok(_allocationParaMedicalsServicesClient.GetAll());
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public AllocationParaMedicalsViewClient GetOne(int id)
+        public IActionResult GetOne(int id)
         {
-            return _allocationParaMedicalsServicesClient.Get(id);
+            return Ok(_allocationParaMedicalsServicesClient.Get(id));
         }
 
         [HttpDelete]
@@ -56,13 +56,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Create")]
         public IActionResult Create([FromBody] FormsCreateAllocationParaMedicals formsCreateAllocationParaMedicals)
         {
-            int idNewSpecialisation = _allocationParaMedicalsServicesClient.InsertAllocationParaMedicals(formsCreateAllocationParaMedicals.ToAllocationParaMedicalsClient());
-            if (idNewSpecialisation == 0)
+            if (formsCreateAllocationParaMedicals is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                int idNewSpecialisation = _allocationParaMedicalsServicesClient.InsertAllocationParaMedicals(formsCreateAllocationParaMedicals.ToAllocationParaMedicalsClient());
+                if (idNewSpecialisation == 0){return BadRequest();}
                 return Ok(idNewSpecialisation);
             }
         }
@@ -71,13 +72,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Update/{id}")]
         public IActionResult Update(int id, [FromBody] FormsUpdateAllocationParaMedicals formsUpdateAllocationParaMedicals)
         {
-            bool resultTransaction = _allocationParaMedicalsServicesClient.UpdateAllocationParaMedicals(id, formsUpdateAllocationParaMedicals.ToAllocationParaMedicalsClient());
-            if (resultTransaction == false)
+            if (formsUpdateAllocationParaMedicals is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                bool resultTransaction = _allocationParaMedicalsServicesClient.UpdateAllocationParaMedicals(id, formsUpdateAllocationParaMedicals.ToAllocationParaMedicalsClient());
+                if (resultTransaction == false){return BadRequest();}
                 return Ok(resultTransaction);
             }
         }

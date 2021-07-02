@@ -65,6 +65,9 @@ namespace ChanterelleProject.Api
             services.AddSingleton<IEleve<int, EleveGlobal, EleveViewGlobal>, EleveServicesGlobal>();
             services.AddSingleton<IEleve<int, EleveClient, EleveViewClient>, EleveServicesClient>();
 
+            services.AddSingleton<IInscription<int, InscriptionGlobal, InscriptionViewGlobal>, InscriptionServicesGlobal>();
+            services.AddSingleton<IInscription<int, InscriptionClient, InscriptionViewClient>, InscriptionServicesClient>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

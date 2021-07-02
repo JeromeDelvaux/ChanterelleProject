@@ -25,16 +25,16 @@ namespace ChanterelleProject.Api.Controllers
         }
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<EleveViewClient> GetAll()
+        public IActionResult GetAll()
         {
-            return _eleveServicesClient.GetAll();
+            return Ok(_eleveServicesClient.GetAll());
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public EleveViewClient GetOne(int id)
+        public IActionResult GetOne(int id)
         {
-            return _eleveServicesClient.Get(id);
+            return Ok(_eleveServicesClient.Get(id));
         }
 
         [HttpDelete]
@@ -55,13 +55,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Create")]
         public IActionResult Create([FromBody] FormsCreateEleve formsCreateEleve)
         {
-            int idNewEleve = _eleveServicesClient.InsertEleve(formsCreateEleve.ToEleveClient());
-            if (idNewEleve == 0)
+            if (formsCreateEleve is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                int idNewEleve = _eleveServicesClient.InsertEleve(formsCreateEleve.ToEleveClient());
+                if (idNewEleve == 0){return BadRequest();}
                 return Ok(idNewEleve);
             }
         }
@@ -70,16 +71,16 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Update/{id}")]
         public IActionResult Update(int id, [FromBody] FormsUpdateEleve formsUpdateEleve)
         {
-            bool resultTransaction = _eleveServicesClient.UpdateEleve(id, formsUpdateEleve.ToEleveClient());
-            if (resultTransaction == false)
+            if (formsUpdateEleve is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                bool resultTransaction = _eleveServicesClient.UpdateEleve(id, formsUpdateEleve.ToEleveClient());
+                if (resultTransaction == false){return BadRequest();}
                 return Ok(resultTransaction);
             }
         }
-
     }
 }

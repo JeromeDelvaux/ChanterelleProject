@@ -16,5 +16,6 @@ namespace ChanterelleProject.Interfaces
         bool UpdateParaMedical(TKey key, TEntity3 entity);
         TEntity2 Get(TKey key);
         IEnumerable<TEntity2> GetAll();
+        TEntity2 LoginUtilisateur(string email, string password);
     }
 }

@@ -8,9 +8,9 @@
 		E.RegistreNational,
 		E.Sexe,
 		E.DateDerniereModif,
-		I.DateDebutInsciption,
+		I.DateDebut,
 		M.Nom as [NomMedecinExterne],
-		M.Nom as [NomClasse]
+		C.IntituleClasse as [NomClasse]
 
 		FROM Eleve E left JOIN MedecinExterne M
 		ON E.MedecinExterne_Id  = M.Id left JOIN Classe C

@@ -25,16 +25,16 @@ namespace ChanterelleProject.Api.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<MedecinExterneClient> GetAll()
+        public IActionResult GetAll()
         {
-            return _medecinExterneServicesClient.GetAll();
+            return Ok(_medecinExterneServicesClient.GetAll());
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public MedecinExterneClient GetOne(int id)
+        public IActionResult GetOne(int id)
         {
-            return _medecinExterneServicesClient.Get(id);
+            return Ok(_medecinExterneServicesClient.Get(id));
         }
 
         [HttpDelete]
@@ -55,13 +55,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Create")]
         public IActionResult Create([FromBody] FormsCreateMedecinExterne formsCreateMedecinExterne)
         {
-            int idNewSpecialisation = _medecinExterneServicesClient.Insert(formsCreateMedecinExterne.ToMedecinExterneClient());
-            if (idNewSpecialisation == 0)
+            if (formsCreateMedecinExterne is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                int idNewSpecialisation = _medecinExterneServicesClient.Insert(formsCreateMedecinExterne.ToMedecinExterneClient());
+                if (idNewSpecialisation == 0){return BadRequest();}
                 return Ok(idNewSpecialisation);
             }
         }
@@ -70,13 +71,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Update/{id}")]
         public IActionResult Update(int id, [FromBody] FormsUpdateMedecinExterne formsUpdateMedecinExterne)
         {
-            bool resultTransaction = _medecinExterneServicesClient.Update(id, formsUpdateMedecinExterne.ToMedecinExterneClient());
-            if (resultTransaction == false)
+            if (formsUpdateMedecinExterne is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                bool resultTransaction = _medecinExterneServicesClient.Update(id, formsUpdateMedecinExterne.ToMedecinExterneClient());
+                if (resultTransaction == false){return BadRequest();}
                 return Ok(resultTransaction);
             }
         }

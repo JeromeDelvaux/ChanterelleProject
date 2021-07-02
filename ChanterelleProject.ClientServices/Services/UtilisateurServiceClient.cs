@@ -53,13 +53,14 @@ namespace ChanterelleProject.ClientServices.Services
         {
             return _globalUtilisateurServices.UpdateUtilisateur(key, entity.ToUtilisateursGlobal());
         }
+        public UtilisateurViewClient LoginUtilisateur(string email, string password)
+        {
+            UtilisateurViewClient utilisateurViewClient;
 
-        //public bool CheckPassword(string password, string mail)
-        //{
-        //    bool result = _globalUtilisateurServices.CheckPassword(password, mail);
-        //    password = null;
-        //    return result;
+            utilisateurViewClient= _globalUtilisateurServices.LoginUtilisateur(email, password).ToUtilisateurViewClient();
+            password = null;
 
-        //}
+            return utilisateurViewClient;
+        }
     }
 }

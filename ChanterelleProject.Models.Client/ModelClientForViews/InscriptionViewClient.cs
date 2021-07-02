@@ -5,21 +5,21 @@ using System.Text;
 
 namespace ChanterelleProject.Models.Client.ModelClientForViews
 {
-    public class AllocationClassesViewClient : IEntity<int>
+    public class InscriptionViewClient:IEntity<int>
     {
-        public AllocationClassesViewClient(int id, DateTime dateDebut, DateTime? dateFin, string nomClasse, string nomProfesseur)
+        public InscriptionViewClient(int id, DateTime dateDebut, DateTime? dateFin, string nomEleve, string nomCreateur)
         {
             Id = id;
             DateDebut = dateDebut;
             DateFin = dateFin;
-            NomClasse = nomClasse;
-            NomProfesseur = nomProfesseur;
+            NomEleve = nomEleve;
+            NomCreateur = nomCreateur;
         }
 
         public int Id { get; set; }
         public DateTime DateDebut { get; set; }
         public DateTime? DateFin { get; set; }
-        public string NomClasse { get; set; }
-        public string NomProfesseur { get; set; }
+        public string NomEleve { get; set; }
+        public string NomCreateur { get; set; }
     }
 }

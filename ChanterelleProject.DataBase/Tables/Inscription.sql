@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[Inscription]
 (
 	[Id] INT NOT NULL IDENTITY,
-	[DateDebutInsciption] DATE NOT NULL,
-	[DateFinInscription] DATE,
+	[DateDebut] DATE NOT NULL,
+	[DateFin] DATE,
 	[Eleve_Id] INT NOT NULL,
 	[Utilisateur_Id] INT NOT NULL
 

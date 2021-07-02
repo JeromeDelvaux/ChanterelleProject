@@ -86,6 +86,7 @@ namespace ChanterelleProject.GlobalServices.Mappers
             {
                 Id = Convert.ToInt32(dataRecord["Id"]),
                 DateDebut = Convert.ToDateTime(dataRecord["DateDebut"]),
+                DateFin = dataRecord["DateFin"] is DBNull ? null : Convert.ToDateTime(dataRecord["DateFin"]),
                 NomClasse = Convert.ToString(dataRecord["IntituleClasse"]),
                 NomProfesseur = Convert.ToString(dataRecord["Nom"])
             };
@@ -117,9 +118,20 @@ namespace ChanterelleProject.GlobalServices.Mappers
                 RegistreNational = Convert.ToString(dataRecord["RegistreNational"]),
                 Sexe = Convert.ToString(dataRecord["Sexe"]),
                 DateDerniereModif = Convert.ToDateTime(dataRecord["DateDerniereModif"]),
-                DateInscription = Convert.ToDateTime(dataRecord["DateDebutInsciption"]),
+                DateInscription = Convert.ToDateTime(dataRecord["DateDebut"]),
                 NomMedecinExterne = Convert.ToString(dataRecord["NomMedecinExterne"]),
                 NomClasse = Convert.ToString(dataRecord["NomClasse"])
+            };
+        }
+        internal static InscriptionViewGlobal ToInscriptionViewGlobal(this IDataRecord dataRecord)
+        {
+            return new InscriptionViewGlobal()
+            {
+                Id = Convert.ToInt32(dataRecord["Id"]),
+                DateDebut = Convert.ToDateTime(dataRecord["DateDebut"]),
+                DateFin = dataRecord["DateFin"] is DBNull ? null : Convert.ToDateTime(dataRecord["DateFin"]),
+                NomEleve= Convert.ToString(dataRecord["NomEleve"]),
+                NomCreateur = Convert.ToString(dataRecord["NomCreateur"])
             };
         }
     }

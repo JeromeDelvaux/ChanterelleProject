@@ -60,7 +60,6 @@ namespace ChanterelleProject.GlobalServices.Services
             command.AddParameter("RegistreNational", entity.RegistreNational);
             command.AddParameter("Sexe", entity.Sexe);
             command.AddParameter("Classe_Id", entity.Classe_Id);
-            command.AddParameter("Prenom", entity.Prenom);
             command.AddParameter("MedecinExterne_Id", entity.MedecinExterne_Id);
 
             idNewAllocationClasses = (int?)_connection.ExecuteScalar(command);
@@ -78,7 +77,6 @@ namespace ChanterelleProject.GlobalServices.Services
             command.AddParameter("RegistreNational", entity.RegistreNational);
             command.AddParameter("Sexe", entity.Sexe);
             command.AddParameter("Classe_Id", entity.Classe_Id);
-            command.AddParameter("Prenom", entity.Prenom);
             command.AddParameter("MedecinExterne_Id", entity.MedecinExterne_Id);
 
             int nbRows = _connection.ExecuteNonQuery(command);

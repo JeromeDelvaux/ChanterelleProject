@@ -25,16 +25,16 @@ namespace ChanterelleProject.Api.Controllers
         }
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<ClasseViewClient> GetAll()
+        public IActionResult GetAll()
         {
-            return _classeServicesClient.GetAll();
+            return Ok(_classeServicesClient.GetAll());
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public ClasseViewClient GetOne(int id)
+        public IActionResult GetOne(int id)
         {
-            return _classeServicesClient.Get(id);
+            return Ok(_classeServicesClient.Get(id));
         }
 
         [HttpDelete]
@@ -55,13 +55,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Create")]
         public IActionResult Create([FromBody] FormsCreateClasse formsCreateClasse)
         {
-            int idNewSpecialisation = _classeServicesClient.InsertClasse(formsCreateClasse.ToClasseClient());
-            if (idNewSpecialisation == 0)
+            if (formsCreateClasse is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                int idNewSpecialisation = _classeServicesClient.InsertClasse(formsCreateClasse.ToClasseClient());
+                if (idNewSpecialisation == 0){return BadRequest();}
                 return Ok(idNewSpecialisation);
             }
         }
@@ -70,13 +71,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Update/{id}")]
         public IActionResult Update(int id, [FromBody] FormsUpdateClasse formsUpdateClasse)
         {
-            bool resultTransaction = _classeServicesClient.UpdateClasse(id, formsUpdateClasse.ToClasseClient());
-            if (resultTransaction == false)
+            if (formsUpdateClasse is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                bool resultTransaction = _classeServicesClient.UpdateClasse(id, formsUpdateClasse.ToClasseClient());
+                if (resultTransaction == false){return BadRequest();}
                 return Ok(resultTransaction);
             }
         }

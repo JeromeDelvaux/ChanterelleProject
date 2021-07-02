@@ -14,6 +14,8 @@ namespace ChanterelleProject.ClientServices.Mappers
     {
         internal static UtilisateurViewClient ToUtilisateurViewClient(this UtilisateurViewGlobal utilisateurViewGlobal)
         {
+            if(utilisateurViewGlobal is null) { return null; }
+
             return new UtilisateurViewClient(
                 utilisateurViewGlobal.Id,
                 utilisateurViewGlobal.Nom,
@@ -161,6 +163,7 @@ namespace ChanterelleProject.ClientServices.Mappers
             return new AllocationClassesViewClient(
                 allocationClassesViewGlobal.Id,
                 allocationClassesViewGlobal.DateDebut,
+                allocationClassesViewGlobal.DateFin,
                 allocationClassesViewGlobal.NomClasse,
                 allocationClassesViewGlobal.NomProfesseur);
         }
@@ -215,7 +218,7 @@ namespace ChanterelleProject.ClientServices.Mappers
                 eleveViewGlobal.DateInscription,
                 eleveViewGlobal.NomMedecinExterne,
                 eleveViewGlobal.NomClasse,
-                eleveViewGlobal.TraitementsAdministres.Select(x => x.ToTraitementViewClient()) // Appel de la méthode ToTraitementViewClient afin de mapper la liste de TraitementViewGlobal vers traitementViewCLient
+                eleveViewGlobal.TraitementsAdministres is null ? null : eleveViewGlobal.TraitementsAdministres.Select(x => x.ToTraitementViewClient()) // Appel de la méthode ToTraitementViewClient afin de mapper la liste de TraitementViewGlobal vers traitementViewCLient
                 ) ;
         }
         internal static EleveGlobal ToEleveGlobal(this EleveClient eleveClient)
@@ -231,6 +234,24 @@ namespace ChanterelleProject.ClientServices.Mappers
                 Sexe = eleveClient.Sexe,
                 MedecinExterne_Id = eleveClient.MedecinExterne_Id,
                 Classe_Id=eleveClient.Classe_Id
+            };
+        }
+        internal static InscriptionViewClient ToInscriptionViewClient(this InscriptionViewGlobal inscriptionViewGlobal)
+        {
+            return new InscriptionViewClient(
+                inscriptionViewGlobal.Id,
+                inscriptionViewGlobal.DateDebut,
+                inscriptionViewGlobal.DateFin,
+                inscriptionViewGlobal.NomEleve,
+                inscriptionViewGlobal.NomCreateur);
+        }
+        internal static InscriptionGlobal ToInscriptionGlobal(this InscriptionClient inscriptionClient)
+        {
+            return new InscriptionGlobal()
+            {
+                DateDebut = inscriptionClient.DateDebut,
+                Eleve_Id = inscriptionClient.Eleve_Id,
+                Utilisateur_Id = inscriptionClient.Utilisateur_Id
             };
         }
     }

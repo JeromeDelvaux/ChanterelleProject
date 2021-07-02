@@ -25,16 +25,16 @@ namespace ChanterelleProject.Api.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<TypeUtilisateurClient> GetAll()
+        public IActionResult GetAll()
         {
-            return _typeUtilisateurServicesClient.GetAll();
+            return Ok(_typeUtilisateurServicesClient.GetAll());
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public TypeUtilisateurClient GetOne(int id)
+        public IActionResult GetOne(int id)
         {
-            return _typeUtilisateurServicesClient.Get(id);
+            return Ok(_typeUtilisateurServicesClient.Get(id));
         }
 
         [HttpDelete]
@@ -55,13 +55,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Create")]
         public IActionResult Create([FromBody] FormsCreateTypeUtilisateur formsCreateTypeUtilisateur)
         {
-            int idNewSpecialisation = _typeUtilisateurServicesClient.Insert(formsCreateTypeUtilisateur.ToTypeUtilisateurClient());
-            if (idNewSpecialisation == 0)
+            if (formsCreateTypeUtilisateur is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                int idNewSpecialisation = _typeUtilisateurServicesClient.Insert(formsCreateTypeUtilisateur.ToTypeUtilisateurClient());
+                if (idNewSpecialisation == 0){return BadRequest();}
                 return Ok(idNewSpecialisation);
             }
         }
@@ -70,13 +71,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Update/{id}")]
         public IActionResult Update(int id, [FromBody] FormsUpdateTypeUtilisateur formsUpdateTypeUtilisateur)
         {
-            bool resultTransaction = _typeUtilisateurServicesClient.Update(id, formsUpdateTypeUtilisateur.ToTypeUtilisateurClient());
-            if (resultTransaction == false)
+            if (formsUpdateTypeUtilisateur is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                bool resultTransaction = _typeUtilisateurServicesClient.Update(id, formsUpdateTypeUtilisateur.ToTypeUtilisateurClient());
+                if (resultTransaction == false){return BadRequest();}
                 return Ok(resultTransaction);
             }
         }

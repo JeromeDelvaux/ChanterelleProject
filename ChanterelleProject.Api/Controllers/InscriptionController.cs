@@ -15,34 +15,33 @@ namespace ChanterelleProject.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AllocationClassesController : ControllerBase
+    public class InscriptionController : ControllerBase
     {
-        private IAllocationClasses<int, AllocationClassesClient, AllocationClassesViewClient> _allocationClassesServicesClient;
+        private IInscription<int, InscriptionClient, InscriptionViewClient> _inscriptionServicesClient;
 
-        public AllocationClassesController(IAllocationClasses<int, AllocationClassesClient, AllocationClassesViewClient> allocationClassesServicesClient)
+        public InscriptionController(IInscription<int, InscriptionClient, InscriptionViewClient> inscriptionServicesClient)
         {
-            _allocationClassesServicesClient = allocationClassesServicesClient;
+            _inscriptionServicesClient = inscriptionServicesClient;
         }
-
         [HttpGet]
         [Route("GetAll")]
         public IActionResult GetAll()
         {
-            return Ok(_allocationClassesServicesClient.GetAll());
+            return Ok(_inscriptionServicesClient.GetAll());
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
         public IActionResult GetOne(int id)
         {
-            return Ok(_allocationClassesServicesClient.Get(id));
+            return Ok(_inscriptionServicesClient.Get(id));
         }
 
         [HttpDelete]
         [Route("Delete/{id}")]
         public IActionResult Delete(int id)
         {
-            if (_allocationClassesServicesClient.DeleteAllocationClasses(id))
+            if (_inscriptionServicesClient.DeleteInscription(id))
             {
                 return Ok(); //Retourne le statutCode 200
             }
@@ -54,31 +53,31 @@ namespace ChanterelleProject.Api.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public IActionResult Create([FromBody] FormsCreateAllocationClasses formsCreateAllocationClasses)
+        public IActionResult Create([FromBody] FormsCreateInscription formsCreateInscription)
         {
-            if (formsCreateAllocationClasses is null || !ModelState.IsValid)
+            if (formsCreateInscription is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
-                int idNewAllocationClasses = _allocationClassesServicesClient.InsertAllocationClasses(formsCreateAllocationClasses.ToAllocationClassesClient());
-                if (idNewAllocationClasses == 0) { return BadRequest(); }
-                return Ok(idNewAllocationClasses);
+                int idNewInscription = _inscriptionServicesClient.InsertInscription(formsCreateInscription.ToInscriptionClient());
+                if (idNewInscription == 0){return BadRequest();}
+                return Ok(idNewInscription);
             }
         }
 
         [HttpPut]
         [Route("Update/{id}")]
-        public IActionResult Update(int id, [FromBody] FormsUpdateAllocationClasses formsUpdateAllocationClasses)
+        public IActionResult Update(int id, [FromBody] FormsUpdateInscription formsUpdateInscription)
         {
-            if (formsUpdateAllocationClasses is null || !ModelState.IsValid)
+            if (formsUpdateInscription is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
-                bool resultTransaction = _allocationClassesServicesClient.UpdateAllocationClasses(id, formsUpdateAllocationClasses.ToAllocationClassesClient());
+                bool resultTransaction = _inscriptionServicesClient.UpdateInscription(id, formsUpdateInscription.ToInscriptionClient());
                 if (resultTransaction == false){return BadRequest();}
                 return Ok(resultTransaction);
             }

@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace ChanterelleProject.GlobalServices.Services
 {
-    public class UtilisateurServicesGlobal : IUtilisateur<int, Models.Global.UtilisateurGlobal, Models.Global.ModelsGlobalForViews.UtilisateurViewGlobal, ParaMedicalGlobal>
+    public class UtilisateurServicesGlobal : IUtilisateur<int, UtilisateurGlobal,UtilisateurViewGlobal, ParaMedicalGlobal>
     {
         private readonly IConnection _connection;
        
@@ -28,14 +28,14 @@ namespace ChanterelleProject.GlobalServices.Services
             return id != 0;
         }
 
-        public Models.Global.ModelsGlobalForViews.UtilisateurViewGlobal Get(int key)
+        public UtilisateurViewGlobal Get(int key)
         {
             Commands command = new Commands("SP_ChtlePrj_GetUtilisateursById", true);
             command.AddParameter("@Id", key);
             return _connection.ExecuteReader(command, sp => sp.ToUtilisateurViewGlobal()).SingleOrDefault();
         }
 
-        public IEnumerable<Models.Global.ModelsGlobalForViews.UtilisateurViewGlobal> GetAll()
+        public IEnumerable<UtilisateurViewGlobal> GetAll()
         {
             Commands command = new Commands("SP_ChtlePrj_GetAllUtilisateurs", true);
             return _connection.ExecuteReader(command, sp => sp.ToUtilisateurViewGlobal());
@@ -128,20 +128,16 @@ namespace ChanterelleProject.GlobalServices.Services
             int nbRows = _connection.ExecuteNonQuery(command);
             return nbRows == 1;
         }
-        //public bool CheckPassword(string password, string mail)
-        //{
-        //    int id;
 
-        //    Commands command = new Commands("SP_ChtlePrj_CheckPassword", true);
-        //    command.AddParameter("@MotDePasse", password);
-        //    command.AddParameter("@identifiant", mail);
+        public UtilisateurViewGlobal LoginUtilisateur(string email, string password)
+        {
+            Commands command = new Commands("SP_ChtlePrj_CheckPassword", true);
+            command.AddParameter("@MotDePasse", password);
+            command.AddParameter("@identifiant", email);
 
-        //    id = (int)_connection.ExecuteScalar(command); //Gerer le retour du null dans un try catch
-            
-        //    password = null; //remise a null pour la sécurité du password avant le passage de garbage collector
-        //    command = null; //remise a null pour la sécurité du password avant le passage de garbage collector
+            password = null; //remise a null pour la sécurité du password avant le passage de garbage collector
 
-        //    return id != 0;
-        //}
+            return _connection.ExecuteReader(command, sp => sp.ToUtilisateurViewGlobal()).SingleOrDefault();
+        }
     }
 }

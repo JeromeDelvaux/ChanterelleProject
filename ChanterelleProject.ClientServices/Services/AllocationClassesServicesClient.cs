@@ -35,7 +35,7 @@ namespace ChanterelleProject.ClientServices.Services
 
         public int InsertAllocationClasses(AllocationClassesClient entity)
         {
-            return _allocationClassesServicesGlobal.InsertAllocationClasses(entity.ToAllocationClassesGlobal()); ;
+            return _allocationClassesServicesGlobal.InsertAllocationClasses(entity.ToAllocationClassesGlobal()); 
         }
 
         public bool UpdateAllocationClasses(int key, AllocationClassesClient entity)

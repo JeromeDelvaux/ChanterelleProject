@@ -2,6 +2,7 @@
 	AS SELECT 
 		AC.Id,
 		AC.DateDebut,
+		AC.DateFin,
 		U.Nom,
 		C.IntituleClasse		
 

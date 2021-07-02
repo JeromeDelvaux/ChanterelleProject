@@ -26,16 +26,16 @@ namespace ChanterelleProject.Api.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<SpecialisationParaMedicalClient> GetAll()
+        public IActionResult GetAll()
         {
-            return _specialisationParaMedicalServicesClient.GetAll();
+            return Ok(_specialisationParaMedicalServicesClient.GetAll());
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public SpecialisationParaMedicalClient GetOne(int id)
+        public IActionResult GetOne(int id)
         {
-            return _specialisationParaMedicalServicesClient.Get(id);
+            return Ok(_specialisationParaMedicalServicesClient.Get(id));
         }
 
         [HttpDelete]
@@ -56,28 +56,30 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Create")]
         public IActionResult Create([FromBody] FormsCreateSpecialisationParaMedical formsCreateSpecialisationParaMedical)
         {
-            int idNewSpecialisation = _specialisationParaMedicalServicesClient.Insert(formsCreateSpecialisationParaMedical.ToSpecialisationParaMedicalClient());
-            if (idNewSpecialisation == 0)
+            if (formsCreateSpecialisationParaMedical is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                int idNewSpecialisation = _specialisationParaMedicalServicesClient.Insert(formsCreateSpecialisationParaMedical.ToSpecialisationParaMedicalClient());
+                if (idNewSpecialisation == 0){return BadRequest();}
                 return Ok(idNewSpecialisation);
             }
         }
 
         [HttpPut]
         [Route("Update/{id}")]
-        public IActionResult Update(int id, [FromBody] FormsUpdateSpecialisationParaMedical formsUpdateSpecialisationParaMedical)
+        public IActionResult Update(int id, [FromBody] FormsUpdateSpecialisationParaMedical formsCreateSpecialisationParaMedical)
         {
-            bool resultTransaction = _specialisationParaMedicalServicesClient.Update(id, formsUpdateSpecialisationParaMedical.ToSpecialisationParaMedicalClient());
-            if (resultTransaction == false)
+            if (formsCreateSpecialisationParaMedical is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                bool resultTransaction = _specialisationParaMedicalServicesClient.Update(id, formsUpdateSpecialisationParaMedical.ToSpecialisationParaMedicalClient());
+                if (resultTransaction == false){return BadRequest();}
                 return Ok(resultTransaction);
             }
         }

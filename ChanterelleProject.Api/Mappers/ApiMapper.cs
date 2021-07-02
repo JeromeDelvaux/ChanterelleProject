@@ -225,5 +225,21 @@ namespace ChanterelleProject.Api.Mappers
                 formsUpdateEleve.MedecinExterne_Id,
                 formsUpdateEleve.Classe_Id);
         }
+        internal static InscriptionClient ToInscriptionClient(this FormsCreateInscription formsCreateInscription)
+        {
+            return new InscriptionClient(
+                0,
+                formsCreateInscription.DateDebut,
+                formsCreateInscription.Eleve_Id,
+                formsCreateInscription.Utilisateur_Id);
+        }
+        internal static InscriptionClient ToInscriptionClient(this FormsUpdateInscription formsUpdateInscription)
+        {
+            return new InscriptionClient(
+                0,
+                new DateTime(),
+                formsUpdateInscription.Eleve_Id,
+                formsUpdateInscription.Utilisateur_Id);
+        }
     }
 }

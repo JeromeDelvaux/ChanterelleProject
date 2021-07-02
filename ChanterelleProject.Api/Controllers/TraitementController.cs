@@ -26,16 +26,16 @@ namespace ChanterelleProject.Api.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        public IEnumerable<TraitementViewClient> GetAll()
+        public IActionResult GetAll()
         {
-            return _traitementServicesClient.GetAll();
+            return Ok(_traitementServicesClient.GetAll());
         }
 
         [HttpGet]
         [Route("GetOne/{id}")]
-        public TraitementViewClient GetOne(int id)
+        public IActionResult GetOne(int id)
         {
-            return _traitementServicesClient.Get(id);
+            return Ok(_traitementServicesClient.Get(id));
         }
 
         [HttpDelete]
@@ -56,13 +56,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Create")]
         public IActionResult CreateTraitement([FromBody] FormsCreateTraitement formsCreateTraitement)
         {
-            int idNewTraitement = _traitementServicesClient.InsertTraitement(formsCreateTraitement.ToTraitementClient());
-            if (idNewTraitement == 0)
+            if (formsCreateTraitement is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                int idNewTraitement = _traitementServicesClient.InsertTraitement(formsCreateTraitement.ToTraitementClient());
+                if (idNewTraitement == 0){return BadRequest();}
                 return Ok(idNewTraitement);
             }
         }
@@ -71,13 +72,14 @@ namespace ChanterelleProject.Api.Controllers
         [Route("Update/{id}")]
         public IActionResult UpdateTraitement(int id, [FromBody] FormsUpdateTraitement formsUpdateTraitement)
         {
-            bool resultTransaction = _traitementServicesClient.UpdateTraitement(id, formsUpdateTraitement.ToTraitementClient());
-            if (resultTransaction == false)
+            if (formsUpdateTraitement is null || !ModelState.IsValid)
             {
                 return BadRequest();
             }
             else
             {
+                bool resultTransaction = _traitementServicesClient.UpdateTraitement(id, formsUpdateTraitement.ToTraitementClient());
+                if (resultTransaction == false){return BadRequest();}
                 return Ok(resultTransaction);
             }
         }

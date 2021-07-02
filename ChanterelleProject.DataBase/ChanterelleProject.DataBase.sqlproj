@@ -81,6 +81,8 @@
     <Folder Include="Views\Traitement" />
     <Folder Include="Programmability\StoredProcedures\Eleve" />
     <Folder Include="Views\Eleve" />
+    <Folder Include="Views\Inscription" />
+    <Folder Include="Programmability\StoredProcedures\Inscription" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Programmability\Functions\SF_ChtlePrj_SalageEtHash.sql" />
@@ -97,7 +99,6 @@
     <Build Include="Tables\Utilisateur.sql" />
     <Build Include="Programmability\Functions\SF_ChtlePrj_VerifNumRegistreNational.sql" />
     <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_AddUtilisateur.sql" />
-    <Build Include="Programmability\StoredProcedures\Authentication\SP_ChtlePrj_CheckPassword.sql" />
     <Build Include="Programmability\StoredProcedures\SpecialisationParaMedical\SP_ChtlePrj_DeleteSpecialisationParaMedical.sql" />
     <Build Include="Programmability\StoredProcedures\Traitement\SP_ChtlePrj_DeleteTraitement.sql" />
     <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_DeleteUtilisateur.sql" />
@@ -154,14 +155,18 @@
     <Build Include="Programmability\StoredProcedures\Eleve\SP_ChtlePrj_UpdateEleve.sql" />
     <Build Include="Programmability\StoredProcedures\Eleve\SP_ChtlePrj_GetAllEleve.sql" />
     <Build Include="Views\Eleve\V_ChtlePrj_AllEleve.sql" />
+    <Build Include="Views\Inscription\V_ChtlePrj_AllInscription.sql" />
+    <Build Include="Programmability\StoredProcedures\Inscription\SP_ChtlePrj_DeleteInscription.sql" />
+    <Build Include="Programmability\StoredProcedures\Inscription\SP_ChtlePrj_GetInscriptionById.sql" />
+    <Build Include="Programmability\StoredProcedures\Inscription\SP_ChtlePrj_GetAllInscription.sql" />
+    <Build Include="Programmability\StoredProcedures\Inscription\SP_ChtlePrj_AddInscription.sql" />
+    <Build Include="Programmability\StoredProcedures\Inscription\SP_ChtlePrj_UpdateInscription.sql" />
+    <Build Include="Programmability\StoredProcedures\Utilisateur\SP_ChtlePrj_CheckPassword.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ChanterelleProject.DataBase.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\InitialisationDataBase.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="ChanterelleProject.DataBase.refactorlog" />
   </ItemGroup>
 </Project>

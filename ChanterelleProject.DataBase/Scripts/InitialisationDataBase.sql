@@ -192,7 +192,7 @@
 /*Insertion Table: Inscription*/
 
 	/*Inscription1*/
-			Insert into dbo.Inscription(DateDebutInsciption,Eleve_Id,Utilisateur_Id)
+			Insert into dbo.Inscription(DateDebut,Eleve_Id,Utilisateur_Id)
 			values 
 			(
 			'2020-01-01',
